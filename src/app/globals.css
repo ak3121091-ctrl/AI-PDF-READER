@@ -1,0 +1,208 @@
+:root {
+  --ink: #29251d;
+  --ink-deep: #1d1a15;
+  --ink-soft: #3a382b;
+  --ink-surface: #24211a;
+  --ink-border: rgba(195, 164, 123, 0.18);
+  --pink: #c3a47b;
+  --pink-bright: #dbc39c;
+  --text: #eee2ca;
+  --muted: #c5b79e;
+  --muted-dim: #948770;
+  --periwinkle: #b7976c;
+  --sage: #89946f;
+  --clay: #a96346;
+  --moss: #5f684f;
+  --paper: #eadfc7;
+  --card-bg: rgba(38, 34, 27, 0.72);
+  --card-border: rgba(195, 164, 123, 0.16);
+  --card-hover-border: rgba(195, 164, 123, 0.4);
+  --accent-glow: rgba(195, 164, 123, 0.12);
+  --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Baskerville, Georgia, serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --ease: cubic-bezier(0.2, 0.78, 0.2, 1);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  background: var(--ink);
+  color: var(--text);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 50% 90%, rgba(117, 102, 71, 0.15), transparent 40%),
+    radial-gradient(circle at 10% 10%, rgba(100, 112, 77, 0.1), transparent 30%),
+    linear-gradient(180deg, #322e23 0%, var(--ink) 45%, #201d16 100%);
+  background-attachment: fixed;
+}
+
+/* Typography elements */
+h1, h2, h3, h4, .font-serif {
+  font-family: var(--serif);
+  letter-spacing: -0.015em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input, textarea, select {
+  font-family: inherit;
+  color: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(29, 26, 21, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(195, 164, 123, 0.25);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(195, 164, 123, 0.45);
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--pink);
+  outline-offset: 2px;
+}
+
+/* Common UI Utilities */
+.glass-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.glass-panel-hover {
+  transition: transform 200ms var(--ease), border-color 200ms var(--ease), box-shadow 200ms var(--ease);
+}
+.glass-panel-hover:hover {
+  transform: translateY(-2px);
+  border-color: var(--card-hover-border);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+}
+
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: var(--radius-pill);
+  background: rgba(195, 164, 123, 0.12);
+  color: var(--pink-bright);
+  border: 1px solid rgba(195, 164, 123, 0.25);
+}
+
+/* Primary Button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--pink);
+  color: var(--ink-deep);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  transition: background 180ms ease, transform 150ms ease, box-shadow 180ms ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+}
+.btn-primary:hover {
+  background: var(--pink-bright);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(195, 164, 123, 0.3);
+}
+
+/* Secondary Button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(238, 226, 202, 0.07);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--ink-border);
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+.btn-secondary:hover {
+  background: rgba(238, 226, 202, 0.14);
+  border-color: var(--pink);
+}
+
+/* ThreeUI Shader Frame */
+.shader-frame {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Mobile & Tablet Workspace Responsiveness */
+@media (max-width: 768px) {
+  .workspace-sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    transform: translateX(-100%) !important;
+    transition: transform 260ms var(--ease) !important;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.85) !important;
+  }
+  .workspace-sidebar.mobile-open {
+    transform: translateX(0) !important;
+  }
+  .mobile-only-btn {
+    display: flex !important;
+  }
+}
+
