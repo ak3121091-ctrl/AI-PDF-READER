@@ -39,6 +39,16 @@ export function ProgressView() {
     loadProgress();
   }, []);
 
+  const defaultWeekly = [
+    { day: 'MON', hours: 0 },
+    { day: 'TUE', hours: 0 },
+    { day: 'WED', hours: 0 },
+    { day: 'THU', hours: 0 },
+    { day: 'FRI', hours: 0 },
+    { day: 'SAT', hours: 0 },
+    { day: 'SUN', hours: 0 },
+  ];
+
   return (
     <div style={{ maxWidth: '1000px', margin: '0 auto', width: '100%' }}>
       {/* Header */}
@@ -69,10 +79,10 @@ export function ProgressView() {
             <Clock size={16} color="var(--pink)" />
           </div>
           <div style={{ fontFamily: 'var(--serif)', fontSize: '32px', fontWeight: 600, color: 'var(--text)', marginTop: '8px' }}>
-            {progress?.totalStudyMinutes ? `${(progress.totalStudyMinutes / 60).toFixed(1)}` : '42.5'} hrs
+            {progress ? (progress.totalStudyMinutes ? (progress.totalStudyMinutes / 60).toFixed(1) : '0.0') : '0.0'} hrs
           </div>
           <div style={{ fontSize: '12px', color: 'var(--sage)', marginTop: '4px' }}>
-            Across 12 documents
+            Across {documents.length} document{documents.length === 1 ? '' : 's'}
           </div>
         </div>
 
@@ -84,10 +94,10 @@ export function ProgressView() {
             <Award size={16} color="var(--pink-bright)" />
           </div>
           <div style={{ fontFamily: 'var(--serif)', fontSize: '32px', fontWeight: 600, color: 'var(--text)', marginTop: '8px' }}>
-            {progress?.averageQuizAccuracy ? `${progress.averageQuizAccuracy}%` : '82%'}
+            {progress ? `${progress.averageQuizAccuracy}%` : '0%'}
           </div>
           <div style={{ fontSize: '12px', color: 'var(--sage)', marginTop: '4px' }}>
-            Target: 85% for Exam
+            {progress && progress.averageQuizAccuracy > 0 ? 'Verified quiz performance' : 'Take quizzes to track accuracy'}
           </div>
         </div>
 
@@ -99,7 +109,7 @@ export function ProgressView() {
             <Layers size={16} color="var(--pink)" />
           </div>
           <div style={{ fontFamily: 'var(--serif)', fontSize: '32px', fontWeight: 600, color: 'var(--text)', marginTop: '8px' }}>
-            {progress?.flashcardsReviewedCount || 116}
+            {progress?.flashcardsReviewedCount || 0}
           </div>
           <div style={{ fontSize: '12px', color: 'var(--muted)', marginTop: '4px' }}>
             Active spaced recall
@@ -114,10 +124,10 @@ export function ProgressView() {
             <Flame size={16} color="#e57a44" />
           </div>
           <div style={{ fontFamily: 'var(--serif)', fontSize: '32px', fontWeight: 600, color: 'var(--text)', marginTop: '8px' }}>
-            {progress?.currentStreakDays || 7} Days
+            {progress ? progress.currentStreakDays : 0} Day{progress?.currentStreakDays === 1 ? '' : 's'}
           </div>
           <div style={{ fontSize: '12px', color: 'var(--pink)', marginTop: '4px' }}>
-            Consistently studying
+            {progress?.currentStreakDays ? 'Consistently studying' : 'Start your streak today'}
           </div>
         </div>
       </div>
@@ -136,16 +146,8 @@ export function ProgressView() {
             Weekly Intensity Breakdown
           </h3>
           <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', height: '160px', paddingTop: '20px' }}>
-            {(progress?.weeklyStudyHours || [
-              { day: 'MON', hours: 3.5 },
-              { day: 'TUE', hours: 2.5 },
-              { day: 'WED', hours: 4.5 },
-              { day: 'THU', hours: 2.0 },
-              { day: 'FRI', hours: 4.0 },
-              { day: 'SAT', hours: 3.0 },
-              { day: 'SUN', hours: 2.0 },
-            ]).map((d, idx) => {
-              const heightPct = (d.hours / 5.0) * 100;
+            {(progress?.weeklyStudyHours && progress.weeklyStudyHours.length > 0 ? progress.weeklyStudyHours : defaultWeekly).map((d, idx) => {
+              const heightPct = Math.max(d.hours > 0 ? (d.hours / 5.0) * 100 : 4, 4);
               return (
                 <div key={idx} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', flex: 1 }}>
                   <span style={{ fontSize: '11px', color: 'var(--muted)' }}>{d.hours}h</span>
@@ -153,7 +155,7 @@ export function ProgressView() {
                     style={{
                       width: '28px',
                       height: `${heightPct}%`,
-                      background: idx === 2 ? 'var(--pink)' : 'rgba(195, 164, 123, 0.35)',
+                      background: d.hours > 0 ? (idx === 2 ? 'var(--pink)' : 'rgba(195, 164, 123, 0.45)') : 'rgba(195, 164, 123, 0.15)',
                       borderRadius: '4px 4px 0 0',
                     }}
                   />
@@ -174,47 +176,49 @@ export function ProgressView() {
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            {(progress?.weakTopics || [
-              { name: 'Zener vs Avalanche Breakdown', documentTitle: 'Engineering Physics', accuracy: 55 },
-              { name: 'Graph Bellman-Ford Cycles', documentTitle: 'Data Structures', accuracy: 62 },
-              { name: 'Cauchy-Riemann Differential Equations', documentTitle: 'Mathematics III', accuracy: 68 },
-            ]).map((w, idx) => (
-              <div
-                key={idx}
-                style={{
-                  padding: '14px 16px',
-                  background: 'rgba(29, 26, 21, 0.6)',
-                  border: '1px solid rgba(195, 164, 123, 0.16)',
-                  borderRadius: '10px',
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                }}
-              >
-                <div>
-                  <div style={{ fontSize: '13.5px', fontWeight: 600, color: 'var(--text)' }}>{w.name}</div>
-                  <div style={{ fontSize: '11.5px', color: 'var(--muted)' }}>{w.documentTitle}</div>
+            {progress?.weakTopics && progress.weakTopics.length > 0 ? (
+              progress.weakTopics.map((w, idx) => (
+                <div
+                  key={idx}
+                  style={{
+                    padding: '14px 16px',
+                    background: 'rgba(29, 26, 21, 0.6)',
+                    border: '1px solid rgba(195, 164, 123, 0.16)',
+                    borderRadius: '10px',
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                  }}
+                >
+                  <div>
+                    <div style={{ fontSize: '13.5px', fontWeight: 600, color: 'var(--text)' }}>{w.name}</div>
+                    <div style={{ fontSize: '11.5px', color: 'var(--muted)' }}>{w.documentTitle}</div>
+                  </div>
+                  <div style={{ textAlign: 'right' }}>
+                    <div style={{ fontSize: '13px', fontWeight: 700, color: '#e57a44' }}>{w.accuracy}%</div>
+                    <button
+                      onClick={() => {
+                        setSelectedDocumentId('engineering-physics');
+                        setActiveView('quiz');
+                      }}
+                      style={{
+                        fontSize: '11px',
+                        color: 'var(--pink)',
+                        background: 'none',
+                        border: 'none',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      Retest Now →
+                    </button>
+                  </div>
                 </div>
-                <div style={{ textAlign: 'right' }}>
-                  <div style={{ fontSize: '13px', fontWeight: 700, color: '#e57a44' }}>{w.accuracy}%</div>
-                  <button
-                    onClick={() => {
-                      setSelectedDocumentId('engineering-physics');
-                      setActiveView('quiz');
-                    }}
-                    style={{
-                      fontSize: '11px',
-                      color: 'var(--pink)',
-                      background: 'none',
-                      border: 'none',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    Retest Now →
-                  </button>
-                </div>
+              ))
+            ) : (
+              <div style={{ padding: '24px 16px', textAlign: 'center', color: 'var(--muted)', fontSize: '13px' }}>
+                No weak areas detected yet. Practice quizzes to identify topics needing review.
               </div>
-            ))}
+            )}
           </div>
         </div>
       </div>

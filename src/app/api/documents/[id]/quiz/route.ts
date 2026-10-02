@@ -38,7 +38,12 @@ export async function POST(
 ) {
   try {
     const { id } = await params;
-    const body = await req.json();
+    let body: any = {};
+    try {
+      body = await req.json();
+    } catch {
+      body = {};
+    }
     const { answers } = body as { answers: Record<string, string> };
 
     const quiz = db.getQuiz(id);

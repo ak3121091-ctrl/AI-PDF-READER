@@ -28,7 +28,7 @@ export default function SignInPage() {
       if (typeof window !== 'undefined') {
         sessionStorage.setItem('studyforge_mode', 'workspace');
       }
-      router.push('/');
+      router.push('/dashboard');
     } catch (err: any) {
       setError(err.message || 'Failed to authenticate.');
       setLoading(false);
@@ -41,7 +41,7 @@ export default function SignInPage() {
     if (typeof window !== 'undefined') {
       sessionStorage.setItem('studyforge_mode', 'workspace');
     }
-    router.push('/');
+    router.push('/dashboard');
   };
 
   return (

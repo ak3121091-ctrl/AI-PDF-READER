@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import '@/shaders/threeui.css';
 import { AuthProvider } from '@/lib/auth/authContext';
+import { StudyProvider } from '@/contexts/StudyContext';
 
 export const metadata: Metadata = {
   title: 'StudyForge AI — Turn PDFs Into Your Personal Study System',
@@ -41,7 +42,9 @@ export default function RootLayout({
       </head>
       <body>
         <AuthProvider>
-          {children}
+          <StudyProvider>
+            {children}
+          </StudyProvider>
         </AuthProvider>
       </body>
     </html>

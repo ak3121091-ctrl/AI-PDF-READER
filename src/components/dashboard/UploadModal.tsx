@@ -15,7 +15,7 @@ import {
 interface UploadModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onUploadSuccess?: () => void;
+  onUploadSuccess?: (docId?: string) => void;
 }
 
 export function UploadModal({ isOpen, onClose, onUploadSuccess }: UploadModalProps) {
@@ -121,7 +121,7 @@ export function UploadModal({ isOpen, onClose, onUploadSuccess }: UploadModalPro
       setUploadProgress(100);
       setStatusStep('DOCUMENT READY!');
       setSuccessDocId(data.document.id);
-      if (onUploadSuccess) onUploadSuccess();
+      if (onUploadSuccess) onUploadSuccess(data.document.id);
     } catch (err: any) {
       console.error(err);
       setError(err.message || 'An error occurred while uploading. Please try again.');

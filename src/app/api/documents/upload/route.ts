@@ -92,7 +92,9 @@ export async function POST(req: NextRequest) {
       createdAt: new Date().toISOString(),
     };
 
-    // 5. Save to database
+    // 5. Save PDF file to persistent storage and save to database
+    const storagePath = db.savePdfFile(docId, buffer);
+    newDoc.storagePath = storagePath;
     db.createDocument(newDoc, pages, chunks, summary, topics, flashcards, quiz, quizQuestions);
 
     return NextResponse.json({

@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 
 export function PyqView() {
-  const { selectedDocument, selectedDocumentId, setActiveView } = useStudy();
+  const { selectedDocument, selectedDocumentId, setActiveView, setIsUploadOpen } = useStudy();
 
   const [analysis, setAnalysis] = useState<any | null>(null);
   const [loading, setLoading] = useState(true);
@@ -31,15 +31,24 @@ export function PyqView() {
           body: JSON.stringify({ documentId: selectedDocumentId }),
         });
         const pyqData = await pyqRes.json();
-        if (pyqData.analysis) setAnalysis(pyqData.analysis);
+        if (pyqData.analysis) {
+          setAnalysis(pyqData.analysis);
+        } else {
+          setAnalysis(null);
+        }
       } catch (e) {
         console.error('Error loading PYQ data', e);
+        setAnalysis(null);
       } finally {
         setLoading(false);
       }
     }
     loadPYQ();
   }, [selectedDocumentId]);
+
+  const analyzedYears: number[] = Array.from(
+    new Set((analysis?.analyzedPapers || []).map((p: any) => p.year))
+  ).sort((a: any, b: any) => a - b) as number[];
 
   return (
     <div style={{ maxWidth: '1100px', margin: '0 auto', width: '100%' }}>
@@ -100,7 +109,7 @@ export function PyqView() {
       >
         <AlertCircle size={18} color="var(--pink)" style={{ flexShrink: 0 }} />
         <span>
-          <strong style={{ color: 'var(--pink-bright)' }}>Objective Historical Evidence:</strong> This module reflects question recurrence verified in the 2023, 2024, and 2025 semester examination papers. No arbitrary future exam prediction is manufactured.
+          <strong style={{ color: 'var(--pink-bright)' }}>Objective Historical Evidence:</strong> This module reflects question recurrence verified in the {analyzedYears.length > 0 ? analyzedYears.join(', ') : 'uploaded'} semester examination papers. No arbitrary future exam prediction is manufactured.
         </span>
       </div>
 
@@ -109,7 +118,7 @@ export function PyqView() {
           <Sparkles size={20} className="animate-spin" />
           <span style={{ marginLeft: '10px' }}>Correlating multi-year exam papers and recurrence frequency...</span>
         </div>
-      ) : analysis ? (
+      ) : analysis && analysis.analyzedPapers && analysis.analyzedPapers.length > 0 ? (
         <div>
           {/* Analyzed Papers Banner */}
           <div
@@ -148,7 +157,7 @@ export function PyqView() {
                 </h3>
               </div>
               <span style={{ fontSize: '12px', color: 'var(--muted)' }}>
-                Cross-checked across 2023, 2024, 2025
+                Cross-checked across {analyzedYears.join(', ')}
               </span>
             </div>
 
@@ -157,9 +166,9 @@ export function PyqView() {
                 <thead>
                   <tr style={{ borderBottom: '1px solid rgba(195, 164, 123, 0.25)', color: 'var(--pink-bright)' }}>
                     <th style={{ padding: '12px 14px', fontWeight: 600 }}>Topic / Concept</th>
-                    <th style={{ padding: '12px 14px', textAlign: 'center' }}>2023</th>
-                    <th style={{ padding: '12px 14px', textAlign: 'center' }}>2024</th>
-                    <th style={{ padding: '12px 14px', textAlign: 'center' }}>2025</th>
+                    {analyzedYears.map((yr) => (
+                      <th key={yr} style={{ padding: '12px 14px', textAlign: 'center' }}>{yr}</th>
+                    ))}
                     <th style={{ padding: '12px 14px', textAlign: 'center' }}>Frequency</th>
                     <th style={{ padding: '12px 14px' }}>Typical Format</th>
                   </tr>
@@ -179,27 +188,15 @@ export function PyqView() {
                           {row.notes}
                         </div>
                       </td>
-                      <td style={{ padding: '16px 14px', textAlign: 'center', fontFamily: 'var(--mono)' }}>
-                        {row.appearances[2023] ? (
-                          <span style={{ color: 'var(--sage)', fontWeight: 700 }}>✓</span>
-                        ) : (
-                          <span style={{ color: 'rgba(255,255,255,0.2)' }}>—</span>
-                        )}
-                      </td>
-                      <td style={{ padding: '16px 14px', textAlign: 'center', fontFamily: 'var(--mono)' }}>
-                        {row.appearances[2024] ? (
-                          <span style={{ color: 'var(--sage)', fontWeight: 700 }}>✓</span>
-                        ) : (
-                          <span style={{ color: 'rgba(255,255,255,0.2)' }}>—</span>
-                        )}
-                      </td>
-                      <td style={{ padding: '16px 14px', textAlign: 'center', fontFamily: 'var(--mono)' }}>
-                        {row.appearances[2025] ? (
-                          <span style={{ color: 'var(--sage)', fontWeight: 700 }}>✓</span>
-                        ) : (
-                          <span style={{ color: 'rgba(255,255,255,0.2)' }}>—</span>
-                        )}
-                      </td>
+                      {analyzedYears.map((yr) => (
+                        <td key={yr} style={{ padding: '16px 14px', textAlign: 'center', fontFamily: 'var(--mono)' }}>
+                          {row.appearances && row.appearances[yr] ? (
+                            <span style={{ color: 'var(--sage)', fontWeight: 700 }}>✓</span>
+                          ) : (
+                            <span style={{ color: 'rgba(255,255,255,0.2)' }}>—</span>
+                          )}
+                        </td>
+                      ))}
                       <td style={{ padding: '16px 14px', textAlign: 'center', fontFamily: 'var(--mono)' }}>
                         <span
                           style={{
@@ -215,7 +212,7 @@ export function PyqView() {
                         </span>
                       </td>
                       <td style={{ padding: '16px 14px', fontSize: '12.5px', color: 'var(--muted)' }}>
-                        {row.questionTypes.join(' • ')}
+                        {(row.questionTypes || []).join(' • ')}
                       </td>
                     </tr>
                   ))}
@@ -225,8 +222,22 @@ export function PyqView() {
           </div>
         </div>
       ) : (
-        <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--muted)' }}>
-          No previous year paper analysis available.
+        <div className="glass-panel" style={{ textAlign: 'center', padding: '60px 24px', borderRadius: '16px' }}>
+          <FileText size={44} color="var(--pink)" style={{ opacity: 0.7, margin: '0 auto 16px' }} />
+          <h3 style={{ fontFamily: 'var(--serif)', fontSize: '22px', fontWeight: 600, color: 'var(--text)', marginBottom: '8px' }}>
+            No Examination Papers Uploaded for this Document
+          </h3>
+          <p style={{ color: 'var(--muted)', fontSize: '14px', maxWidth: '520px', margin: '0 auto 24px', lineHeight: 1.6 }}>
+            To view verified recurring examination questions and topic frequencies without synthetic data, upload previous year question papers or select a document with archived papers.
+          </p>
+          <button
+            onClick={() => setIsUploadOpen(true)}
+            className="btn-primary"
+            style={{ padding: '10px 22px', fontSize: '13px', margin: '0 auto', display: 'inline-flex', alignItems: 'center', gap: '8px' }}
+          >
+            <UploadCloud size={16} />
+            Upload PYQ Paper
+          </button>
         </div>
       )}
     </div>

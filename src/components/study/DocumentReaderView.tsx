@@ -38,6 +38,7 @@ export function DocumentReaderView() {
   const [currentPageNum, setCurrentPageNum] = useState<number>(1);
   const [zoomLevel, setZoomLevel] = useState<number>(100);
   const [loading, setLoading] = useState<boolean>(true);
+  const [readerMode, setReaderMode] = useState<'text' | 'original'>('text');
 
   // Ask PDF Chat State
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -277,88 +278,152 @@ export function DocumentReaderView() {
             </div>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <button
-                onClick={() => setZoomLevel((z) => Math.max(80, z - 10))}
+              {/* Reader Mode Toggle */}
+              <div style={{ display: 'flex', gap: '2px', background: 'rgba(0,0,0,0.3)', padding: '2px', borderRadius: '6px', border: '1px solid rgba(195, 164, 123, 0.15)' }}>
+                <button
+                  onClick={() => setReaderMode('text')}
+                  style={{
+                    padding: '3px 8px',
+                    fontSize: '11px',
+                    borderRadius: '4px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    background: readerMode === 'text' ? 'rgba(195, 164, 123, 0.3)' : 'transparent',
+                    color: readerMode === 'text' ? 'var(--pink-bright)' : 'var(--muted)',
+                    fontWeight: readerMode === 'text' ? 600 : 400,
+                  }}
+                >
+                  Text
+                </button>
+                <button
+                  onClick={() => setReaderMode('original')}
+                  style={{
+                    padding: '3px 8px',
+                    fontSize: '11px',
+                    borderRadius: '4px',
+                    border: 'none',
+                    cursor: 'pointer',
+                    background: readerMode === 'original' ? 'rgba(195, 164, 123, 0.3)' : 'transparent',
+                    color: readerMode === 'original' ? 'var(--pink-bright)' : 'var(--muted)',
+                    fontWeight: readerMode === 'original' ? 600 : 400,
+                  }}
+                >
+                  Original PDF
+                </button>
+              </div>
+
+              <a
+                href={`/api/documents/${selectedDocumentId}/file`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-secondary"
-                style={{ padding: '4px 8px' }}
-                title="Zoom Out"
+                style={{ padding: '4px 8px', fontSize: '11px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '4px' }}
+                title="Open Original PDF in New Tab"
               >
-                <ZoomOut size={13} />
-              </button>
-              <span style={{ fontSize: '12px', fontFamily: 'var(--mono)', color: 'var(--muted)', minWidth: '40px', textAlign: 'center' }}>
-                {zoomLevel}%
-              </span>
-              <button
-                onClick={() => setZoomLevel((z) => Math.min(150, z + 10))}
-                className="btn-secondary"
-                style={{ padding: '4px 8px' }}
-                title="Zoom In"
-              >
-                <ZoomIn size={13} />
-              </button>
+                <FileText size={12} color="var(--pink)" />
+                <span>Open Tab</span>
+              </a>
+
+              {readerMode === 'text' && (
+                <>
+                  <button
+                    onClick={() => setZoomLevel((z) => Math.max(80, z - 10))}
+                    className="btn-secondary"
+                    style={{ padding: '4px 8px' }}
+                    title="Zoom Out"
+                  >
+                    <ZoomOut size={13} />
+                  </button>
+                  <span style={{ fontSize: '12px', fontFamily: 'var(--mono)', color: 'var(--muted)', minWidth: '40px', textAlign: 'center' }}>
+                    {zoomLevel}%
+                  </span>
+                  <button
+                    onClick={() => setZoomLevel((z) => Math.min(150, z + 10))}
+                    className="btn-secondary"
+                    style={{ padding: '4px 8px' }}
+                    title="Zoom In"
+                  >
+                    <ZoomIn size={13} />
+                  </button>
+                </>
+              )}
             </div>
           </div>
 
           {/* Document Content Display */}
-          <div
-            style={{
-              flex: 1,
-              overflowY: 'auto',
-              padding: '24px',
-              display: 'flex',
-              justifyContent: 'center',
-            }}
-          >
-            {loading ? (
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--muted)', margin: 'auto' }}>
-                <Sparkles size={18} className="animate-spin" />
-                Loading extracted PDF pages...
-              </div>
-            ) : currentPage ? (
-              <div
+          {readerMode === 'original' ? (
+            <div style={{ flex: 1, height: '100%', position: 'relative', background: '#14120e' }}>
+              <iframe
+                src={`/api/documents/${selectedDocumentId}/file`}
                 style={{
                   width: '100%',
-                  maxWidth: '740px',
-                  background: '#fcfbf8',
-                  color: '#1a1815',
-                  padding: '40px 48px',
-                  borderRadius: '6px',
-                  boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)',
-                  fontSize: `${(14.5 * zoomLevel) / 100}px`,
-                  lineHeight: 1.7,
-                  fontFamily: 'var(--serif)',
-                  transformOrigin: 'top center',
-                  minHeight: '600px',
+                  height: '100%',
+                  border: 'none',
                 }}
-              >
+                title="Original PDF Document"
+              />
+            </div>
+          ) : (
+            <div
+              style={{
+                flex: 1,
+                overflowY: 'auto',
+                padding: '24px',
+                display: 'flex',
+                justifyContent: 'center',
+              }}
+            >
+              {loading ? (
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'var(--muted)', margin: 'auto' }}>
+                  <Sparkles size={18} className="animate-spin" />
+                  Loading extracted PDF pages...
+                </div>
+              ) : currentPage ? (
                 <div
                   style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    borderBottom: '1px solid #e2ddd0',
-                    paddingBottom: '10px',
-                    marginBottom: '20px',
-                    fontSize: '11px',
-                    color: '#7a7265',
-                    letterSpacing: '0.06em',
-                    textTransform: 'uppercase',
-                    fontFamily: 'var(--mono)',
+                    width: '100%',
+                    maxWidth: '740px',
+                    background: '#fcfbf8',
+                    color: '#1a1815',
+                    padding: '40px 48px',
+                    borderRadius: '6px',
+                    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)',
+                    fontSize: `${(14.5 * zoomLevel) / 100}px`,
+                    lineHeight: 1.7,
+                    fontFamily: 'var(--serif)',
+                    transformOrigin: 'top center',
+                    minHeight: '600px',
                   }}
                 >
-                  <span>{selectedDocument?.fileName || 'Document.pdf'}</span>
-                  <span>Page {currentPage.pageNumber}</span>
-                </div>
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      borderBottom: '1px solid #e2ddd0',
+                      paddingBottom: '10px',
+                      marginBottom: '20px',
+                      fontSize: '11px',
+                      color: '#7a7265',
+                      letterSpacing: '0.06em',
+                      textTransform: 'uppercase',
+                      fontFamily: 'var(--mono)',
+                    }}
+                  >
+                    <span>{selectedDocument?.fileName || 'Document.pdf'}</span>
+                    <span>Page {currentPage.pageNumber}</span>
+                  </div>
 
-                <div style={{ whiteSpace: 'pre-wrap', color: '#24201a' }}>
-                  {currentPage.text}
+                  <div style={{ whiteSpace: 'pre-wrap', color: '#24201a' }}>
+                    {currentPage.text}
+                  </div>
                 </div>
-              </div>
-            ) : (
-              <div style={{ margin: 'auto', color: 'var(--muted)', fontSize: '14px' }}>
-                No page content available.
-              </div>
-            )}
-          </div>
+              ) : (
+                <div style={{ margin: 'auto', color: 'var(--muted)', fontSize: '14px' }}>
+                  No page content available.
+                </div>
+              )}
+            </div>
+          )}
         </div>
 
         {/* RIGHT PANE: Integrated Ask PDF AI Assistant */}

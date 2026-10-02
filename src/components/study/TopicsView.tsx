@@ -124,7 +124,7 @@ export function TopicsView() {
           <Sparkles size={20} className="animate-spin" />
           <span style={{ marginLeft: '10px' }}>Analyzing topic frequencies and syllabus coverage...</span>
         </div>
-      ) : (
+      ) : topics.length > 0 ? (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {topics.map((t, idx) => {
             const priority = getPriorityCategory(t.documentImportance, t.examFrequency);
@@ -271,6 +271,10 @@ export function TopicsView() {
               </div>
             );
           })}
+        </div>
+      ) : (
+        <div style={{ textAlign: 'center', padding: '60px 20px', color: 'var(--muted)' }}>
+          No topics extracted for this document yet.
         </div>
       )}
     </div>

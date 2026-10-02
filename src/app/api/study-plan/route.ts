@@ -77,8 +77,7 @@ export async function POST(req: NextRequest) {
       }
     }
 
-    db.studyPlans.set(newPlan.id, newPlan);
-    db.studyTasks.set(newPlan.id, tasks);
+    db.createStudyPlan(newPlan, tasks);
 
     return NextResponse.json({
       success: true,

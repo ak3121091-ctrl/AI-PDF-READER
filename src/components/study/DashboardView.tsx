@@ -137,10 +137,10 @@ export function DashboardView() {
             <BookOpen size={16} color="var(--pink)" />
           </div>
           <div style={{ fontFamily: 'var(--serif)', fontSize: '32px', fontWeight: 600, color: 'var(--text)', marginTop: '8px' }}>
-            {documents.length || 12}
+            {documents.length}
           </div>
           <div style={{ fontSize: '12px', color: 'var(--sage)', marginTop: '4px' }}>
-            4 core subjects enrolled
+            {documents.length > 0 ? `${documents.length} document${documents.length === 1 ? '' : 's'} in library` : 'No documents uploaded yet'}
           </div>
         </div>
 
@@ -152,10 +152,10 @@ export function DashboardView() {
             <Layers size={16} color="var(--pink-bright)" />
           </div>
           <div style={{ fontFamily: 'var(--serif)', fontSize: '32px', fontWeight: 600, color: 'var(--text)', marginTop: '8px' }}>
-            {progress?.topicsMastered ? progress.topicsMastered + 24 : 48}
+            {progress ? progress.topicsMastered : 0}
           </div>
           <div style={{ fontSize: '12px', color: 'var(--muted)', marginTop: '4px' }}>
-            18 identified high yield
+            Topics mastered
           </div>
         </div>
 
@@ -167,10 +167,10 @@ export function DashboardView() {
             <Award size={16} color="var(--pink)" />
           </div>
           <div style={{ fontFamily: 'var(--serif)', fontSize: '32px', fontWeight: 600, color: 'var(--text)', marginTop: '8px' }}>
-            {progress?.averageQuizAccuracy ? `${progress.averageQuizAccuracy}%` : '82%'}
+            {progress ? `${progress.averageQuizAccuracy}%` : '0%'}
           </div>
           <div style={{ fontSize: '12px', color: 'var(--sage)', marginTop: '4px' }}>
-            +6% improvement this week
+            {progress && progress.averageQuizAccuracy > 0 ? 'Verified quiz performance' : 'Take quizzes to track score'}
           </div>
         </div>
 
@@ -182,10 +182,10 @@ export function DashboardView() {
             <Flame size={16} color="#e57a44" />
           </div>
           <div style={{ fontFamily: 'var(--serif)', fontSize: '32px', fontWeight: 600, color: 'var(--text)', marginTop: '8px' }}>
-            {progress?.currentStreakDays || 7} Days
+            {progress ? progress.currentStreakDays : 0} Day{progress?.currentStreakDays === 1 ? '' : 's'}
           </div>
           <div style={{ fontSize: '12px', color: 'var(--pink)', marginTop: '4px' }}>
-            Daily goal: 3.5 hrs
+            {progress && progress.totalStudyMinutes > 0 ? `${(progress.totalStudyMinutes / 60).toFixed(1)}h total study time` : 'Start your study streak'}
           </div>
         </div>
       </div>

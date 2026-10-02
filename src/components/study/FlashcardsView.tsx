@@ -36,6 +36,8 @@ export function FlashcardsView() {
         const data = await res.json();
         if (data.flashcards) {
           setCards(data.flashcards);
+          const totalRev = data.flashcards.reduce((acc: number, c: Flashcard) => acc + (c.timesReviewed || 0), 0);
+          setReviewedCount(totalRev);
         }
       } catch (e) {
         console.error('Error fetching flashcards', e);
@@ -58,8 +60,18 @@ export function FlashcardsView() {
     setCurrentIdx((i) => (i - 1 + cards.length) % cards.length);
   };
 
-  const handleRate = (rating: 'again' | 'hard' | 'good' | 'easy') => {
+  const handleRate = async (rating: 'again' | 'hard' | 'good' | 'easy') => {
+    if (!currentCard || !selectedDocumentId) return;
     setReviewedCount((c) => c + 1);
+    try {
+      await fetch(`/api/documents/${selectedDocumentId}/flashcards`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ flashcardId: currentCard.id, rating }),
+      });
+    } catch (e) {
+      console.error('Error saving flashcard rating:', e);
+    }
     handleNext();
   };
 

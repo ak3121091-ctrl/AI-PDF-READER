@@ -1,21 +1,12 @@
 'use client';
 
-import { useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { Suspense } from 'react';
+import { WorkspaceShell } from '@/components/study/WorkspaceShell';
 
-export default function ProfileRedirect() {
-  const router = useRouter();
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      sessionStorage.setItem('studyforge_mode', 'workspace');
-    }
-    router.replace('/?view=progress&workspace=true');
-  }, [router]);
-
+export default function ProfilePage() {
   return (
-    <div style={{ background: '#29251d', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#c3a47b' }}>
-      Loading progress in workspace...
-    </div>
+    <Suspense fallback={<div style={{ background: '#29251d', width: '100vw', height: '100vh' }} />}>
+      <WorkspaceShell initialView="progress" />
+    </Suspense>
   );
 }

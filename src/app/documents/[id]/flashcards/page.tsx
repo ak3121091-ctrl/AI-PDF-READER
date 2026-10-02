@@ -1,22 +1,20 @@
 'use client';
 
-import { useEffect, use } from 'react';
-import { useRouter } from 'next/navigation';
+import React, { Suspense } from 'react';
+import { useParams } from 'next/navigation';
+import { WorkspaceShell } from '@/components/study/WorkspaceShell';
 
-export default function FlashcardsRedirect({ params }: { params: Promise<{ id: string }> }) {
-  const router = useRouter();
-  const resolvedParams = use(params);
+function FlashcardsRoute() {
+  const params = useParams();
+  const id = (params?.id as string) || 'engineering-physics';
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      sessionStorage.setItem('studyforge_mode', 'workspace');
-    }
-    router.replace(`/?view=flashcards&docId=${resolvedParams.id}&workspace=true`);
-  }, [router, resolvedParams.id]);
+  return <WorkspaceShell initialView="flashcards" initialDocId={id} />;
+}
 
+export default function DocumentFlashcardsPage() {
   return (
-    <div style={{ background: '#29251d', minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#c3a47b' }}>
-      Loading flashcards in workspace...
-    </div>
+    <Suspense fallback={<div style={{ background: '#29251d', width: '100vw', height: '100vh' }} />}>
+      <FlashcardsRoute />
+    </Suspense>
   );
 }

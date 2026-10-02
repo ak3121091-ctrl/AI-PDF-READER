@@ -1,15 +1,14 @@
 'use client';
 
 import React, { useEffect, Suspense } from 'react';
-import { StudyProvider, useStudy, StudyView } from '@/contexts/StudyContext';
+import { useStudy, StudyView } from '@/contexts/StudyContext';
 import { WorkspaceShell } from '@/components/study/WorkspaceShell';
 import { BestsellersBookShowcase } from '@/shaders/landing-pages/LandingPages';
 import { UploadCloud, Compass, User as UserIcon } from 'lucide-react';
 
 function StudyAppRoot() {
-  const { mode, setMode, enterWorkspace, setIsUploadOpen, setSelectedDocumentId } = useStudy();
+  const { mode, enterWorkspace, setIsUploadOpen, setSelectedDocumentId } = useStudy();
 
-  // Check URL query params on initial mount (e.g., from old route redirects or direct links)
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
@@ -27,7 +26,6 @@ function StudyAppRoot() {
         if (uploadParam === 'true') {
           setIsUploadOpen(true);
         }
-        // Always clean the browser address bar so the URL is strictly http://localhost:3000/
         window.history.replaceState({}, '', '/');
       }
     }
@@ -182,10 +180,8 @@ function StudyAppRoot() {
 
 export default function HomePage() {
   return (
-    <StudyProvider>
-      <Suspense fallback={<div style={{ background: '#29251d', width: '100vw', height: '100vh' }} />}>
-        <StudyAppRoot />
-      </Suspense>
-    </StudyProvider>
+    <Suspense fallback={<div style={{ background: '#29251d', width: '100vw', height: '100vh' }} />}>
+      <StudyAppRoot />
+    </Suspense>
   );
 }

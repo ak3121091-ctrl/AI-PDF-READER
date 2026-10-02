@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import { Document, StudyTask, UserProgress } from '@/lib/database/schema';
 
 export type StudyView =
@@ -77,7 +77,7 @@ export function StudyProvider({ children }: { children: ReactNode }) {
   const selectedDocument =
     documents.find((d) => d.id === selectedDocumentId) || documents[0] || null;
 
-  const enterWorkspace = (view: StudyView = 'dashboard', docId?: string) => {
+  const enterWorkspace = useCallback((view: StudyView = 'dashboard', docId?: string) => {
     if (docId) {
       setSelectedDocumentId(docId);
     }
@@ -86,14 +86,14 @@ export function StudyProvider({ children }: { children: ReactNode }) {
     if (typeof window !== 'undefined') {
       sessionStorage.setItem('studyforge_mode', 'workspace');
     }
-  };
+  }, []);
 
-  const exitToLanding = () => {
+  const exitToLanding = useCallback(() => {
     setMode('landing');
     if (typeof window !== 'undefined') {
       sessionStorage.setItem('studyforge_mode', 'landing');
     }
-  };
+  }, []);
 
   return (
     <StudyContext.Provider

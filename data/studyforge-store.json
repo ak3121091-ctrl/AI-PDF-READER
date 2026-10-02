@@ -1,0 +1,3404 @@
+{
+  "users": [
+    [
+      "user-ashutosh",
+      {
+        "id": "user-ashutosh",
+        "name": "Ashutosh",
+        "email": "ashutosh@university.edu",
+        "studyField": "Computer Science & Engineering",
+        "dailyGoalHours": 3.5,
+        "examDate": "2026-12-15",
+        "createdAt": "2026-10-02T05:54:36.117Z"
+      }
+    ]
+  ],
+  "subjects": [
+    [
+      "subj-1",
+      {
+        "id": "subj-1",
+        "userId": "user-ashutosh",
+        "name": "Engineering Physics",
+        "code": "PHY101",
+        "color": "#c3a47b",
+        "createdAt": "2026-10-02T05:54:36.118Z"
+      }
+    ],
+    [
+      "subj-2",
+      {
+        "id": "subj-2",
+        "userId": "user-ashutosh",
+        "name": "Data Structures",
+        "code": "CS201",
+        "color": "#89946f",
+        "createdAt": "2026-10-02T05:54:36.118Z"
+      }
+    ],
+    [
+      "subj-3",
+      {
+        "id": "subj-3",
+        "userId": "user-ashutosh",
+        "name": "Mathematics III",
+        "code": "MTH301",
+        "color": "#a96346",
+        "createdAt": "2026-10-02T05:54:36.118Z"
+      }
+    ],
+    [
+      "subj-4",
+      {
+        "id": "subj-4",
+        "userId": "user-ashutosh",
+        "name": "Digital Electronics",
+        "code": "EC202",
+        "color": "#5f684f",
+        "createdAt": "2026-10-02T05:54:36.118Z"
+      }
+    ]
+  ],
+  "documents": [
+    [
+      "engineering-physics",
+      {
+        "id": "engineering-physics",
+        "userId": "user-ashutosh",
+        "subjectId": "subj-1",
+        "title": "Engineering Physics — Semiconductor Devices & Optics",
+        "fileName": "Engineering_Physics_Module_1_and_2.pdf",
+        "fileSize": 4820190,
+        "pageCount": 28,
+        "status": "ready",
+        "createdAt": "2026-09-24T09:00:00Z",
+        "updatedAt": "2026-09-29T14:30:00Z"
+      }
+    ],
+    [
+      "data-structures",
+      {
+        "id": "data-structures",
+        "userId": "user-ashutosh",
+        "subjectId": "subj-2",
+        "title": "Data Structures & Algorithms — Advanced Concepts",
+        "fileName": "DSA_Comprehensive_Exam_Guide.pdf",
+        "fileSize": 6124500,
+        "pageCount": 36,
+        "status": "ready",
+        "createdAt": "2026-09-22T11:00:00Z",
+        "updatedAt": "2026-09-28T18:00:00Z"
+      }
+    ],
+    [
+      "mathematics-iii",
+      {
+        "id": "mathematics-iii",
+        "userId": "user-ashutosh",
+        "subjectId": "subj-3",
+        "title": "Applied Mathematics III — Transforms & PDEs",
+        "fileName": "Mathematics_III_Semester_Notes.pdf",
+        "fileSize": 5210980,
+        "pageCount": 42,
+        "status": "ready",
+        "createdAt": "2026-09-20T14:00:00Z",
+        "updatedAt": "2026-09-27T12:00:00Z"
+      }
+    ],
+    [
+      "digital-electronics",
+      {
+        "id": "digital-electronics",
+        "userId": "user-ashutosh",
+        "subjectId": "subj-4",
+        "title": "Digital Electronics — Logic & Sequential Circuits",
+        "fileName": "Digital_Circuits_Lecture_Notes.pdf",
+        "fileSize": 3980100,
+        "pageCount": 24,
+        "status": "ready",
+        "createdAt": "2026-09-18T10:00:00Z",
+        "updatedAt": "2026-09-26T16:00:00Z"
+      }
+    ],
+    [
+      "doc-1790920691497",
+      {
+        "id": "doc-1790920691497",
+        "userId": "user-ashutosh",
+        "subjectId": "subj-1",
+        "title": "Operating Systems Scheduling",
+        "fileName": "Operating_Systems_Scheduling.pdf",
+        "fileSize": 778,
+        "pageCount": 1,
+        "status": "ready",
+        "createdAt": "2026-10-02T05:58:11.497Z",
+        "updatedAt": "2026-10-02T05:58:11.497Z",
+        "storagePath": "/api/documents/doc-1790920691497/file"
+      }
+    ],
+    [
+      "doc-1790920775377",
+      {
+        "id": "doc-1790920775377",
+        "userId": "user-ashutosh",
+        "subjectId": "subj-1",
+        "title": "Operating Systems Scheduling",
+        "fileName": "Operating_Systems_Scheduling.pdf",
+        "fileSize": 778,
+        "pageCount": 1,
+        "status": "ready",
+        "createdAt": "2026-10-02T05:59:35.377Z",
+        "updatedAt": "2026-10-02T05:59:35.377Z",
+        "storagePath": "/api/documents/doc-1790920775377/file"
+      }
+    ],
+    [
+      "doc-1790920838909",
+      {
+        "id": "doc-1790920838909",
+        "userId": "user-ashutosh",
+        "subjectId": "subj-1",
+        "title": "Operating Systems Scheduling",
+        "fileName": "Operating_Systems_Scheduling.pdf",
+        "fileSize": 778,
+        "pageCount": 1,
+        "status": "ready",
+        "createdAt": "2026-10-02T06:00:38.909Z",
+        "updatedAt": "2026-10-02T06:00:38.909Z",
+        "storagePath": "/api/documents/doc-1790920838909/file"
+      }
+    ],
+    [
+      "doc-1790920863624",
+      {
+        "id": "doc-1790920863624",
+        "userId": "user-ashutosh",
+        "subjectId": "subj-1",
+        "title": "Operating Systems Scheduling",
+        "fileName": "Operating_Systems_Scheduling.pdf",
+        "fileSize": 778,
+        "pageCount": 1,
+        "status": "ready",
+        "createdAt": "2026-10-02T06:01:03.624Z",
+        "updatedAt": "2026-10-02T06:01:03.624Z",
+        "storagePath": "/api/documents/doc-1790920863624/file"
+      }
+    ]
+  ],
+  "documentPages": [
+    [
+      "engineering-physics",
+      [
+        {
+          "id": "p-page-1",
+          "documentId": "engineering-physics",
+          "pageNumber": 1,
+          "text": "Module 1: Semiconductor Physics. Band Theory of Solids: Formation of energy bands, valence band, conduction band, and forbidden energy gap. Intrinsic semiconductors: Carrier concentration, Fermi level position at T = 0K and T > 0K. Extrinsic semiconductors: N-type and P-type doping, donor and acceptor energy states.",
+          "hasImages": true
+        },
+        {
+          "id": "p-page-2",
+          "documentId": "engineering-physics",
+          "pageNumber": 2,
+          "text": "Carrier Transport Phenomena: Drift velocity, mobility, conductivity, and Einstein relation (D/μ = kT/q). Continuity equation and Hall Effect. The Hall coefficient R_H = 1/(n*q) is used to determine semiconductor type and carrier density.",
+          "hasImages": true
+        },
+        {
+          "id": "p-page-3",
+          "documentId": "engineering-physics",
+          "pageNumber": 3,
+          "text": "PN Junction Diode: Formation of depletion region, built-in barrier potential V_bi = (kT/q) * ln(N_A * N_D / n_i^2). Forward bias: narrowing of depletion layer, exponential diffusion current. Reverse bias: widening of depletion layer, reverse saturation current I_0. Diode equation: I = I_0 * (exp(qV / ηkT) - 1).",
+          "hasImages": true
+        },
+        {
+          "id": "p-page-4",
+          "documentId": "engineering-physics",
+          "pageNumber": 4,
+          "text": "Breakdown Mechanisms in PN Junctions: 1. Zener Breakdown: Occurs in heavily doped junctions with narrow depletion region (< 10 nm) under moderate reverse voltage (< 6V). High electric field causes direct tunneling of electrons from valence to conduction band. 2. Avalanche Breakdown: Occurs in lightly doped junctions with wider depletion region under higher reverse voltages (> 6V). High kinetic energy causes impact ionization.",
+          "hasImages": true
+        },
+        {
+          "id": "p-page-5",
+          "documentId": "engineering-physics",
+          "pageNumber": 5,
+          "text": "Optoelectronic Devices: Light Emitting Diode (LED) converts electrical energy to light via radiative spontaneous recombination in direct bandgap semiconductors (e.g. GaAs, GaP). Photodiode operates in reverse bias where incident photons generate electron-hole pairs, causing proportional photocurrent I_p = R * P_opt.",
+          "hasImages": true
+        },
+        {
+          "id": "p-page-6",
+          "documentId": "engineering-physics",
+          "pageNumber": 6,
+          "text": "Module 2: Laser Physics. Absorption, Spontaneous Emission, Stimulated Emission. Einstein A and B coefficients. Population Inversion and Pumping methods. Ruby laser (3-level solid-state) and Helium-Neon laser (4-level gas laser, 632.8 nm red output). Optical resonators and coherence length.",
+          "hasImages": true
+        }
+      ]
+    ],
+    [
+      "data-structures",
+      [
+        {
+          "id": "dsa-page-1",
+          "documentId": "data-structures",
+          "pageNumber": 1,
+          "text": "Module 1: Advanced Graph Algorithms. Single-Source Shortest Paths: Dijkstra's Algorithm uses a priority queue / min-heap with time complexity O((V + E) log V). It requires non-negative edge weights. Bellman-Ford Algorithm computes single-source shortest paths in O(V * E) time, handling negative edge weights and detecting negative weight cycles if any distance can still be relaxed after V - 1 iterations. All-Pairs Shortest Path: Floyd-Warshall uses dynamic programming with recurrence dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]) in O(V^3) time.",
+          "hasImages": true
+        },
+        {
+          "id": "dsa-page-2",
+          "documentId": "data-structures",
+          "pageNumber": 2,
+          "text": "Module 2: Dynamic Programming Paradigms. Two key properties: 1. Optimal Substructure (an optimal solution contains optimal solutions to subproblems), 2. Overlapping Subproblems (subproblems are revisited multiple times). In the 0/1 Knapsack Problem: given weights w[i] and values v[i], dp[i][w] = max(dp[i-1][w], dp[i-1][w - w[i]] + v[i]). Space complexity can be optimized from O(N * W) to O(W) by iterating capacity backwards. Longest Common Subsequence (LCS) has O(M * N) complexity.",
+          "hasImages": true
+        },
+        {
+          "id": "dsa-page-3",
+          "documentId": "data-structures",
+          "pageNumber": 3,
+          "text": "Module 3: Self-Balancing Binary Search Trees. AVL Trees: Enforces balance factor BF = height(left) - height(right) in {-1, 0, 1}. Four rotation cases restore balance in O(1) time: Left-Left (Right Rotation), Right-Right (Left Rotation), Left-Right (LR double rotation), and Right-Left (RL double rotation). Maximum AVL height is strictly bounded by 1.44 * log2(N + 2). Red-Black Trees maintain black-height invariants and require at most 2 rotations per insertion.",
+          "hasImages": true
+        },
+        {
+          "id": "dsa-page-4",
+          "documentId": "data-structures",
+          "pageNumber": 4,
+          "text": "Module 4: Heaps & Priority Queues. Binary Max-Heap: Complete binary tree satisfying A[parent(i)] >= A[i]. Bottom-up heap construction (heapify) on an array of size N runs in linear time O(N), not O(N log N), because sum_{h=0}^{log N} (h / 2^h) converges to 2. Extract-Max and Insert operations take O(log N). Priority queues are central to greedy algorithms like Prim's Minimum Spanning Tree (MST) and Huffman Coding.",
+          "hasImages": true
+        },
+        {
+          "id": "dsa-page-5",
+          "documentId": "data-structures",
+          "pageNumber": 5,
+          "text": "Module 5: String Matching & Disjoint Set Union (DSU). Knuth-Morris-Pratt (KMP) Algorithm: Avoids backtracking by precomputing the Longest Proper Prefix which is also a Suffix (LPS array or π-table) in O(M) time, giving total matching time O(N + M). Disjoint Set Union (Union-Find): With Union by Rank and Path Compression heuristics, any sequence of M operations on N elements runs in O(M * α(N)) time, where α is the extremely slow-growing inverse Ackermann function.",
+          "hasImages": true
+        }
+      ]
+    ],
+    [
+      "mathematics-iii",
+      [
+        {
+          "id": "math-page-1",
+          "documentId": "mathematics-iii",
+          "pageNumber": 1,
+          "text": "Module 1: Laplace Transforms & Applications. Definition: L{f(t)} = F(s) = \\int_0^\\infty e^{-st} f(t) dt for s > 0. Linearity and First Shifting Property: L{e^{at} f(t)} = F(s - a). Second Shifting Property (Heaviside unit step function): L{f(t - a) u(t - a)} = e^{-as} F(s). Transforms of derivatives: L{f'(t)} = s F(s) - f(0) and L{f''(t)} = s^2 F(s) - s f(0) - f'(0). Convolution Theorem: L{(f * g)(t)} = F(s) * G(s). Used for solving linear differential equations with initial boundary conditions.",
+          "hasImages": true
+        },
+        {
+          "id": "math-page-2",
+          "documentId": "mathematics-iii",
+          "pageNumber": 2,
+          "text": "Module 2: Fourier Series & Transforms. Fourier series expansion of periodic function f(x) of period 2L: f(x) = a_0/2 + \\sum_{n=1}^\\infty [a_n cos(nπx/L) + b_n sin(nπx/L)]. Euler's formulas for Fourier coefficients: a_0 = (1/L) \\int_{-L}^L f(x) dx, a_n = (1/L) \\int_{-L}^L f(x) cos(nπx/L) dx, b_n = (1/L) \\int_{-L}^L f(x) sin(nπx/L) dx. Dirichlet conditions: f(x) must be bounded, piecewise continuous, with a finite number of maxima and minima.",
+          "hasImages": true
+        },
+        {
+          "id": "math-page-3",
+          "documentId": "mathematics-iii",
+          "pageNumber": 3,
+          "text": "Module 3: Partial Differential Equations (PDEs). Classification of second-order PDEs: B^2 - 4AC < 0 (Elliptic, e.g. Laplace equation ∇^2 u = 0), B^2 - 4AC = 0 (Parabolic, e.g. Heat equation ∂u/∂t = c^2 ∂^2u/∂x^2), B^2 - 4AC > 0 (Hyperbolic, e.g. One-dimensional Wave equation ∂^2u/∂t^2 = c^2 ∂^2u/∂x^2). Method of Separation of Variables: u(x, t) = X(x) * T(t) leads to ordinary differential equations with boundary eigenvalues.",
+          "hasImages": true
+        },
+        {
+          "id": "math-page-4",
+          "documentId": "mathematics-iii",
+          "pageNumber": 4,
+          "text": "Module 4: Complex Variables & Analytic Functions. A complex function f(z) = u(x, y) + i v(x, y) is analytic if it satisfies the Cauchy-Riemann Equations: ∂u/∂x = ∂v/∂y and ∂u/∂y = -∂v/∂x, with continuous partial derivatives. Harmonic functions: ∇^2 u = 0 and ∇^2 v = 0. Cauchy Integral Theorem: ∮_C f(z) dz = 0 for any closed contour in a simply connected domain. Residue Theorem: ∮_C f(z) dz = 2πi * \\sum Res(f, z_k).",
+          "hasImages": true
+        }
+      ]
+    ],
+    [
+      "digital-electronics",
+      [
+        {
+          "id": "de-page-1",
+          "documentId": "digital-electronics",
+          "pageNumber": 1,
+          "text": "Module 1: Boolean Algebra & Karnaugh Maps (K-Maps). Axiomatic laws of Boolean algebra: De Morgan's laws (A + B)' = A' B' and (A B)' = A' + B'. Sum of Products (SOP) and Product of Sums (POS) standard canonical forms. Karnaugh Map minimization: 2, 3, and 4-variable K-maps with Gray code cell numbering. Grouping rules: adjacent cells in powers of 2 (1, 2, 4, 8, 16) with rolling boundary adjacency. Don't care conditions (X) can be treated as 1 or 0 to form larger groups and minimize logic gates.",
+          "hasImages": true
+        },
+        {
+          "id": "de-page-2",
+          "documentId": "digital-electronics",
+          "pageNumber": 2,
+          "text": "Module 2: Combinational Logic Circuits. Design of Adders: Half Adder (Sum = A ⊕ B, Carry = A B) and Full Adder (Sum = A ⊕ B ⊕ C_in, Carry = A B + C_in(A ⊕ B)). Lookahead Carry Generator: reduces propagation delay from O(N) in ripple-carry adders to O(1) using carry generate G_i = A_i B_i and carry propagate P_i = A_i ⊕ B_i. Multiplexers (MUX): 2^n-to-1 multiplexers as universal logic function generators. Decoders: 3-to-8 decoder with active-low enable and priority encoders.",
+          "hasImages": true
+        },
+        {
+          "id": "de-page-3",
+          "documentId": "digital-electronics",
+          "pageNumber": 3,
+          "text": "Module 3: Flip-Flops & Sequential Logic. Latches vs Flip-Flops: Level-triggered vs edge-triggered storage elements. SR Flip-Flop: Forbidden invalid state when S=1, R=1. JK Flip-Flop: Eliminates invalid state by toggling (Q_next = Q') when J=1, K=1. Race-around condition in JK flip-flop occurs when propagation delay t_pd < clock pulse width t_w. Resolved using Master-Slave JK Flip-Flop or Edge-Triggered Flip-Flops. D Flip-Flop (Data/Delay, Q_next = D) and T Flip-Flop (Toggle, Q_next = T ⊕ Q). Excitation tables for flip-flop conversions.",
+          "hasImages": true
+        },
+        {
+          "id": "de-page-4",
+          "documentId": "digital-electronics",
+          "pageNumber": 4,
+          "text": "Module 4: Counters & Finite State Machines (FSM). Asynchronous (Ripple) Counters: Clock applied only to first stage, subsequent stages clocked by previous flip-flop output, accumulating propagation delay. Synchronous Counters: Common clock applied simultaneously to all flip-flops, eliminating cumulative delay. Design of Mod-N and BCD Decade Counters using state tables and K-maps. Finite State Machines: Mealy Machine (outputs depend on both current state and current inputs) vs Moore Machine (outputs depend solely on current state). State reduction and state assignment techniques.",
+          "hasImages": true
+        }
+      ]
+    ],
+    [
+      "doc-1790920691497",
+      [
+        {
+          "id": "p-doc-1790920691497-1",
+          "documentId": "doc-1790920691497",
+          "pageNumber": 1,
+          "text": "Operating Systems and Process Scheduling.\nProcess Control Block: A data structure maintaining process execution context.\nPreemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\nThroughput = Completed Processes / Total Elapsed Time",
+          "hasImages": false
+        }
+      ]
+    ],
+    [
+      "doc-1790920775377",
+      [
+        {
+          "id": "p-doc-1790920775377-1",
+          "documentId": "doc-1790920775377",
+          "pageNumber": 1,
+          "text": "Operating Systems and Process Scheduling.\nProcess Control Block: A data structure maintaining process execution context.\nPreemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\nThroughput = Completed Processes / Total Elapsed Time",
+          "hasImages": false
+        }
+      ]
+    ],
+    [
+      "doc-1790920838909",
+      [
+        {
+          "id": "p-doc-1790920838909-1",
+          "documentId": "doc-1790920838909",
+          "pageNumber": 1,
+          "text": "Operating Systems and Process Scheduling.\nProcess Control Block: A data structure maintaining process execution context.\nPreemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\nThroughput = Completed Processes / Total Elapsed Time",
+          "hasImages": false
+        }
+      ]
+    ],
+    [
+      "doc-1790920863624",
+      [
+        {
+          "id": "p-doc-1790920863624-1",
+          "documentId": "doc-1790920863624",
+          "pageNumber": 1,
+          "text": "Operating Systems and Process Scheduling.\nProcess Control Block: A data structure maintaining process execution context.\nPreemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\nThroughput = Completed Processes / Total Elapsed Time",
+          "hasImages": false
+        }
+      ]
+    ]
+  ],
+  "documentChunks": [
+    [
+      "engineering-physics",
+      [
+        {
+          "id": "chunk-phys-1",
+          "documentId": "engineering-physics",
+          "pageNumber": 1,
+          "chunkIndex": 0,
+          "text": "Module 1: Semiconductor Physics. Band Theory of Solids: Formation of energy bands, valence band, conduction band, and forbidden energy gap. Intrinsic semiconductors: Carrier concentration, Fermi level position at T = 0K and T > 0K. Extrinsic semiconductors: N-type and P-type doping, donor and acceptor energy states.",
+          "keywords": [
+            "semiconductor",
+            "pn junction",
+            "zener diode",
+            "fermi level",
+            "laser",
+            "hall effect"
+          ]
+        },
+        {
+          "id": "chunk-phys-2",
+          "documentId": "engineering-physics",
+          "pageNumber": 2,
+          "chunkIndex": 1,
+          "text": "Carrier Transport Phenomena: Drift velocity, mobility, conductivity, and Einstein relation (D/μ = kT/q). Continuity equation and Hall Effect. The Hall coefficient R_H = 1/(n*q) is used to determine semiconductor type and carrier density.",
+          "keywords": [
+            "semiconductor",
+            "pn junction",
+            "zener diode",
+            "fermi level",
+            "laser",
+            "hall effect"
+          ]
+        },
+        {
+          "id": "chunk-phys-3",
+          "documentId": "engineering-physics",
+          "pageNumber": 3,
+          "chunkIndex": 2,
+          "text": "PN Junction Diode: Formation of depletion region, built-in barrier potential V_bi = (kT/q) * ln(N_A * N_D / n_i^2). Forward bias: narrowing of depletion layer, exponential diffusion current. Reverse bias: widening of depletion layer, reverse saturation current I_0. Diode equation: I = I_0 * (exp(qV / ηkT) - 1).",
+          "keywords": [
+            "semiconductor",
+            "pn junction",
+            "zener diode",
+            "fermi level",
+            "laser",
+            "hall effect"
+          ]
+        },
+        {
+          "id": "chunk-phys-4",
+          "documentId": "engineering-physics",
+          "pageNumber": 4,
+          "chunkIndex": 3,
+          "text": "Breakdown Mechanisms in PN Junctions: 1. Zener Breakdown: Occurs in heavily doped junctions with narrow depletion region (< 10 nm) under moderate reverse voltage (< 6V). High electric field causes direct tunneling of electrons from valence to conduction band. 2. Avalanche Breakdown: Occurs in lightly doped junctions with wider depletion region under higher reverse voltages (> 6V). High kinetic energy causes impact ionization.",
+          "keywords": [
+            "semiconductor",
+            "pn junction",
+            "zener diode",
+            "fermi level",
+            "laser",
+            "hall effect"
+          ]
+        },
+        {
+          "id": "chunk-phys-5",
+          "documentId": "engineering-physics",
+          "pageNumber": 5,
+          "chunkIndex": 4,
+          "text": "Optoelectronic Devices: Light Emitting Diode (LED) converts electrical energy to light via radiative spontaneous recombination in direct bandgap semiconductors (e.g. GaAs, GaP). Photodiode operates in reverse bias where incident photons generate electron-hole pairs, causing proportional photocurrent I_p = R * P_opt.",
+          "keywords": [
+            "semiconductor",
+            "pn junction",
+            "zener diode",
+            "fermi level",
+            "laser",
+            "hall effect"
+          ]
+        },
+        {
+          "id": "chunk-phys-6",
+          "documentId": "engineering-physics",
+          "pageNumber": 6,
+          "chunkIndex": 5,
+          "text": "Module 2: Laser Physics. Absorption, Spontaneous Emission, Stimulated Emission. Einstein A and B coefficients. Population Inversion and Pumping methods. Ruby laser (3-level solid-state) and Helium-Neon laser (4-level gas laser, 632.8 nm red output). Optical resonators and coherence length.",
+          "keywords": [
+            "semiconductor",
+            "pn junction",
+            "zener diode",
+            "fermi level",
+            "laser",
+            "hall effect"
+          ]
+        }
+      ]
+    ],
+    [
+      "data-structures",
+      [
+        {
+          "id": "chunk-dsa-1",
+          "documentId": "data-structures",
+          "pageNumber": 1,
+          "chunkIndex": 0,
+          "text": "Module 1: Advanced Graph Algorithms. Single-Source Shortest Paths: Dijkstra's Algorithm uses a priority queue / min-heap with time complexity O((V + E) log V). It requires non-negative edge weights. Bellman-Ford Algorithm computes single-source shortest paths in O(V * E) time, handling negative edge weights and detecting negative weight cycles if any distance can still be relaxed after V - 1 iterations. All-Pairs Shortest Path: Floyd-Warshall uses dynamic programming with recurrence dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]) in O(V^3) time.",
+          "keywords": [
+            "graph",
+            "dijkstra",
+            "bellman-ford",
+            "knapsack",
+            "avl tree",
+            "heap",
+            "kmp"
+          ]
+        },
+        {
+          "id": "chunk-dsa-2",
+          "documentId": "data-structures",
+          "pageNumber": 2,
+          "chunkIndex": 1,
+          "text": "Module 2: Dynamic Programming Paradigms. Two key properties: 1. Optimal Substructure (an optimal solution contains optimal solutions to subproblems), 2. Overlapping Subproblems (subproblems are revisited multiple times). In the 0/1 Knapsack Problem: given weights w[i] and values v[i], dp[i][w] = max(dp[i-1][w], dp[i-1][w - w[i]] + v[i]). Space complexity can be optimized from O(N * W) to O(W) by iterating capacity backwards. Longest Common Subsequence (LCS) has O(M * N) complexity.",
+          "keywords": [
+            "graph",
+            "dijkstra",
+            "bellman-ford",
+            "knapsack",
+            "avl tree",
+            "heap",
+            "kmp"
+          ]
+        },
+        {
+          "id": "chunk-dsa-3",
+          "documentId": "data-structures",
+          "pageNumber": 3,
+          "chunkIndex": 2,
+          "text": "Module 3: Self-Balancing Binary Search Trees. AVL Trees: Enforces balance factor BF = height(left) - height(right) in {-1, 0, 1}. Four rotation cases restore balance in O(1) time: Left-Left (Right Rotation), Right-Right (Left Rotation), Left-Right (LR double rotation), and Right-Left (RL double rotation). Maximum AVL height is strictly bounded by 1.44 * log2(N + 2). Red-Black Trees maintain black-height invariants and require at most 2 rotations per insertion.",
+          "keywords": [
+            "graph",
+            "dijkstra",
+            "bellman-ford",
+            "knapsack",
+            "avl tree",
+            "heap",
+            "kmp"
+          ]
+        },
+        {
+          "id": "chunk-dsa-4",
+          "documentId": "data-structures",
+          "pageNumber": 4,
+          "chunkIndex": 3,
+          "text": "Module 4: Heaps & Priority Queues. Binary Max-Heap: Complete binary tree satisfying A[parent(i)] >= A[i]. Bottom-up heap construction (heapify) on an array of size N runs in linear time O(N), not O(N log N), because sum_{h=0}^{log N} (h / 2^h) converges to 2. Extract-Max and Insert operations take O(log N). Priority queues are central to greedy algorithms like Prim's Minimum Spanning Tree (MST) and Huffman Coding.",
+          "keywords": [
+            "graph",
+            "dijkstra",
+            "bellman-ford",
+            "knapsack",
+            "avl tree",
+            "heap",
+            "kmp"
+          ]
+        },
+        {
+          "id": "chunk-dsa-5",
+          "documentId": "data-structures",
+          "pageNumber": 5,
+          "chunkIndex": 4,
+          "text": "Module 5: String Matching & Disjoint Set Union (DSU). Knuth-Morris-Pratt (KMP) Algorithm: Avoids backtracking by precomputing the Longest Proper Prefix which is also a Suffix (LPS array or π-table) in O(M) time, giving total matching time O(N + M). Disjoint Set Union (Union-Find): With Union by Rank and Path Compression heuristics, any sequence of M operations on N elements runs in O(M * α(N)) time, where α is the extremely slow-growing inverse Ackermann function.",
+          "keywords": [
+            "graph",
+            "dijkstra",
+            "bellman-ford",
+            "knapsack",
+            "avl tree",
+            "heap",
+            "kmp"
+          ]
+        }
+      ]
+    ],
+    [
+      "mathematics-iii",
+      [
+        {
+          "id": "chunk-math-1",
+          "documentId": "mathematics-iii",
+          "pageNumber": 1,
+          "chunkIndex": 0,
+          "text": "Module 1: Laplace Transforms & Applications. Definition: L{f(t)} = F(s) = \\int_0^\\infty e^{-st} f(t) dt for s > 0. Linearity and First Shifting Property: L{e^{at} f(t)} = F(s - a). Second Shifting Property (Heaviside unit step function): L{f(t - a) u(t - a)} = e^{-as} F(s). Transforms of derivatives: L{f'(t)} = s F(s) - f(0) and L{f''(t)} = s^2 F(s) - s f(0) - f'(0). Convolution Theorem: L{(f * g)(t)} = F(s) * G(s). Used for solving linear differential equations with initial boundary conditions.",
+          "keywords": [
+            "laplace",
+            "fourier",
+            "pde",
+            "cauchy-riemann",
+            "heat equation",
+            "wave equation"
+          ]
+        },
+        {
+          "id": "chunk-math-2",
+          "documentId": "mathematics-iii",
+          "pageNumber": 2,
+          "chunkIndex": 1,
+          "text": "Module 2: Fourier Series & Transforms. Fourier series expansion of periodic function f(x) of period 2L: f(x) = a_0/2 + \\sum_{n=1}^\\infty [a_n cos(nπx/L) + b_n sin(nπx/L)]. Euler's formulas for Fourier coefficients: a_0 = (1/L) \\int_{-L}^L f(x) dx, a_n = (1/L) \\int_{-L}^L f(x) cos(nπx/L) dx, b_n = (1/L) \\int_{-L}^L f(x) sin(nπx/L) dx. Dirichlet conditions: f(x) must be bounded, piecewise continuous, with a finite number of maxima and minima.",
+          "keywords": [
+            "laplace",
+            "fourier",
+            "pde",
+            "cauchy-riemann",
+            "heat equation",
+            "wave equation"
+          ]
+        },
+        {
+          "id": "chunk-math-3",
+          "documentId": "mathematics-iii",
+          "pageNumber": 3,
+          "chunkIndex": 2,
+          "text": "Module 3: Partial Differential Equations (PDEs). Classification of second-order PDEs: B^2 - 4AC < 0 (Elliptic, e.g. Laplace equation ∇^2 u = 0), B^2 - 4AC = 0 (Parabolic, e.g. Heat equation ∂u/∂t = c^2 ∂^2u/∂x^2), B^2 - 4AC > 0 (Hyperbolic, e.g. One-dimensional Wave equation ∂^2u/∂t^2 = c^2 ∂^2u/∂x^2). Method of Separation of Variables: u(x, t) = X(x) * T(t) leads to ordinary differential equations with boundary eigenvalues.",
+          "keywords": [
+            "laplace",
+            "fourier",
+            "pde",
+            "cauchy-riemann",
+            "heat equation",
+            "wave equation"
+          ]
+        },
+        {
+          "id": "chunk-math-4",
+          "documentId": "mathematics-iii",
+          "pageNumber": 4,
+          "chunkIndex": 3,
+          "text": "Module 4: Complex Variables & Analytic Functions. A complex function f(z) = u(x, y) + i v(x, y) is analytic if it satisfies the Cauchy-Riemann Equations: ∂u/∂x = ∂v/∂y and ∂u/∂y = -∂v/∂x, with continuous partial derivatives. Harmonic functions: ∇^2 u = 0 and ∇^2 v = 0. Cauchy Integral Theorem: ∮_C f(z) dz = 0 for any closed contour in a simply connected domain. Residue Theorem: ∮_C f(z) dz = 2πi * \\sum Res(f, z_k).",
+          "keywords": [
+            "laplace",
+            "fourier",
+            "pde",
+            "cauchy-riemann",
+            "heat equation",
+            "wave equation"
+          ]
+        }
+      ]
+    ],
+    [
+      "digital-electronics",
+      [
+        {
+          "id": "chunk-de-1",
+          "documentId": "digital-electronics",
+          "pageNumber": 1,
+          "chunkIndex": 0,
+          "text": "Module 1: Boolean Algebra & Karnaugh Maps (K-Maps). Axiomatic laws of Boolean algebra: De Morgan's laws (A + B)' = A' B' and (A B)' = A' + B'. Sum of Products (SOP) and Product of Sums (POS) standard canonical forms. Karnaugh Map minimization: 2, 3, and 4-variable K-maps with Gray code cell numbering. Grouping rules: adjacent cells in powers of 2 (1, 2, 4, 8, 16) with rolling boundary adjacency. Don't care conditions (X) can be treated as 1 or 0 to form larger groups and minimize logic gates.",
+          "keywords": [
+            "k-map",
+            "flip-flop",
+            "multiplexer",
+            "counter",
+            "fsm",
+            "boolean algebra"
+          ]
+        },
+        {
+          "id": "chunk-de-2",
+          "documentId": "digital-electronics",
+          "pageNumber": 2,
+          "chunkIndex": 1,
+          "text": "Module 2: Combinational Logic Circuits. Design of Adders: Half Adder (Sum = A ⊕ B, Carry = A B) and Full Adder (Sum = A ⊕ B ⊕ C_in, Carry = A B + C_in(A ⊕ B)). Lookahead Carry Generator: reduces propagation delay from O(N) in ripple-carry adders to O(1) using carry generate G_i = A_i B_i and carry propagate P_i = A_i ⊕ B_i. Multiplexers (MUX): 2^n-to-1 multiplexers as universal logic function generators. Decoders: 3-to-8 decoder with active-low enable and priority encoders.",
+          "keywords": [
+            "k-map",
+            "flip-flop",
+            "multiplexer",
+            "counter",
+            "fsm",
+            "boolean algebra"
+          ]
+        },
+        {
+          "id": "chunk-de-3",
+          "documentId": "digital-electronics",
+          "pageNumber": 3,
+          "chunkIndex": 2,
+          "text": "Module 3: Flip-Flops & Sequential Logic. Latches vs Flip-Flops: Level-triggered vs edge-triggered storage elements. SR Flip-Flop: Forbidden invalid state when S=1, R=1. JK Flip-Flop: Eliminates invalid state by toggling (Q_next = Q') when J=1, K=1. Race-around condition in JK flip-flop occurs when propagation delay t_pd < clock pulse width t_w. Resolved using Master-Slave JK Flip-Flop or Edge-Triggered Flip-Flops. D Flip-Flop (Data/Delay, Q_next = D) and T Flip-Flop (Toggle, Q_next = T ⊕ Q). Excitation tables for flip-flop conversions.",
+          "keywords": [
+            "k-map",
+            "flip-flop",
+            "multiplexer",
+            "counter",
+            "fsm",
+            "boolean algebra"
+          ]
+        },
+        {
+          "id": "chunk-de-4",
+          "documentId": "digital-electronics",
+          "pageNumber": 4,
+          "chunkIndex": 3,
+          "text": "Module 4: Counters & Finite State Machines (FSM). Asynchronous (Ripple) Counters: Clock applied only to first stage, subsequent stages clocked by previous flip-flop output, accumulating propagation delay. Synchronous Counters: Common clock applied simultaneously to all flip-flops, eliminating cumulative delay. Design of Mod-N and BCD Decade Counters using state tables and K-maps. Finite State Machines: Mealy Machine (outputs depend on both current state and current inputs) vs Moore Machine (outputs depend solely on current state). State reduction and state assignment techniques.",
+          "keywords": [
+            "k-map",
+            "flip-flop",
+            "multiplexer",
+            "counter",
+            "fsm",
+            "boolean algebra"
+          ]
+        }
+      ]
+    ],
+    [
+      "doc-1790920691497",
+      [
+        {
+          "id": "chunk-doc-1790920691497-p1-0",
+          "documentId": "doc-1790920691497",
+          "pageNumber": 1,
+          "chunkIndex": 0,
+          "text": "Operating Systems and Process Scheduling.\nProcess Control Block: A data structure maintaining process execution context.\nPreemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\nThroughput = Completed Processes / Total Elapsed Time",
+          "keywords": [
+            "operating",
+            "systems",
+            "process",
+            "scheduling",
+            "control",
+            "block",
+            "data",
+            "structure",
+            "maintaining",
+            "execution",
+            "context",
+            "preemptive",
+            "cpu",
+            "allocates",
+            "time"
+          ]
+        }
+      ]
+    ],
+    [
+      "doc-1790920775377",
+      [
+        {
+          "id": "chunk-doc-1790920775377-p1-0",
+          "documentId": "doc-1790920775377",
+          "pageNumber": 1,
+          "chunkIndex": 0,
+          "text": "Operating Systems and Process Scheduling.\nProcess Control Block: A data structure maintaining process execution context.\nPreemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\nThroughput = Completed Processes / Total Elapsed Time",
+          "keywords": [
+            "operating",
+            "systems",
+            "process",
+            "scheduling",
+            "control",
+            "block",
+            "data",
+            "structure",
+            "maintaining",
+            "execution",
+            "context",
+            "preemptive",
+            "cpu",
+            "allocates",
+            "time"
+          ]
+        }
+      ]
+    ],
+    [
+      "doc-1790920838909",
+      [
+        {
+          "id": "chunk-doc-1790920838909-p1-0",
+          "documentId": "doc-1790920838909",
+          "pageNumber": 1,
+          "chunkIndex": 0,
+          "text": "Operating Systems and Process Scheduling.\nProcess Control Block: A data structure maintaining process execution context.\nPreemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\nThroughput = Completed Processes / Total Elapsed Time",
+          "keywords": [
+            "operating",
+            "systems",
+            "process",
+            "scheduling",
+            "control",
+            "block",
+            "data",
+            "structure",
+            "maintaining",
+            "execution",
+            "context",
+            "preemptive",
+            "cpu",
+            "allocates",
+            "time"
+          ]
+        }
+      ]
+    ],
+    [
+      "doc-1790920863624",
+      [
+        {
+          "id": "chunk-doc-1790920863624-p1-0",
+          "documentId": "doc-1790920863624",
+          "pageNumber": 1,
+          "chunkIndex": 0,
+          "text": "Operating Systems and Process Scheduling.\nProcess Control Block: A data structure maintaining process execution context.\nPreemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\nThroughput = Completed Processes / Total Elapsed Time",
+          "keywords": [
+            "operating",
+            "systems",
+            "process",
+            "scheduling",
+            "control",
+            "block",
+            "data",
+            "structure",
+            "maintaining",
+            "execution",
+            "context",
+            "preemptive",
+            "cpu",
+            "allocates",
+            "time"
+          ]
+        }
+      ]
+    ]
+  ],
+  "topics": [
+    [
+      "engineering-physics",
+      [
+        {
+          "id": "top-phys-1",
+          "documentId": "engineering-physics",
+          "name": "PN Junction & Depletion Region",
+          "documentImportance": 95,
+          "examFrequency": 100,
+          "weightagePercentage": 28,
+          "examYears": [
+            2023,
+            2024,
+            2025
+          ],
+          "status": "studying",
+          "keyNotes": "Repeated 10-mark question every semester. Always prepare the V-I characteristics and built-in potential derivation."
+        },
+        {
+          "id": "top-phys-2",
+          "documentId": "engineering-physics",
+          "name": "Zener Diode & Voltage Regulator",
+          "documentImportance": 90,
+          "examFrequency": 75,
+          "weightagePercentage": 22,
+          "examYears": [
+            2023,
+            2025
+          ],
+          "status": "to_study",
+          "keyNotes": "Frequently asked as 5-mark comparison with Avalanche breakdown and circuit diagram as shunt regulator."
+        },
+        {
+          "id": "top-phys-3",
+          "documentId": "engineering-physics",
+          "name": "Hall Effect & Applications",
+          "documentImportance": 75,
+          "examFrequency": 67,
+          "weightagePercentage": 18,
+          "examYears": [
+            2023,
+            2024
+          ],
+          "status": "to_study",
+          "keyNotes": "Derivation of Hall voltage V_H and Hall coefficient R_H is high yield for numerical questions."
+        },
+        {
+          "id": "top-phys-4",
+          "documentId": "engineering-physics",
+          "name": "He-Ne & Ruby Laser Systems",
+          "documentImportance": 65,
+          "examFrequency": 50,
+          "weightagePercentage": 15,
+          "examYears": [
+            2024,
+            2025
+          ],
+          "status": "to_study",
+          "keyNotes": "Energy level diagram of He-Ne laser and role of Helium atoms in resonant excitation transfer."
+        },
+        {
+          "id": "top-phys-5",
+          "documentId": "engineering-physics",
+          "name": "Photodiode & LED Principles",
+          "documentImportance": 60,
+          "examFrequency": 45,
+          "weightagePercentage": 17,
+          "examYears": [
+            2023,
+            2025
+          ],
+          "status": "mastered",
+          "keyNotes": "Focus on direct vs indirect bandgap semiconductors and V-I quadrant of photodiode (3rd quadrant)."
+        }
+      ]
+    ],
+    [
+      "data-structures",
+      [
+        {
+          "id": "top-dsa-1",
+          "documentId": "data-structures",
+          "name": "Graph Shortest Paths & Negative Cycles",
+          "documentImportance": 95,
+          "examFrequency": 100,
+          "weightagePercentage": 26,
+          "examYears": [
+            2023,
+            2024,
+            2025
+          ],
+          "status": "studying",
+          "keyNotes": "Frequently asked 10-mark question: trace Dijkstra step-by-step or prove Bellman-Ford negative cycle detection."
+        },
+        {
+          "id": "top-dsa-2",
+          "documentId": "data-structures",
+          "name": "0/1 Knapsack & Dynamic Programming",
+          "documentImportance": 90,
+          "examFrequency": 80,
+          "weightagePercentage": 24,
+          "examYears": [
+            2023,
+            2024
+          ],
+          "status": "to_study",
+          "keyNotes": "Always write both the state recurrence formula and the 2D DP table for 5 items."
+        },
+        {
+          "id": "top-dsa-3",
+          "documentId": "data-structures",
+          "name": "AVL Trees & Balance Rotations",
+          "documentImportance": 85,
+          "examFrequency": 75,
+          "weightagePercentage": 20,
+          "examYears": [
+            2024,
+            2025
+          ],
+          "status": "to_study",
+          "keyNotes": "Constructing an AVL tree by inserting 7-8 keys and drawing LL/LR rotations."
+        },
+        {
+          "id": "top-dsa-4",
+          "documentId": "data-structures",
+          "name": "Heap Construction & Priority Queues",
+          "documentImportance": 70,
+          "examFrequency": 60,
+          "weightagePercentage": 15,
+          "examYears": [
+            2023,
+            2025
+          ],
+          "status": "to_study",
+          "keyNotes": "Derivation of the O(N) linear time bound for bottom-up Build-Heap."
+        },
+        {
+          "id": "top-dsa-5",
+          "documentId": "data-structures",
+          "name": "KMP String Matching & LPS Table",
+          "documentImportance": 65,
+          "examFrequency": 50,
+          "weightagePercentage": 15,
+          "examYears": [
+            2024
+          ],
+          "status": "mastered",
+          "keyNotes": "Calculating the π-table (LPS array) for pattern strings."
+        }
+      ]
+    ],
+    [
+      "mathematics-iii",
+      [
+        {
+          "id": "top-math-1",
+          "documentId": "mathematics-iii",
+          "name": "Laplace Transforms & Differential Equations",
+          "documentImportance": 95,
+          "examFrequency": 100,
+          "weightagePercentage": 28,
+          "examYears": [
+            2023,
+            2024,
+            2025
+          ],
+          "status": "studying",
+          "keyNotes": "100% guaranteed 10-mark question: solve y'' + ay' + by = f(t) with initial values."
+        },
+        {
+          "id": "top-math-2",
+          "documentId": "mathematics-iii",
+          "name": "Fourier Series & Half-Range Expansions",
+          "documentImportance": 90,
+          "examFrequency": 85,
+          "weightagePercentage": 24,
+          "examYears": [
+            2023,
+            2024,
+            2025
+          ],
+          "status": "to_study",
+          "keyNotes": "Half-range cosine series of f(x) = x^2 and deduction of π^2 / 6."
+        },
+        {
+          "id": "top-math-3",
+          "documentId": "mathematics-iii",
+          "name": "Cauchy-Riemann Equations & Harmonic Conjugates",
+          "documentImportance": 85,
+          "examFrequency": 75,
+          "weightagePercentage": 22,
+          "examYears": [
+            2023,
+            2025
+          ],
+          "status": "to_study",
+          "keyNotes": "Given u(x, y), find harmonic conjugate v(x, y) and write f(z) in terms of z using Milne-Thomson."
+        },
+        {
+          "id": "top-math-4",
+          "documentId": "mathematics-iii",
+          "name": "1D Wave & Heat Equations (PDEs)",
+          "documentImportance": 80,
+          "examFrequency": 70,
+          "weightagePercentage": 26,
+          "examYears": [
+            2024,
+            2025
+          ],
+          "status": "to_study",
+          "keyNotes": "Vibrating string with fixed ends u(0, t) = u(L, t) = 0."
+        }
+      ]
+    ],
+    [
+      "digital-electronics",
+      [
+        {
+          "id": "top-de-1",
+          "documentId": "digital-electronics",
+          "name": "K-Map Minimization & Don't Cares",
+          "documentImportance": 95,
+          "examFrequency": 100,
+          "weightagePercentage": 25,
+          "examYears": [
+            2023,
+            2024,
+            2025
+          ],
+          "status": "studying",
+          "keyNotes": "4-variable K-Map with don't care conditions (X) and gate realization using universal NAND gates."
+        },
+        {
+          "id": "top-de-2",
+          "documentId": "digital-electronics",
+          "name": "Master-Slave JK Flip-Flop & Race Condition",
+          "documentImportance": 90,
+          "examFrequency": 90,
+          "weightagePercentage": 25,
+          "examYears": [
+            2023,
+            2024,
+            2025
+          ],
+          "status": "to_study",
+          "keyNotes": "Circuit diagram of Master-Slave JK with timing waveforms explaining race-around cure."
+        },
+        {
+          "id": "top-de-3",
+          "documentId": "digital-electronics",
+          "name": "Synchronous Counter Design (Mod-N)",
+          "documentImportance": 85,
+          "examFrequency": 80,
+          "weightagePercentage": 28,
+          "examYears": [
+            2023,
+            2024
+          ],
+          "status": "to_study",
+          "keyNotes": "Design a 3-bit synchronous up/down counter using T or JK flip-flops."
+        },
+        {
+          "id": "top-de-4",
+          "documentId": "digital-electronics",
+          "name": "Multiplexer (MUX) Logic Implementation",
+          "documentImportance": 75,
+          "examFrequency": 65,
+          "weightagePercentage": 22,
+          "examYears": [
+            2024,
+            2025
+          ],
+          "status": "mastered",
+          "keyNotes": "Implement 4-variable Boolean function using 8:1 MUX."
+        }
+      ]
+    ],
+    [
+      "doc-1790920691497",
+      [
+        {
+          "id": "top-doc-1790920691497-1",
+          "documentId": "doc-1790920691497",
+          "name": "Process Control Block",
+          "documentImportance": 90,
+          "examFrequency": 85,
+          "weightagePercentage": 25,
+          "examYears": [
+            2024,
+            2025
+          ],
+          "status": "studying",
+          "keyNotes": "A data structure maintaining process execution context...."
+        },
+        {
+          "id": "top-doc-1790920691497-2",
+          "documentId": "doc-1790920691497",
+          "name": "Preemptive Scheduling",
+          "documentImportance": 82,
+          "examFrequency": 78,
+          "weightagePercentage": 25,
+          "examYears": [
+            2024,
+            2025
+          ],
+          "status": "to_study",
+          "keyNotes": "CPU allocates time slices to ensure multi-tasking responsiveness...."
+        }
+      ]
+    ],
+    [
+      "doc-1790920775377",
+      [
+        {
+          "id": "top-doc-1790920775377-1",
+          "documentId": "doc-1790920775377",
+          "name": "Process Control Block",
+          "documentImportance": 90,
+          "examFrequency": 85,
+          "weightagePercentage": 25,
+          "examYears": [
+            2024,
+            2025
+          ],
+          "status": "studying",
+          "keyNotes": "A data structure maintaining process execution context...."
+        },
+        {
+          "id": "top-doc-1790920775377-2",
+          "documentId": "doc-1790920775377",
+          "name": "Preemptive Scheduling",
+          "documentImportance": 82,
+          "examFrequency": 78,
+          "weightagePercentage": 25,
+          "examYears": [
+            2024,
+            2025
+          ],
+          "status": "to_study",
+          "keyNotes": "CPU allocates time slices to ensure multi-tasking responsiveness...."
+        }
+      ]
+    ],
+    [
+      "doc-1790920838909",
+      [
+        {
+          "id": "top-doc-1790920838909-1",
+          "documentId": "doc-1790920838909",
+          "name": "Process Control Block",
+          "documentImportance": 90,
+          "examFrequency": 85,
+          "weightagePercentage": 25,
+          "examYears": [
+            2024,
+            2025
+          ],
+          "status": "studying",
+          "keyNotes": "A data structure maintaining process execution context...."
+        },
+        {
+          "id": "top-doc-1790920838909-2",
+          "documentId": "doc-1790920838909",
+          "name": "Preemptive Scheduling",
+          "documentImportance": 82,
+          "examFrequency": 78,
+          "weightagePercentage": 25,
+          "examYears": [
+            2024,
+            2025
+          ],
+          "status": "to_study",
+          "keyNotes": "CPU allocates time slices to ensure multi-tasking responsiveness...."
+        }
+      ]
+    ],
+    [
+      "doc-1790920863624",
+      [
+        {
+          "id": "top-doc-1790920863624-1",
+          "documentId": "doc-1790920863624",
+          "name": "Process Control Block",
+          "documentImportance": 90,
+          "examFrequency": 85,
+          "weightagePercentage": 25,
+          "examYears": [
+            2024,
+            2025
+          ],
+          "status": "studying",
+          "keyNotes": "A data structure maintaining process execution context...."
+        },
+        {
+          "id": "top-doc-1790920863624-2",
+          "documentId": "doc-1790920863624",
+          "name": "Preemptive Scheduling",
+          "documentImportance": 82,
+          "examFrequency": 78,
+          "weightagePercentage": 25,
+          "examYears": [
+            2024,
+            2025
+          ],
+          "status": "to_study",
+          "keyNotes": "CPU allocates time slices to ensure multi-tasking responsiveness...."
+        }
+      ]
+    ]
+  ],
+  "summaries": [
+    [
+      "engineering-physics",
+      {
+        "id": "sum-phys-1",
+        "documentId": "engineering-physics",
+        "quickSummary": "A comprehensive study document on solid-state semiconductor physics and lasers. Covers band theory, Fermi-Dirac statistics, PN junction operation under forward and reverse bias, detailed comparison of Zener vs. Avalanche breakdown mechanisms, optoelectronic devices (LEDs, Photodiodes), and stimulated emission in Ruby and He-Ne lasers.",
+        "detailedSummary": [
+          {
+            "chapter": "1. Band Theory & Carrier Dynamics",
+            "content": "Discusses valence and conduction bands, intrinsic vs extrinsic semiconductors, carrier concentration, drift/diffusion currents, and the Hall effect for experimental identification of charge carriers.",
+            "keyPoints": [
+              "Fermi level in intrinsic semiconductors lies midway between conduction and valence bands.",
+              "Hall coefficient R_H = 1 / (n*q) is negative for electrons (N-type) and positive for holes (P-type).",
+              "Einstein relation equates diffusivity and mobility: D / μ = kT / q."
+            ]
+          },
+          {
+            "chapter": "2. PN Junction & Breakdown Phenomena",
+            "content": "Explains depletion layer dynamics, contact potential derivation, Shockley diode equation, and a deep contrast between Zener breakdown (field emission) and Avalanche breakdown (impact ionization).",
+            "keyPoints": [
+              "Built-in potential depends logarithmically on doping densities N_A and N_D.",
+              "Zener breakdown has a negative temperature coefficient and operates under 6V.",
+              "Avalanche breakdown has a positive temperature coefficient and operates above 6V."
+            ]
+          },
+          {
+            "chapter": "3. Optoelectronics & Lasers",
+            "content": "Covers direct vs indirect bandgaps in LEDs, photodiode quantum efficiency, Einstein coefficients, population inversion condition, and He-Ne gas laser operation.",
+            "keyPoints": [
+              "Direct bandgap materials are necessary for efficient radiative LED emission.",
+              "He-Ne laser emits monochromatic light at 632.8 nm using a four-level energy scheme."
+            ]
+          }
+        ],
+        "keyConcepts": [
+          {
+            "title": "PN Junction Depletion Region",
+            "explanation": "Space charge layer formed by diffusion of majority carriers across the metallurgical junction, leaving uncompensated donor and acceptor ions that create an opposing electric field.",
+            "importance": "high"
+          },
+          {
+            "title": "Zener vs Avalanche Breakdown",
+            "explanation": "Zener occurs via quantum mechanical tunneling in heavily doped diodes; Avalanche occurs via carrier multiplication through impact ionization in lightly doped diodes.",
+            "importance": "high"
+          },
+          {
+            "title": "Population Inversion",
+            "explanation": "A non-equilibrium state where the population of higher energy state exceeds lower energy state (N2 > N1), mandatory for laser amplification.",
+            "importance": "medium"
+          }
+        ],
+        "formulas": [
+          {
+            "formula": "V_bi = (kT / q) * ln((N_A * N_D) / (n_i^2))",
+            "description": "Built-in barrier potential across an abrupt PN junction",
+            "variables": [
+              "k = Boltzmann constant",
+              "T = absolute temperature",
+              "q = electronic charge",
+              "N_A, N_D = acceptor/donor concentrations",
+              "n_i = intrinsic carrier concentration"
+            ]
+          },
+          {
+            "formula": "I = I_0 * (exp(qV / (η * k * T)) - 1)",
+            "description": "Shockley Ideal Diode Equation",
+            "variables": [
+              "I_0 = reverse saturation current",
+              "V = applied voltage",
+              "η = ideality factor (1 for Ge, 2 for Si)"
+            ]
+          },
+          {
+            "formula": "R_H = 1 / (n * q) = V_H * w / (I * B)",
+            "description": "Hall Coefficient and Hall Voltage relation",
+            "variables": [
+              "V_H = Hall voltage",
+              "B = magnetic flux density",
+              "w = sample width",
+              "I = current"
+            ]
+          }
+        ],
+        "definitions": [
+          {
+            "term": "Fermi Level",
+            "definition": "The highest energy state occupied by electrons in a crystal at absolute zero temperature (0 K)."
+          },
+          {
+            "term": "Direct Bandgap",
+            "definition": "A band structure where the conduction band minimum and valence band maximum align at the same crystal momentum (k-vector)."
+          },
+          {
+            "term": "Stimulated Emission",
+            "definition": "The process whereby an incident photon induces an excited atom to decay to a lower state, releasing an identical, coherent photon."
+          }
+        ],
+        "lastMinuteRevision": [
+          "Zener breakdown happens at < 6V, heavily doped, direct tunneling, negative temp coefficient.",
+          "Avalanche breakdown happens at > 6V, lightly doped, impact ionization, positive temp coefficient.",
+          "Built-in potential V_bi increases when doping (N_A, N_D) increases.",
+          "Hall Effect: negative R_H implies N-type; positive R_H implies P-type.",
+          "He-Ne laser wavelength is 632.8 nm (Red) using He:Ne ratio of 10:1."
+        ],
+        "createdAt": "2026-10-02T05:54:36.118Z"
+      }
+    ],
+    [
+      "data-structures",
+      {
+        "id": "sum-dsa-1",
+        "documentId": "data-structures",
+        "quickSummary": "Advanced algorithmic foundations covering graph shortest path algorithms (Dijkstra, Bellman-Ford, Floyd-Warshall), dynamic programming invariants (0/1 Knapsack, LCS), self-balancing AVL search trees, linear-time heap construction, and KMP pattern matching.",
+        "detailedSummary": [
+          {
+            "chapter": "1. Graph Shortest Paths & Negative Cycles",
+            "content": "Examines single-source and all-pairs shortest path algorithms, comparing time complexities, edge weight restrictions, and negative cycle detection techniques.",
+            "keyPoints": [
+              "Dijkstra runs in O((V + E) log V) with min-heaps but fails with negative edge weights.",
+              "Bellman-Ford operates in O(V * E) and detects negative cycles on the V-th relaxation step.",
+              "Floyd-Warshall all-pairs DP recurrence: dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])."
+            ]
+          },
+          {
+            "chapter": "2. Dynamic Programming & Space Optimization",
+            "content": "Details optimal substructure, 0/1 Knapsack state transitions, 1D space reduction, and 2D grid dynamic programming.",
+            "keyPoints": [
+              "0/1 Knapsack state: dp[i][w] = max(dp[i-1][w], dp[i-1][w - w[i]] + v[i]).",
+              "Space optimization from O(N * W) to O(W) requires iterating capacity backwards.",
+              "LCS table construction runs in O(M * N) time and space."
+            ]
+          },
+          {
+            "chapter": "3. Balanced Trees, Heaps & String Search",
+            "content": "Explains AVL single and double rotations, linear-time O(N) heap build proof, and KMP prefix table.",
+            "keyPoints": [
+              "AVL balance factor must remain in {-1, 0, +1}; LR rotation requires left-then-right rotation.",
+              "Building a binary heap from unsorted array runs in O(N) time.",
+              "KMP matching achieves O(N + M) runtime using the LPS π-table."
+            ]
+          }
+        ],
+        "keyConcepts": [
+          {
+            "title": "Bellman-Ford Negative Cycle Detection",
+            "explanation": "If a shortest path distance can still be decreased after V - 1 relaxation iterations, the graph contains a negative weight cycle reachable from the source.",
+            "importance": "high"
+          },
+          {
+            "title": "0/1 Knapsack Optimal Substructure",
+            "explanation": "The optimal choice for item i depends strictly on whether including it yields greater value than excluding it given remaining capacity.",
+            "importance": "high"
+          },
+          {
+            "title": "AVL Tree Rotations",
+            "explanation": "Constant-time pointer adjustments (LL, RR, LR, RL) that restore binary search tree height balance without violating order invariant.",
+            "importance": "high"
+          }
+        ],
+        "formulas": [
+          {
+            "formula": "dp[i][w] = max(dp[i-1][w], dp[i-1][w - w_i] + v_i)",
+            "description": "0/1 Knapsack Recurrence Relation",
+            "variables": [
+              "dp[i][w] = maximum value using first i items with capacity w",
+              "w_i = weight of item i",
+              "v_i = value of item i"
+            ]
+          },
+          {
+            "formula": "T(V, E) = O((V + E) * log(V))",
+            "description": "Dijkstra Time Complexity with Min-Heap",
+            "variables": [
+              "V = Number of vertices",
+              "E = Number of edges"
+            ]
+          },
+          {
+            "formula": "Height(AVL) <= 1.44 * log_2(N + 2) - 0.328",
+            "description": "Upper bound on AVL Tree Height",
+            "variables": [
+              "N = Number of nodes in the AVL tree"
+            ]
+          }
+        ],
+        "definitions": [
+          {
+            "term": "Optimal Substructure",
+            "definition": "A problem exhibits optimal substructure if an optimal solution to the problem contains within it optimal solutions to subproblems."
+          },
+          {
+            "term": "Amortized Analysis",
+            "definition": "A method for analyzing a sequence of operations that guarantees the average performance of each operation in the worst case."
+          },
+          {
+            "term": "Balance Factor",
+            "definition": "The height of the left subtree minus the height of the right subtree for any given node in a binary search tree."
+          }
+        ],
+        "lastMinuteRevision": [
+          "Dijkstra does not work with negative edge weights; use Bellman-Ford instead.",
+          "Bellman-Ford relaxes all edges V - 1 times; a further relaxation indicates a negative cycle.",
+          "0/1 Knapsack space optimization to 1D array requires iterating capacity w backwards from W down to w_i.",
+          "Building a heap of N elements takes O(N) time, while heapsort takes O(N log N).",
+          "KMP avoids re-checking matched characters using the LPS table in O(N + M) total time."
+        ],
+        "createdAt": "2026-10-02T05:54:36.118Z"
+      }
+    ],
+    [
+      "mathematics-iii",
+      {
+        "id": "sum-math-1",
+        "documentId": "mathematics-iii",
+        "quickSummary": "Applied engineering mathematics covering integral transforms (Laplace and Fourier), separation of variables for partial differential equations (wave, heat, Laplace equations), and complex variable calculus with Cauchy-Riemann equations and contour integration.",
+        "detailedSummary": [
+          {
+            "chapter": "1. Laplace Transforms & ODE Initial Value Problems",
+            "content": "Covers shifting theorems, derivative rules, Dirac delta distributions, and convolution for solving initial value differential equations.",
+            "keyPoints": [
+              "L{f'(t)} = s F(s) - f(0) converts differential equations into algebraic equations.",
+              "Convolution theorem L{f * g} = F(s) * G(s) simplifies inverse transforms."
+            ]
+          },
+          {
+            "chapter": "2. Fourier Series & Boundary Value Problems",
+            "content": "Details periodic function expansion, Dirichlet conditions, half-range cosine and sine expansions, and Parseval identity.",
+            "keyPoints": [
+              "Even functions produce purely cosine series (b_n = 0); odd functions produce sine series (a_n = 0).",
+              "Dirichlet conditions guarantee convergence to average value at jump discontinuities."
+            ]
+          },
+          {
+            "chapter": "3. PDEs & Complex Analysis",
+            "content": "Classification of second-order PDEs and complex variable analyticity via Cauchy-Riemann equations.",
+            "keyPoints": [
+              "1D Wave equation is hyperbolic (B^2 - 4AC > 0); Heat equation is parabolic.",
+              "Cauchy-Riemann equations: u_x = v_y, u_y = -v_x.",
+              "Residue theorem enables evaluating real definite integrals from -inf to +inf."
+            ]
+          }
+        ],
+        "keyConcepts": [
+          {
+            "title": "Cauchy-Riemann Equations",
+            "explanation": "Necessary and sufficient conditions for differentiability of a complex function f(z) = u + iv.",
+            "importance": "high"
+          },
+          {
+            "title": "Separation of Variables in PDEs",
+            "explanation": "Expressing u(x, t) = X(x)T(t) converts a partial differential equation into coupled ordinary differential equations with boundary condition eigenvalues.",
+            "importance": "high"
+          }
+        ],
+        "formulas": [
+          {
+            "formula": "L\\{f''(t)\\} = s^2 F(s) - s f(0) - f'(0)",
+            "description": "Laplace Transform of Second Derivative",
+            "variables": [
+              "s = Complex frequency parameter",
+              "F(s) = Laplace transform of f(t)"
+            ]
+          },
+          {
+            "formula": "\\frac{\\partial u}{\\partial x} = \\frac{\\partial v}{\\partial y}, \\quad \\frac{\\partial u}{\\partial y} = -\\frac{\\partial v}{\\partial x}",
+            "description": "Cauchy-Riemann Equations",
+            "variables": [
+              "u = Real part of f(z)",
+              "v = Imaginary part of f(z)"
+            ]
+          }
+        ],
+        "definitions": [
+          {
+            "term": "Analytic Function",
+            "definition": "A complex function that is complex-differentiable at every point in an open neighborhood."
+          },
+          {
+            "term": "Harmonic Function",
+            "definition": "A twice continuously differentiable function that satisfies Laplace's equation ∇^2 u = 0."
+          }
+        ],
+        "lastMinuteRevision": [
+          "Laplace: L{sin(at)} = a / (s^2 + a^2), L{cos(at)} = s / (s^2 + a^2).",
+          "Fourier: Even function -> b_n = 0; Odd function -> a_0 = 0, a_n = 0.",
+          "Wave equation: u_tt = c^2 u_xx (Hyperbolic); Heat equation: u_t = c^2 u_xx (Parabolic).",
+          "Cauchy-Riemann equations: u_x = v_y, u_y = -v_x."
+        ],
+        "createdAt": "2026-10-02T05:54:36.118Z"
+      }
+    ],
+    [
+      "digital-electronics",
+      {
+        "id": "sum-de-1",
+        "documentId": "digital-electronics",
+        "quickSummary": "Fundamental and advanced digital electronics course covering Boolean algebra reduction with K-maps, high-speed combinational circuits (carry-lookahead adders, multiplexers), sequential storage elements (master-slave JK flip-flops), and synchronous finite state machine counters.",
+        "detailedSummary": [
+          {
+            "chapter": "1. K-Map Minimization & Logic Simplification",
+            "content": "Covers Gray code cell placement, prime implicants, essential prime implicants, and don't-care condition optimization.",
+            "keyPoints": [
+              "Gray code ensures only one bit changes between adjacent cells.",
+              "Essential prime implicants must be included in minimal SOP expressions."
+            ]
+          },
+          {
+            "chapter": "2. Sequential Latches & Flip-Flops",
+            "content": "Examines clock triggering, race-around condition, master-slave architecture, and characteristic equations.",
+            "keyPoints": [
+              "JK Flip-Flop characteristic equation: Q_{next} = J Q' + K' Q.",
+              "Race-around condition occurs when clock pulse width exceeds flip-flop propagation delay."
+            ]
+          },
+          {
+            "chapter": "3. Synchronous Counters & FSM Design",
+            "content": "Step-by-step synthesis of Mod-N counters using excitation tables, and contrast between Mealy and Moore models.",
+            "keyPoints": [
+              "Synchronous counters avoid cumulative ripple delay because all stages share one clock.",
+              "Moore outputs are synchronous with state clock; Mealy outputs can react asynchronously to input changes."
+            ]
+          }
+        ],
+        "keyConcepts": [
+          {
+            "title": "Race-Around Condition in JK Flip-Flop",
+            "explanation": "When J=1 and K=1 with clock pulse width greater than propagation delay, output continuously toggles between 0 and 1, creating an indeterminate final state. Cured by Master-Slave configuration.",
+            "importance": "high"
+          },
+          {
+            "title": "Mealy vs Moore FSM",
+            "explanation": "Moore machine outputs depend solely on the current state, whereas Mealy machine outputs depend on both the current state and present inputs.",
+            "importance": "high"
+          }
+        ],
+        "formulas": [
+          {
+            "formula": "Q_{next} = J \\cdot \\overline{Q} + \\overline{K} \\cdot Q",
+            "description": "JK Flip-Flop Characteristic Equation",
+            "variables": [
+              "J, K = Input signals",
+              "Q = Current state output",
+              "Q_{next} = Next state output"
+            ]
+          },
+          {
+            "formula": "Q_{next} = D",
+            "description": "D Flip-Flop Characteristic Equation",
+            "variables": [
+              "D = Data input"
+            ]
+          },
+          {
+            "formula": "Q_{next} = T \\oplus Q",
+            "description": "T Flip-Flop Characteristic Equation",
+            "variables": [
+              "T = Toggle input"
+            ]
+          }
+        ],
+        "definitions": [
+          {
+            "term": "Essential Prime Implicant",
+            "definition": "A prime implicant that covers at least one minterm not covered by any other prime implicant."
+          },
+          {
+            "term": "Race-Around Condition",
+            "definition": "The rapid, uncontrolled oscillation of flip-flop output during an active high clock pulse when J=1 and K=1."
+          }
+        ],
+        "lastMinuteRevision": [
+          "K-Map grouping: always group in powers of 2 (16, 8, 4, 2, 1); include don't cares only if they increase group size.",
+          "JK Flip-Flop toggles when J=K=1. Race-around occurs if t_w > t_pd; solved with Master-Slave JK.",
+          "Excitation Table: SR (0->0: S=0,R=X; 0->1: S=1,R=0; 1->0: S=0,R=1; 1->1: S=X,R=0).",
+          "Moore machine output depends only on state; Mealy depends on state + input."
+        ],
+        "createdAt": "2026-10-02T05:54:36.118Z"
+      }
+    ],
+    [
+      "doc-1790920691497",
+      {
+        "id": "sum-doc-1790920691497",
+        "documentId": "doc-1790920691497",
+        "quickSummary": "Operating Systems and Process Scheduling. Process Control Block: A data structure maintaining process execution context. Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.",
+        "detailedSummary": [
+          {
+            "chapter": "Module 1: Overview (Page 1)",
+            "content": "Operating Systems and Process Scheduling. Process Control Block: A data structure maintaining process execution context.",
+            "keyPoints": [
+              "Operating Systems and Process Scheduling.",
+              "Process Control Block: A data structure maintaining process execution context.",
+              "Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness."
+            ]
+          }
+        ],
+        "keyConcepts": [
+          {
+            "title": "Process Control Block",
+            "explanation": "A data structure maintaining process execution context.",
+            "importance": "high"
+          },
+          {
+            "title": "Preemptive Scheduling",
+            "explanation": "CPU allocates time slices to ensure multi-tasking responsiveness.",
+            "importance": "high"
+          }
+        ],
+        "formulas": [
+          {
+            "formula": "Throughput = Completed Processes / Total Elapsed Time",
+            "description": "Mathematical expression for Throughput",
+            "variables": [
+              "Parameters as defined in document context"
+            ]
+          }
+        ],
+        "definitions": [
+          {
+            "term": "Process Control Block",
+            "definition": "A data structure maintaining process execution context."
+          },
+          {
+            "term": "Preemptive Scheduling",
+            "definition": "CPU allocates time slices to ensure multi-tasking responsiveness."
+          }
+        ],
+        "lastMinuteRevision": [
+          "Throughput = Completed Processes / Total Elapsed Time"
+        ],
+        "createdAt": "2026-10-02T05:58:11.498Z"
+      }
+    ],
+    [
+      "doc-1790920775377",
+      {
+        "id": "sum-doc-1790920775377",
+        "documentId": "doc-1790920775377",
+        "quickSummary": "Operating Systems and Process Scheduling. Process Control Block: A data structure maintaining process execution context. Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.",
+        "detailedSummary": [
+          {
+            "chapter": "Module 1: Overview (Page 1)",
+            "content": "Operating Systems and Process Scheduling. Process Control Block: A data structure maintaining process execution context.",
+            "keyPoints": [
+              "Operating Systems and Process Scheduling.",
+              "Process Control Block: A data structure maintaining process execution context.",
+              "Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness."
+            ]
+          }
+        ],
+        "keyConcepts": [
+          {
+            "title": "Process Control Block",
+            "explanation": "A data structure maintaining process execution context.",
+            "importance": "high"
+          },
+          {
+            "title": "Preemptive Scheduling",
+            "explanation": "CPU allocates time slices to ensure multi-tasking responsiveness.",
+            "importance": "high"
+          }
+        ],
+        "formulas": [
+          {
+            "formula": "Throughput = Completed Processes / Total Elapsed Time",
+            "description": "Mathematical expression for Throughput",
+            "variables": [
+              "Parameters as defined in document context"
+            ]
+          }
+        ],
+        "definitions": [
+          {
+            "term": "Process Control Block",
+            "definition": "A data structure maintaining process execution context."
+          },
+          {
+            "term": "Preemptive Scheduling",
+            "definition": "CPU allocates time slices to ensure multi-tasking responsiveness."
+          }
+        ],
+        "lastMinuteRevision": [
+          "Throughput = Completed Processes / Total Elapsed Time"
+        ],
+        "createdAt": "2026-10-02T05:59:35.379Z"
+      }
+    ],
+    [
+      "doc-1790920838909",
+      {
+        "id": "sum-doc-1790920838909",
+        "documentId": "doc-1790920838909",
+        "quickSummary": "Operating Systems and Process Scheduling. Process Control Block: A data structure maintaining process execution context. Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.",
+        "detailedSummary": [
+          {
+            "chapter": "Module 1: Overview (Page 1)",
+            "content": "Operating Systems and Process Scheduling. Process Control Block: A data structure maintaining process execution context.",
+            "keyPoints": [
+              "Operating Systems and Process Scheduling.",
+              "Process Control Block: A data structure maintaining process execution context.",
+              "Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness."
+            ]
+          }
+        ],
+        "keyConcepts": [
+          {
+            "title": "Process Control Block",
+            "explanation": "A data structure maintaining process execution context.",
+            "importance": "high"
+          },
+          {
+            "title": "Preemptive Scheduling",
+            "explanation": "CPU allocates time slices to ensure multi-tasking responsiveness.",
+            "importance": "high"
+          }
+        ],
+        "formulas": [
+          {
+            "formula": "Throughput = Completed Processes / Total Elapsed Time",
+            "description": "Mathematical expression for Throughput",
+            "variables": [
+              "Parameters as defined in document context"
+            ]
+          }
+        ],
+        "definitions": [
+          {
+            "term": "Process Control Block",
+            "definition": "A data structure maintaining process execution context."
+          },
+          {
+            "term": "Preemptive Scheduling",
+            "definition": "CPU allocates time slices to ensure multi-tasking responsiveness."
+          }
+        ],
+        "lastMinuteRevision": [
+          "Throughput = Completed Processes / Total Elapsed Time"
+        ],
+        "createdAt": "2026-10-02T06:00:38.910Z"
+      }
+    ],
+    [
+      "doc-1790920863624",
+      {
+        "id": "sum-doc-1790920863624",
+        "documentId": "doc-1790920863624",
+        "quickSummary": "Operating Systems and Process Scheduling. Process Control Block: A data structure maintaining process execution context. Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.",
+        "detailedSummary": [
+          {
+            "chapter": "Module 1: Overview (Page 1)",
+            "content": "Operating Systems and Process Scheduling. Process Control Block: A data structure maintaining process execution context.",
+            "keyPoints": [
+              "Operating Systems and Process Scheduling.",
+              "Process Control Block: A data structure maintaining process execution context.",
+              "Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness."
+            ]
+          }
+        ],
+        "keyConcepts": [
+          {
+            "title": "Process Control Block",
+            "explanation": "A data structure maintaining process execution context.",
+            "importance": "high"
+          },
+          {
+            "title": "Preemptive Scheduling",
+            "explanation": "CPU allocates time slices to ensure multi-tasking responsiveness.",
+            "importance": "high"
+          }
+        ],
+        "formulas": [
+          {
+            "formula": "Throughput = Completed Processes / Total Elapsed Time",
+            "description": "Mathematical expression for Throughput",
+            "variables": [
+              "Parameters as defined in document context"
+            ]
+          }
+        ],
+        "definitions": [
+          {
+            "term": "Process Control Block",
+            "definition": "A data structure maintaining process execution context."
+          },
+          {
+            "term": "Preemptive Scheduling",
+            "definition": "CPU allocates time slices to ensure multi-tasking responsiveness."
+          }
+        ],
+        "lastMinuteRevision": [
+          "Throughput = Completed Processes / Total Elapsed Time"
+        ],
+        "createdAt": "2026-10-02T06:01:03.625Z"
+      }
+    ]
+  ],
+  "flashcards": [
+    [
+      "engineering-physics",
+      [
+        {
+          "id": "fc-1",
+          "documentId": "engineering-physics",
+          "front": "What is a PN Junction and how is the depletion layer formed?",
+          "back": "A PN junction is formed by joining P-type and N-type semiconductor regions. Electrons from N-side diffuse into P-side and holes from P-side diffuse into N-side. Near the junction, immobile uncompensated ions (positive donor ions in N-region, negative acceptor ions in P-region) remain, creating an electric field that opposes further diffusion.",
+          "category": "Semiconductors",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 4,
+          "lastReviewedAt": "2026-09-29T10:00:00Z"
+        },
+        {
+          "id": "fc-2",
+          "documentId": "engineering-physics",
+          "front": "What is the primary difference between Zener Breakdown and Avalanche Breakdown?",
+          "back": "Zener breakdown occurs in heavily doped diodes with thin depletion region (<10nm) at lower reverse voltages (<6V) due to quantum mechanical direct field tunneling. Avalanche breakdown occurs in lightly doped diodes with thick depletion region at higher voltages (>6V) via carrier impact ionization.",
+          "category": "Breakdown",
+          "difficulty": "hard",
+          "reviewStatus": "review",
+          "timesReviewed": 6,
+          "lastReviewedAt": "2026-09-29T11:15:00Z"
+        },
+        {
+          "id": "fc-3",
+          "documentId": "engineering-physics",
+          "front": "Write the formula for the Built-in Barrier Potential (V_bi).",
+          "back": "V_bi = (k * T / q) * ln((N_A * N_D) / (n_i^2))\nAt room temperature (300K), kT/q ≈ 0.0259 V (Thermal Voltage V_t).",
+          "category": "Formulas",
+          "difficulty": "easy",
+          "reviewStatus": "mastered",
+          "timesReviewed": 8,
+          "lastReviewedAt": "2026-09-28T16:00:00Z"
+        },
+        {
+          "id": "fc-4",
+          "documentId": "engineering-physics",
+          "front": "What physical property does the sign of the Hall Coefficient (R_H) reveal?",
+          "back": "The sign of R_H identifies the majority charge carrier type: Negative R_H = N-type (conduction dominated by electrons). Positive R_H = P-type (conduction dominated by holes).",
+          "category": "Transport",
+          "difficulty": "easy",
+          "reviewStatus": "mastered",
+          "timesReviewed": 5,
+          "lastReviewedAt": "2026-09-27T14:00:00Z"
+        },
+        {
+          "id": "fc-5",
+          "documentId": "engineering-physics",
+          "front": "Why is Helium gas added to Neon in a He-Ne laser?",
+          "back": "Helium atoms are easily excited to metastable states (20.61 eV) by electrical discharge. They collide with Neon atoms, transferring energy via resonant excitation collisions because Neon has matching upper laser levels (20.66 eV), thereby achieving population inversion in Neon.",
+          "category": "Lasers",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 3,
+          "lastReviewedAt": "2026-09-28T09:30:00Z"
+        }
+      ]
+    ],
+    [
+      "data-structures",
+      [
+        {
+          "id": "fc-dsa-1",
+          "documentId": "data-structures",
+          "front": "Why does Dijkstra's Algorithm fail in graphs with negative edge weights?",
+          "back": "Dijkstra greedily assumes that once a vertex is marked visited (extracted from min-heap), its shortest distance is finalized. A negative edge encountered later could produce a shorter path to an already visited vertex, violating the greedy invariant. Bellman-Ford should be used instead.",
+          "category": "Graphs",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 5,
+          "lastReviewedAt": "2026-09-28T10:00:00Z"
+        },
+        {
+          "id": "fc-dsa-2",
+          "documentId": "data-structures",
+          "front": "What is the time complexity of building a Binary Heap from an unsorted array of size N?",
+          "back": "O(N) linear time. Although it seems like N * O(log N), nodes near the bottom have smaller heights. The mathematical summation sum_{h=0}^{log N} (N / 2^(h+1)) * O(h) converges to O(N).",
+          "category": "Heaps",
+          "difficulty": "hard",
+          "reviewStatus": "review",
+          "timesReviewed": 4,
+          "lastReviewedAt": "2026-09-27T11:00:00Z"
+        },
+        {
+          "id": "fc-dsa-3",
+          "documentId": "data-structures",
+          "front": "In 0/1 Knapsack, why must the 1D DP array be traversed backwards (from W down to w_i)?",
+          "back": "Traversing backwards ensures that values from the current item i do not overwrite and reuse entries from the SAME item, guaranteeing each item is included at most once (0/1 constraint). Forward traversal solves the Unbounded Knapsack problem.",
+          "category": "Dynamic Programming",
+          "difficulty": "hard",
+          "reviewStatus": "learning",
+          "timesReviewed": 3,
+          "lastReviewedAt": "2026-09-28T14:30:00Z"
+        },
+        {
+          "id": "fc-dsa-4",
+          "documentId": "data-structures",
+          "front": "What four balance rotation cases exist in an AVL Tree?",
+          "back": "1. Left-Left (LL): Solved by a single Right Rotation.\n2. Right-Right (RR): Solved by a single Left Rotation.\n3. Left-Right (LR): Left rotation on left child, then right rotation on root.\n4. Right-Left (RL): Right rotation on right child, then left rotation on root.",
+          "category": "Trees",
+          "difficulty": "easy",
+          "reviewStatus": "mastered",
+          "timesReviewed": 7,
+          "lastReviewedAt": "2026-09-26T09:00:00Z"
+        },
+        {
+          "id": "fc-dsa-5",
+          "documentId": "data-structures",
+          "front": "What is the π-table (LPS array) in the KMP Algorithm?",
+          "back": "The LPS (Longest Proper Prefix which is also a Suffix) array stores the length of the longest proper prefix of pattern[0..i] that is also a suffix of pattern[0..i]. It enables the search pointer to jump forward without re-examining already matched characters.",
+          "category": "Strings",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 2,
+          "lastReviewedAt": "2026-09-28T16:00:00Z"
+        }
+      ]
+    ],
+    [
+      "mathematics-iii",
+      [
+        {
+          "id": "fc-math-1",
+          "documentId": "mathematics-iii",
+          "front": "State the Cauchy-Riemann equations in Cartesian coordinates.",
+          "back": "∂u/∂x = ∂v/∂y  and  ∂u/∂y = -∂v/∂x. If these equations hold and partial derivatives are continuous, f(z) = u + iv is analytic.",
+          "category": "Complex Analysis",
+          "difficulty": "easy",
+          "reviewStatus": "mastered",
+          "timesReviewed": 6,
+          "lastReviewedAt": "2026-09-28T12:00:00Z"
+        },
+        {
+          "id": "fc-math-2",
+          "documentId": "mathematics-iii",
+          "front": "What is the Convolution Theorem for Laplace transforms?",
+          "back": "L{(f * g)(t)} = L{f(t)} * L{g(t)} = F(s) * G(s), where (f * g)(t) = \\int_0^t f(\\tau) g(t - \\tau) d\\tau.",
+          "category": "Transforms",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 3,
+          "lastReviewedAt": "2026-09-27T10:00:00Z"
+        },
+        {
+          "id": "fc-math-3",
+          "documentId": "mathematics-iii",
+          "front": "How are second order linear PDEs classified using B^2 - 4AC?",
+          "back": "B^2 - 4AC < 0: Elliptic (Laplace Eq).\nB^2 - 4AC = 0: Parabolic (Heat Eq).\nB^2 - 4AC > 0: Hyperbolic (Wave Eq).",
+          "category": "PDEs",
+          "difficulty": "easy",
+          "reviewStatus": "mastered",
+          "timesReviewed": 5,
+          "lastReviewedAt": "2026-09-29T08:00:00Z"
+        }
+      ]
+    ],
+    [
+      "digital-electronics",
+      [
+        {
+          "id": "fc-de-1",
+          "documentId": "digital-electronics",
+          "front": "What causes the Race-Around Condition in a JK Flip-Flop and how is it eliminated?",
+          "back": "It occurs when J=1, K=1 and the clock pulse width (t_w) is longer than the propagation delay (t_pd). The output toggles repeatedly during the pulse. It is eliminated by using Master-Slave JK flip-flop or edge-triggering.",
+          "category": "Flip-Flops",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 4,
+          "lastReviewedAt": "2026-09-29T10:00:00Z"
+        },
+        {
+          "id": "fc-de-2",
+          "documentId": "digital-electronics",
+          "front": "What is the characteristic equation of a JK Flip-Flop?",
+          "back": "Q_{next} = J * Q' + K' * Q. When J=0, K=0: Hold (Q). When J=0, K=1: Reset (0). When J=1, K=0: Set (1). When J=1, K=1: Toggle (Q').",
+          "category": "Sequential",
+          "difficulty": "easy",
+          "reviewStatus": "mastered",
+          "timesReviewed": 6,
+          "lastReviewedAt": "2026-09-28T14:00:00Z"
+        },
+        {
+          "id": "fc-de-3",
+          "documentId": "digital-electronics",
+          "front": "Distinguish between Mealy and Moore state machines.",
+          "back": "Moore: Outputs depend ONLY on the current state. Outputs are synchronous with the clock.\nMealy: Outputs depend on BOTH the current state and current inputs. Output can change asynchronously whenever inputs change.",
+          "category": "FSM",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 3,
+          "lastReviewedAt": "2026-09-27T16:00:00Z"
+        }
+      ]
+    ],
+    [
+      "doc-1790920691497",
+      [
+        {
+          "id": "fc-doc-1790920691497-1",
+          "documentId": "doc-1790920691497",
+          "front": "Define and state the key principles of: Process Control Block",
+          "back": "A data structure maintaining process execution context.",
+          "category": "Process Control Block",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        },
+        {
+          "id": "fc-doc-1790920691497-2",
+          "documentId": "doc-1790920691497",
+          "front": "Define and state the key principles of: Preemptive Scheduling",
+          "back": "CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "category": "Preemptive Scheduling",
+          "difficulty": "hard",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        },
+        {
+          "id": "fc-doc-1790920691497-3",
+          "documentId": "doc-1790920691497",
+          "front": "What is the significance of the following concept in this subject?\n\"Process Control Block: A data structure maintaining process execution context....\"",
+          "back": "Process Control Block: A data structure maintaining process execution context.",
+          "category": "Key Concept",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        },
+        {
+          "id": "fc-doc-1790920691497-4",
+          "documentId": "doc-1790920691497",
+          "front": "What is the significance of the following concept in this subject?\n\"Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking respons...\"",
+          "back": "Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "category": "Key Concept",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        },
+        {
+          "id": "fc-doc-1790920691497-5",
+          "documentId": "doc-1790920691497",
+          "front": "What is the significance of the following concept in this subject?\n\"Throughput = Completed Processes / Total Elapsed Time...\"",
+          "back": "Throughput = Completed Processes / Total Elapsed Time",
+          "category": "Key Concept",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        }
+      ]
+    ],
+    [
+      "doc-1790920775377",
+      [
+        {
+          "id": "fc-doc-1790920775377-1",
+          "documentId": "doc-1790920775377",
+          "front": "Define and state the key principles of: Process Control Block",
+          "back": "A data structure maintaining process execution context.",
+          "category": "Process Control Block",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 1,
+          "lastReviewedAt": "2026-10-02T05:59:39.567Z"
+        },
+        {
+          "id": "fc-doc-1790920775377-2",
+          "documentId": "doc-1790920775377",
+          "front": "Define and state the key principles of: Preemptive Scheduling",
+          "back": "CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "category": "Preemptive Scheduling",
+          "difficulty": "hard",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        },
+        {
+          "id": "fc-doc-1790920775377-3",
+          "documentId": "doc-1790920775377",
+          "front": "What is the significance of the following concept in this subject?\n\"Process Control Block: A data structure maintaining process execution context....\"",
+          "back": "Process Control Block: A data structure maintaining process execution context.",
+          "category": "Key Concept",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        },
+        {
+          "id": "fc-doc-1790920775377-4",
+          "documentId": "doc-1790920775377",
+          "front": "What is the significance of the following concept in this subject?\n\"Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking respons...\"",
+          "back": "Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "category": "Key Concept",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        },
+        {
+          "id": "fc-doc-1790920775377-5",
+          "documentId": "doc-1790920775377",
+          "front": "What is the significance of the following concept in this subject?\n\"Throughput = Completed Processes / Total Elapsed Time...\"",
+          "back": "Throughput = Completed Processes / Total Elapsed Time",
+          "category": "Key Concept",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        }
+      ]
+    ],
+    [
+      "doc-1790920838909",
+      [
+        {
+          "id": "fc-doc-1790920838909-1",
+          "documentId": "doc-1790920838909",
+          "front": "Define and state the key principles of: Process Control Block",
+          "back": "A data structure maintaining process execution context.",
+          "category": "Process Control Block",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 1,
+          "lastReviewedAt": "2026-10-02T06:00:43.091Z"
+        },
+        {
+          "id": "fc-doc-1790920838909-2",
+          "documentId": "doc-1790920838909",
+          "front": "Define and state the key principles of: Preemptive Scheduling",
+          "back": "CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "category": "Preemptive Scheduling",
+          "difficulty": "hard",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        },
+        {
+          "id": "fc-doc-1790920838909-3",
+          "documentId": "doc-1790920838909",
+          "front": "What is the significance of the following concept in this subject?\n\"Process Control Block: A data structure maintaining process execution context....\"",
+          "back": "Process Control Block: A data structure maintaining process execution context.",
+          "category": "Key Concept",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        },
+        {
+          "id": "fc-doc-1790920838909-4",
+          "documentId": "doc-1790920838909",
+          "front": "What is the significance of the following concept in this subject?\n\"Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking respons...\"",
+          "back": "Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "category": "Key Concept",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        },
+        {
+          "id": "fc-doc-1790920838909-5",
+          "documentId": "doc-1790920838909",
+          "front": "What is the significance of the following concept in this subject?\n\"Throughput = Completed Processes / Total Elapsed Time...\"",
+          "back": "Throughput = Completed Processes / Total Elapsed Time",
+          "category": "Key Concept",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        }
+      ]
+    ],
+    [
+      "doc-1790920863624",
+      [
+        {
+          "id": "fc-doc-1790920863624-1",
+          "documentId": "doc-1790920863624",
+          "front": "Define and state the key principles of: Process Control Block",
+          "back": "A data structure maintaining process execution context.",
+          "category": "Process Control Block",
+          "difficulty": "easy",
+          "reviewStatus": "mastered",
+          "timesReviewed": 1,
+          "lastReviewedAt": "2026-10-02T06:01:07.939Z"
+        },
+        {
+          "id": "fc-doc-1790920863624-2",
+          "documentId": "doc-1790920863624",
+          "front": "Define and state the key principles of: Preemptive Scheduling",
+          "back": "CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "category": "Preemptive Scheduling",
+          "difficulty": "hard",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        },
+        {
+          "id": "fc-doc-1790920863624-3",
+          "documentId": "doc-1790920863624",
+          "front": "What is the significance of the following concept in this subject?\n\"Process Control Block: A data structure maintaining process execution context....\"",
+          "back": "Process Control Block: A data structure maintaining process execution context.",
+          "category": "Key Concept",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        },
+        {
+          "id": "fc-doc-1790920863624-4",
+          "documentId": "doc-1790920863624",
+          "front": "What is the significance of the following concept in this subject?\n\"Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking respons...\"",
+          "back": "Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "category": "Key Concept",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        },
+        {
+          "id": "fc-doc-1790920863624-5",
+          "documentId": "doc-1790920863624",
+          "front": "What is the significance of the following concept in this subject?\n\"Throughput = Completed Processes / Total Elapsed Time...\"",
+          "back": "Throughput = Completed Processes / Total Elapsed Time",
+          "category": "Key Concept",
+          "difficulty": "medium",
+          "reviewStatus": "learning",
+          "timesReviewed": 0
+        }
+      ]
+    ]
+  ],
+  "quizzes": [
+    [
+      "quiz-phys-1",
+      {
+        "id": "quiz-phys-1",
+        "documentId": "engineering-physics",
+        "title": "Engineering Physics: Semiconductors & Optics Mastery",
+        "totalQuestions": 5,
+        "difficulty": "medium",
+        "createdAt": "2026-10-02T05:54:36.118Z"
+      }
+    ],
+    [
+      "quiz-dsa-1",
+      {
+        "id": "quiz-dsa-1",
+        "documentId": "data-structures",
+        "title": "Data Structures & Algorithms: Graphs & DP Mastery",
+        "totalQuestions": 5,
+        "difficulty": "hard",
+        "createdAt": "2026-10-02T05:54:36.118Z"
+      }
+    ],
+    [
+      "quiz-math-1",
+      {
+        "id": "quiz-math-1",
+        "documentId": "mathematics-iii",
+        "title": "Mathematics III: Transforms & Complex Variables",
+        "totalQuestions": 3,
+        "difficulty": "medium",
+        "createdAt": "2026-10-02T05:54:36.118Z"
+      }
+    ],
+    [
+      "quiz-de-1",
+      {
+        "id": "quiz-de-1",
+        "documentId": "digital-electronics",
+        "title": "Digital Electronics: Logic & Sequential Circuits",
+        "totalQuestions": 3,
+        "difficulty": "medium",
+        "createdAt": "2026-10-02T05:54:36.118Z"
+      }
+    ],
+    [
+      "quiz-doc-1790920691497",
+      {
+        "id": "quiz-doc-1790920691497",
+        "documentId": "doc-1790920691497",
+        "title": "Operating Systems Scheduling Diagnostic Quiz",
+        "totalQuestions": 5,
+        "difficulty": "medium",
+        "createdAt": "2026-10-02T05:58:11.499Z"
+      }
+    ],
+    [
+      "quiz-doc-1790920775377",
+      {
+        "id": "quiz-doc-1790920775377",
+        "documentId": "doc-1790920775377",
+        "title": "Operating Systems Scheduling Diagnostic Quiz",
+        "totalQuestions": 5,
+        "difficulty": "medium",
+        "createdAt": "2026-10-02T05:59:35.380Z"
+      }
+    ],
+    [
+      "quiz-doc-1790920838909",
+      {
+        "id": "quiz-doc-1790920838909",
+        "documentId": "doc-1790920838909",
+        "title": "Operating Systems Scheduling Diagnostic Quiz",
+        "totalQuestions": 5,
+        "difficulty": "medium",
+        "createdAt": "2026-10-02T06:00:38.911Z"
+      }
+    ],
+    [
+      "quiz-doc-1790920863624",
+      {
+        "id": "quiz-doc-1790920863624",
+        "documentId": "doc-1790920863624",
+        "title": "Operating Systems Scheduling Diagnostic Quiz",
+        "totalQuestions": 5,
+        "difficulty": "medium",
+        "createdAt": "2026-10-02T06:01:03.625Z"
+      }
+    ]
+  ],
+  "quizQuestions": [
+    [
+      "quiz-phys-1",
+      [
+        {
+          "id": "q-1",
+          "quizId": "quiz-phys-1",
+          "question": "Under which reverse voltage condition does Zener breakdown predominantly occur?",
+          "type": "mcq",
+          "options": [
+            "Less than 6 Volts",
+            "Greater than 100 Volts",
+            "Between 20 and 50 Volts",
+            "Only at positive bias"
+          ],
+          "correctAnswer": "Less than 6 Volts",
+          "explanation": "Zener breakdown occurs in heavily doped PN junctions with narrow depletion widths at voltages below approximately 6V where direct electric field tunneling dominates.",
+          "sourcePage": 4,
+          "topicName": "Zener Diode & Voltage Regulator",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-2",
+          "quizId": "quiz-phys-1",
+          "question": "The built-in potential barrier V_bi of a PN junction increases when:",
+          "type": "mcq",
+          "options": [
+            "Doping concentration (N_A, N_D) increases",
+            "Temperature increases indefinitely",
+            "Doping concentration decreases",
+            "Reverse bias is removed"
+          ],
+          "correctAnswer": "Doping concentration (N_A, N_D) increases",
+          "explanation": "V_bi = (kT/q) * ln(N_A*N_D / n_i^2). Increasing N_A and N_D increases the numerator inside the logarithm, thereby increasing V_bi.",
+          "sourcePage": 3,
+          "topicName": "PN Junction & Depletion Region",
+          "difficulty": "easy"
+        },
+        {
+          "id": "q-3",
+          "quizId": "quiz-phys-1",
+          "question": "True or False: Direct bandgap semiconductors like GaAs are preferred over indirect bandgap silicon for LED manufacturing because momentum conservation allows efficient radiative recombination.",
+          "type": "true_false",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "In direct bandgap materials, the conduction band minimum and valence band maximum have identical crystal momentum, allowing direct photon emission without phonon participation.",
+          "sourcePage": 5,
+          "topicName": "Photodiode & LED Principles",
+          "difficulty": "easy"
+        },
+        {
+          "id": "q-4",
+          "quizId": "quiz-phys-1",
+          "question": "What is the Hall coefficient R_H for a sample with electron density n = 10^16 cm^-3?",
+          "type": "mcq",
+          "options": [
+            "-625 cm^3/C",
+            "-0.0625 cm^3/C",
+            "+1600 cm^3/C",
+            "0 cm^3/C"
+          ],
+          "correctAnswer": "-625 cm^3/C",
+          "explanation": "R_H = -1 / (n * q) = -1 / (10^16 * 1.6 x 10^-19) = -1 / (1.6 x 10^-3) = -625 cm^3/C.",
+          "sourcePage": 2,
+          "topicName": "Hall Effect & Applications",
+          "difficulty": "hard"
+        },
+        {
+          "id": "q-5",
+          "quizId": "quiz-phys-1",
+          "question": "What is the laser output wavelength emitted by a standard He-Ne gas laser?",
+          "type": "mcq",
+          "options": [
+            "632.8 nm (Red)",
+            "1064 nm (Infrared)",
+            "405 nm (Violet)",
+            "532 nm (Green)"
+          ],
+          "correctAnswer": "632.8 nm (Red)",
+          "explanation": "The characteristic visible red transition in a He-Ne laser is from Neon 3s2 to 2p4 state at 632.8 nm.",
+          "sourcePage": 6,
+          "topicName": "He-Ne & Ruby Laser Systems",
+          "difficulty": "medium"
+        }
+      ]
+    ],
+    [
+      "quiz-dsa-1",
+      [
+        {
+          "id": "q-dsa-1",
+          "quizId": "quiz-dsa-1",
+          "question": "How does Bellman-Ford algorithm detect a negative weight cycle in a graph with V vertices?",
+          "type": "mcq",
+          "options": [
+            "If any edge distance can still be relaxed on the V-th iteration",
+            "If the priority queue becomes empty before visiting all vertices",
+            "If the graph has more edges than vertices",
+            "If the source vertex distance becomes 0"
+          ],
+          "correctAnswer": "If any edge distance can still be relaxed on the V-th iteration",
+          "explanation": "In a graph without negative cycles, shortest paths have at most V - 1 edges. If an edge can still be relaxed on iteration V, a negative cycle must exist.",
+          "sourcePage": 1,
+          "topicName": "Graph Shortest Paths & Negative Cycles",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-dsa-2",
+          "quizId": "quiz-dsa-1",
+          "question": "What is the tight asymptotic time complexity of building a binary heap of N elements using the bottom-up Heapify approach?",
+          "type": "mcq",
+          "options": [
+            "O(N)",
+            "O(N log N)",
+            "O(N^2)",
+            "O(log N)"
+          ],
+          "correctAnswer": "O(N)",
+          "explanation": "Due to the sum of geometric series h/2^h converging to a constant, the bottom-up Build-Heap algorithm runs in strictly O(N) time.",
+          "sourcePage": 4,
+          "topicName": "Heap Construction & Priority Queues",
+          "difficulty": "hard"
+        },
+        {
+          "id": "q-dsa-3",
+          "quizId": "quiz-dsa-1",
+          "question": "True or False: In 0/1 Knapsack with capacity W and items N, optimizing space to a single 1D array requires iterating the capacity index in descending order from W down to w_i.",
+          "type": "true_false",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "Iterating backwards prevents overwriting subproblem solutions from the same item, ensuring each item is used at most once.",
+          "sourcePage": 2,
+          "topicName": "0/1 Knapsack & Dynamic Programming",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-dsa-4",
+          "quizId": "quiz-dsa-1",
+          "question": "Which sequence of rotations balances an AVL node that is Left-Heavy due to an insertion into the right subtree of its left child?",
+          "type": "mcq",
+          "options": [
+            "Left Rotation on left child, then Right Rotation on root (LR)",
+            "Single Right Rotation (LL)",
+            "Single Left Rotation (RR)",
+            "Right Rotation on right child, then Left Rotation on root (RL)"
+          ],
+          "correctAnswer": "Left Rotation on left child, then Right Rotation on root (LR)",
+          "explanation": "A Left-Right (LR) imbalance requires a Left rotation on the left child followed by a Right rotation on the parent node.",
+          "sourcePage": 3,
+          "topicName": "AVL Trees & Balance Rotations",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-dsa-5",
+          "quizId": "quiz-dsa-1",
+          "question": "What is the overall worst-case pattern matching time of the KMP algorithm for text of length N and pattern of length M?",
+          "type": "mcq",
+          "options": [
+            "O(N + M)",
+            "O(N * M)",
+            "O(N log M)",
+            "O(M^2)"
+          ],
+          "correctAnswer": "O(N + M)",
+          "explanation": "Precomputing the LPS table takes O(M) time and scanning the text takes O(N) time, giving O(N + M) total time.",
+          "sourcePage": 5,
+          "topicName": "KMP String Matching & LPS Table",
+          "difficulty": "easy"
+        }
+      ]
+    ],
+    [
+      "quiz-math-1",
+      [
+        {
+          "id": "q-math-1",
+          "quizId": "quiz-math-1",
+          "question": "Which PDE represents the one-dimensional heat conduction equation?",
+          "type": "mcq",
+          "options": [
+            "∂u/∂t = c^2 ∂^2u/∂x^2",
+            "∂^2u/∂t^2 = c^2 ∂^2u/∂x^2",
+            "∂^2u/∂x^2 + ∂^2u/∂y^2 = 0",
+            "∂u/∂t + c ∂u/∂x = 0"
+          ],
+          "correctAnswer": "∂u/∂t = c^2 ∂^2u/∂x^2",
+          "explanation": "The 1D heat equation is a parabolic PDE relating the first time derivative with the second spatial derivative.",
+          "sourcePage": 3,
+          "topicName": "1D Wave & Heat Equations (PDEs)",
+          "difficulty": "easy"
+        },
+        {
+          "id": "q-math-2",
+          "quizId": "quiz-math-1",
+          "question": "If f(z) = u + iv is analytic, then both u and v satisfy which equation?",
+          "type": "mcq",
+          "options": [
+            "Laplace Equation (∇^2 = 0)",
+            "Wave Equation",
+            "Helmholtz Equation",
+            "Euler Equation"
+          ],
+          "correctAnswer": "Laplace Equation (∇^2 = 0)",
+          "explanation": "The real and imaginary parts of an analytic function are harmonic conjugates and satisfy Laplace's equation ∇^2 u = 0 and ∇^2 v = 0.",
+          "sourcePage": 4,
+          "topicName": "Cauchy-Riemann Equations & Harmonic Conjugates",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-math-3",
+          "quizId": "quiz-math-1",
+          "question": "What is the Laplace transform L{e^{3t} sin(2t)}?",
+          "type": "mcq",
+          "options": [
+            "2 / ((s - 3)^2 + 4)",
+            "2 / (s^2 + 4)",
+            "(s - 3) / ((s - 3)^2 + 4)",
+            "3 / ((s - 2)^2 + 9)"
+          ],
+          "correctAnswer": "2 / ((s - 3)^2 + 4)",
+          "explanation": "Using the first shifting theorem L{e^{at} f(t)} = F(s - a), since L{sin(2t)} = 2/(s^2+4), the result is 2/((s-3)^2+4).",
+          "sourcePage": 1,
+          "topicName": "Laplace Transforms & Differential Equations",
+          "difficulty": "easy"
+        }
+      ]
+    ],
+    [
+      "quiz-de-1",
+      [
+        {
+          "id": "q-de-1",
+          "quizId": "quiz-de-1",
+          "question": "Under which input condition does an active-high SR latch enter an invalid / undefined state?",
+          "type": "mcq",
+          "options": [
+            "S = 1, R = 1",
+            "S = 0, R = 0",
+            "S = 1, R = 0",
+            "S = 0, R = 1"
+          ],
+          "correctAnswer": "S = 1, R = 1",
+          "explanation": "When both S and R are 1, both Q and Q' outputs attempt to become 0 simultaneously, violating the complementary output rule.",
+          "sourcePage": 3,
+          "topicName": "Master-Slave JK Flip-Flop & Race Condition",
+          "difficulty": "easy"
+        },
+        {
+          "id": "q-de-2",
+          "quizId": "quiz-de-1",
+          "question": "In a Moore finite state machine, what determines the circuit outputs?",
+          "type": "mcq",
+          "options": [
+            "Only the current state",
+            "Both the current state and current inputs",
+            "Only the input signals",
+            "The clock frequency"
+          ],
+          "correctAnswer": "Only the current state",
+          "explanation": "Moore machine outputs are determined strictly by the present state variables stored in flip-flops.",
+          "sourcePage": 4,
+          "topicName": "Synchronous Counter Design (Mod-N)",
+          "difficulty": "easy"
+        },
+        {
+          "id": "q-de-3",
+          "quizId": "quiz-de-1",
+          "question": "What is the characteristic equation of a T (Toggle) flip-flop?",
+          "type": "mcq",
+          "options": [
+            "Q_next = T ⊕ Q",
+            "Q_next = T • Q",
+            "Q_next = T + Q",
+            "Q_next = T"
+          ],
+          "correctAnswer": "Q_next = T ⊕ Q",
+          "explanation": "When T=0, Q_next = 0 ⊕ Q = Q (Hold). When T=1, Q_next = 1 ⊕ Q = Q' (Toggle).",
+          "sourcePage": 3,
+          "topicName": "Master-Slave JK Flip-Flop & Race Condition",
+          "difficulty": "easy"
+        }
+      ]
+    ],
+    [
+      "quiz-doc-1790920691497",
+      [
+        {
+          "id": "q-quiz-doc-1790920691497-1",
+          "quizId": "quiz-doc-1790920691497",
+          "question": "According to the document, what is the definition or role of \"Process Control Block\"?",
+          "type": "mcq",
+          "options": [
+            "None of the mentioned alternatives",
+            "CPU allocates time slices to ensure multi-tasking responsiveness.",
+            "Applies only at absolute zero temperature",
+            "A data structure maintaining process execution context."
+          ],
+          "correctAnswer": "A data structure maintaining process execution context.",
+          "explanation": "As stated in the text: A data structure maintaining process execution context.",
+          "sourcePage": 1,
+          "topicName": "Process Control Block",
+          "difficulty": "easy"
+        },
+        {
+          "id": "q-quiz-doc-1790920691497-2",
+          "quizId": "quiz-doc-1790920691497",
+          "question": "According to the document, what is the definition or role of \"Preemptive Scheduling\"?",
+          "type": "mcq",
+          "options": [
+            "Applies only at absolute zero temperature",
+            "None of the mentioned alternatives",
+            "A data structure maintaining process execution context.",
+            "CPU allocates time slices to ensure multi-tasking responsiveness."
+          ],
+          "correctAnswer": "CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "explanation": "As stated in the text: CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "sourcePage": 1,
+          "topicName": "Preemptive Scheduling",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-quiz-doc-1790920691497-3",
+          "quizId": "quiz-doc-1790920691497",
+          "question": "True or False: According to the study material, \"Operating Systems and Process Scheduling.\"",
+          "type": "true_false",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "Directly supported by the document text: \"Operating Systems and Process Scheduling.\"",
+          "sourcePage": 1,
+          "topicName": "Core Principles",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-quiz-doc-1790920691497-4",
+          "quizId": "quiz-doc-1790920691497",
+          "question": "True or False: According to the study material, \"Process Control Block: A data structure maintaining process execution context.\"",
+          "type": "true_false",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "Directly supported by the document text: \"Process Control Block: A data structure maintaining process execution context.\"",
+          "sourcePage": 1,
+          "topicName": "Core Principles",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-quiz-doc-1790920691497-5",
+          "quizId": "quiz-doc-1790920691497",
+          "question": "True or False: According to the study material, \"Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\"",
+          "type": "true_false",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "Directly supported by the document text: \"Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\"",
+          "sourcePage": 1,
+          "topicName": "Core Principles",
+          "difficulty": "medium"
+        }
+      ]
+    ],
+    [
+      "quiz-doc-1790920775377",
+      [
+        {
+          "id": "q-quiz-doc-1790920775377-1",
+          "quizId": "quiz-doc-1790920775377",
+          "question": "According to the document, what is the definition or role of \"Process Control Block\"?",
+          "type": "mcq",
+          "options": [
+            "Applies only at absolute zero temperature",
+            "A data structure maintaining process execution context.",
+            "CPU allocates time slices to ensure multi-tasking responsiveness.",
+            "None of the mentioned alternatives"
+          ],
+          "correctAnswer": "A data structure maintaining process execution context.",
+          "explanation": "As stated in the text: A data structure maintaining process execution context.",
+          "sourcePage": 1,
+          "topicName": "Process Control Block",
+          "difficulty": "easy"
+        },
+        {
+          "id": "q-quiz-doc-1790920775377-2",
+          "quizId": "quiz-doc-1790920775377",
+          "question": "According to the document, what is the definition or role of \"Preemptive Scheduling\"?",
+          "type": "mcq",
+          "options": [
+            "None of the mentioned alternatives",
+            "CPU allocates time slices to ensure multi-tasking responsiveness.",
+            "A data structure maintaining process execution context.",
+            "Applies only at absolute zero temperature"
+          ],
+          "correctAnswer": "CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "explanation": "As stated in the text: CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "sourcePage": 1,
+          "topicName": "Preemptive Scheduling",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-quiz-doc-1790920775377-3",
+          "quizId": "quiz-doc-1790920775377",
+          "question": "True or False: According to the study material, \"Operating Systems and Process Scheduling.\"",
+          "type": "true_false",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "Directly supported by the document text: \"Operating Systems and Process Scheduling.\"",
+          "sourcePage": 1,
+          "topicName": "Core Principles",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-quiz-doc-1790920775377-4",
+          "quizId": "quiz-doc-1790920775377",
+          "question": "True or False: According to the study material, \"Process Control Block: A data structure maintaining process execution context.\"",
+          "type": "true_false",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "Directly supported by the document text: \"Process Control Block: A data structure maintaining process execution context.\"",
+          "sourcePage": 1,
+          "topicName": "Core Principles",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-quiz-doc-1790920775377-5",
+          "quizId": "quiz-doc-1790920775377",
+          "question": "True or False: According to the study material, \"Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\"",
+          "type": "true_false",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "Directly supported by the document text: \"Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\"",
+          "sourcePage": 1,
+          "topicName": "Core Principles",
+          "difficulty": "medium"
+        }
+      ]
+    ],
+    [
+      "quiz-doc-1790920838909",
+      [
+        {
+          "id": "q-quiz-doc-1790920838909-1",
+          "quizId": "quiz-doc-1790920838909",
+          "question": "According to the document, what is the definition or role of \"Process Control Block\"?",
+          "type": "mcq",
+          "options": [
+            "A data structure maintaining process execution context.",
+            "CPU allocates time slices to ensure multi-tasking responsiveness.",
+            "None of the mentioned alternatives",
+            "Applies only at absolute zero temperature"
+          ],
+          "correctAnswer": "A data structure maintaining process execution context.",
+          "explanation": "As stated in the text: A data structure maintaining process execution context.",
+          "sourcePage": 1,
+          "topicName": "Process Control Block",
+          "difficulty": "easy"
+        },
+        {
+          "id": "q-quiz-doc-1790920838909-2",
+          "quizId": "quiz-doc-1790920838909",
+          "question": "According to the document, what is the definition or role of \"Preemptive Scheduling\"?",
+          "type": "mcq",
+          "options": [
+            "CPU allocates time slices to ensure multi-tasking responsiveness.",
+            "A data structure maintaining process execution context.",
+            "None of the mentioned alternatives",
+            "Applies only at absolute zero temperature"
+          ],
+          "correctAnswer": "CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "explanation": "As stated in the text: CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "sourcePage": 1,
+          "topicName": "Preemptive Scheduling",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-quiz-doc-1790920838909-3",
+          "quizId": "quiz-doc-1790920838909",
+          "question": "True or False: According to the study material, \"Operating Systems and Process Scheduling.\"",
+          "type": "true_false",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "Directly supported by the document text: \"Operating Systems and Process Scheduling.\"",
+          "sourcePage": 1,
+          "topicName": "Core Principles",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-quiz-doc-1790920838909-4",
+          "quizId": "quiz-doc-1790920838909",
+          "question": "True or False: According to the study material, \"Process Control Block: A data structure maintaining process execution context.\"",
+          "type": "true_false",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "Directly supported by the document text: \"Process Control Block: A data structure maintaining process execution context.\"",
+          "sourcePage": 1,
+          "topicName": "Core Principles",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-quiz-doc-1790920838909-5",
+          "quizId": "quiz-doc-1790920838909",
+          "question": "True or False: According to the study material, \"Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\"",
+          "type": "true_false",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "Directly supported by the document text: \"Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\"",
+          "sourcePage": 1,
+          "topicName": "Core Principles",
+          "difficulty": "medium"
+        }
+      ]
+    ],
+    [
+      "quiz-doc-1790920863624",
+      [
+        {
+          "id": "q-quiz-doc-1790920863624-1",
+          "quizId": "quiz-doc-1790920863624",
+          "question": "According to the document, what is the definition or role of \"Process Control Block\"?",
+          "type": "mcq",
+          "options": [
+            "A data structure maintaining process execution context.",
+            "CPU allocates time slices to ensure multi-tasking responsiveness.",
+            "None of the mentioned alternatives",
+            "Applies only at absolute zero temperature"
+          ],
+          "correctAnswer": "A data structure maintaining process execution context.",
+          "explanation": "As stated in the text: A data structure maintaining process execution context.",
+          "sourcePage": 1,
+          "topicName": "Process Control Block",
+          "difficulty": "easy"
+        },
+        {
+          "id": "q-quiz-doc-1790920863624-2",
+          "quizId": "quiz-doc-1790920863624",
+          "question": "According to the document, what is the definition or role of \"Preemptive Scheduling\"?",
+          "type": "mcq",
+          "options": [
+            "CPU allocates time slices to ensure multi-tasking responsiveness.",
+            "Applies only at absolute zero temperature",
+            "A data structure maintaining process execution context.",
+            "None of the mentioned alternatives"
+          ],
+          "correctAnswer": "CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "explanation": "As stated in the text: CPU allocates time slices to ensure multi-tasking responsiveness.",
+          "sourcePage": 1,
+          "topicName": "Preemptive Scheduling",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-quiz-doc-1790920863624-3",
+          "quizId": "quiz-doc-1790920863624",
+          "question": "True or False: According to the study material, \"Operating Systems and Process Scheduling.\"",
+          "type": "true_false",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "Directly supported by the document text: \"Operating Systems and Process Scheduling.\"",
+          "sourcePage": 1,
+          "topicName": "Core Principles",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-quiz-doc-1790920863624-4",
+          "quizId": "quiz-doc-1790920863624",
+          "question": "True or False: According to the study material, \"Process Control Block: A data structure maintaining process execution context.\"",
+          "type": "true_false",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "Directly supported by the document text: \"Process Control Block: A data structure maintaining process execution context.\"",
+          "sourcePage": 1,
+          "topicName": "Core Principles",
+          "difficulty": "medium"
+        },
+        {
+          "id": "q-quiz-doc-1790920863624-5",
+          "quizId": "quiz-doc-1790920863624",
+          "question": "True or False: According to the study material, \"Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\"",
+          "type": "true_false",
+          "options": [
+            "True",
+            "False"
+          ],
+          "correctAnswer": "True",
+          "explanation": "Directly supported by the document text: \"Preemptive Scheduling: CPU allocates time slices to ensure multi-tasking responsiveness.\"",
+          "sourcePage": 1,
+          "topicName": "Core Principles",
+          "difficulty": "medium"
+        }
+      ]
+    ]
+  ],
+  "quizAttempts": [
+    [
+      "quiz-doc-1790920691497",
+      [
+        {
+          "id": "attempt-1790920702894",
+          "quizId": "quiz-doc-1790920691497",
+          "userId": "user-ashutosh",
+          "score": 3,
+          "total": 5,
+          "percentage": 60,
+          "strongTopics": [
+            "Core Principles"
+          ],
+          "weakTopics": [
+            "Process Control Block",
+            "Preemptive Scheduling"
+          ],
+          "userAnswers": {
+            "q-quiz-doc-1790920691497-1": "None of the mentioned alternatives",
+            "q-quiz-doc-1790920691497-2": "Applies only at absolute zero temperature",
+            "q-quiz-doc-1790920691497-3": "True",
+            "q-quiz-doc-1790920691497-4": "True",
+            "q-quiz-doc-1790920691497-5": "True"
+          },
+          "submittedAt": "2026-10-02T05:58:22.894Z"
+        }
+      ]
+    ],
+    [
+      "quiz-doc-1790920775377",
+      [
+        {
+          "id": "attempt-1790920780597",
+          "quizId": "quiz-doc-1790920775377",
+          "userId": "user-ashutosh",
+          "score": 3,
+          "total": 5,
+          "percentage": 60,
+          "strongTopics": [
+            "Core Principles"
+          ],
+          "weakTopics": [
+            "Process Control Block",
+            "Preemptive Scheduling"
+          ],
+          "userAnswers": {
+            "q-quiz-doc-1790920775377-1": "Applies only at absolute zero temperature",
+            "q-quiz-doc-1790920775377-2": "None of the mentioned alternatives",
+            "q-quiz-doc-1790920775377-3": "True",
+            "q-quiz-doc-1790920775377-4": "True",
+            "q-quiz-doc-1790920775377-5": "True"
+          },
+          "submittedAt": "2026-10-02T05:59:40.597Z"
+        }
+      ]
+    ],
+    [
+      "quiz-doc-1790920838909",
+      [
+        {
+          "id": "attempt-1790920844197",
+          "quizId": "quiz-doc-1790920838909",
+          "userId": "user-ashutosh",
+          "score": 5,
+          "total": 5,
+          "percentage": 100,
+          "strongTopics": [
+            "Process Control Block",
+            "Preemptive Scheduling",
+            "Core Principles"
+          ],
+          "weakTopics": [],
+          "userAnswers": {
+            "q-quiz-doc-1790920838909-1": "A data structure maintaining process execution context.",
+            "q-quiz-doc-1790920838909-2": "CPU allocates time slices to ensure multi-tasking responsiveness.",
+            "q-quiz-doc-1790920838909-3": "True",
+            "q-quiz-doc-1790920838909-4": "True",
+            "q-quiz-doc-1790920838909-5": "True"
+          },
+          "submittedAt": "2026-10-02T06:00:44.197Z"
+        }
+      ]
+    ],
+    [
+      "quiz-doc-1790920863624",
+      [
+        {
+          "id": "attempt-1790920868999",
+          "quizId": "quiz-doc-1790920863624",
+          "userId": "user-ashutosh",
+          "score": 5,
+          "total": 5,
+          "percentage": 100,
+          "strongTopics": [
+            "Process Control Block",
+            "Preemptive Scheduling",
+            "Core Principles"
+          ],
+          "weakTopics": [],
+          "userAnswers": {
+            "q-quiz-doc-1790920863624-1": "A data structure maintaining process execution context.",
+            "q-quiz-doc-1790920863624-2": "CPU allocates time slices to ensure multi-tasking responsiveness.",
+            "q-quiz-doc-1790920863624-3": "True",
+            "q-quiz-doc-1790920863624-4": "True",
+            "q-quiz-doc-1790920863624-5": "True"
+          },
+          "submittedAt": "2026-10-02T06:01:08.999Z"
+        }
+      ]
+    ]
+  ],
+  "pyqDocuments": [
+    [
+      "engineering-physics",
+      [
+        {
+          "id": "pyq-phy-2023",
+          "documentId": "engineering-physics",
+          "year": 2023,
+          "examName": "May/June Semester Examination 2023",
+          "totalMarks": 100,
+          "uploadedAt": "2026-09-20T10:00:00Z"
+        },
+        {
+          "id": "pyq-phy-2024",
+          "documentId": "engineering-physics",
+          "year": 2024,
+          "examName": "Nov/Dec Semester Examination 2024",
+          "totalMarks": 100,
+          "uploadedAt": "2026-09-21T10:00:00Z"
+        }
+      ]
+    ],
+    [
+      "data-structures",
+      [
+        {
+          "id": "pyq-dsa-2023",
+          "documentId": "data-structures",
+          "year": 2023,
+          "examName": "End Semester University Exam 2023",
+          "totalMarks": 100,
+          "uploadedAt": "2026-09-20T10:00:00Z"
+        },
+        {
+          "id": "pyq-dsa-2024",
+          "documentId": "data-structures",
+          "year": 2024,
+          "examName": "End Semester University Exam 2024",
+          "totalMarks": 100,
+          "uploadedAt": "2026-09-21T10:00:00Z"
+        },
+        {
+          "id": "pyq-dsa-2025",
+          "documentId": "data-structures",
+          "year": 2025,
+          "examName": "End Semester University Exam 2025",
+          "totalMarks": 100,
+          "uploadedAt": "2026-09-22T10:00:00Z"
+        }
+      ]
+    ],
+    [
+      "mathematics-iii",
+      [
+        {
+          "id": "pyq-math-2023",
+          "documentId": "mathematics-iii",
+          "year": 2023,
+          "examName": "End Semester University Exam 2023",
+          "totalMarks": 100,
+          "uploadedAt": "2026-09-20T10:00:00Z"
+        },
+        {
+          "id": "pyq-math-2024",
+          "documentId": "mathematics-iii",
+          "year": 2024,
+          "examName": "End Semester University Exam 2024",
+          "totalMarks": 100,
+          "uploadedAt": "2026-09-21T10:00:00Z"
+        },
+        {
+          "id": "pyq-math-2025",
+          "documentId": "mathematics-iii",
+          "year": 2025,
+          "examName": "End Semester University Exam 2025",
+          "totalMarks": 100,
+          "uploadedAt": "2026-09-22T10:00:00Z"
+        }
+      ]
+    ],
+    [
+      "digital-electronics",
+      [
+        {
+          "id": "pyq-de-2023",
+          "documentId": "digital-electronics",
+          "year": 2023,
+          "examName": "End Semester University Exam 2023",
+          "totalMarks": 100,
+          "uploadedAt": "2026-09-20T10:00:00Z"
+        },
+        {
+          "id": "pyq-de-2024",
+          "documentId": "digital-electronics",
+          "year": 2024,
+          "examName": "End Semester University Exam 2024",
+          "totalMarks": 100,
+          "uploadedAt": "2026-09-21T10:00:00Z"
+        }
+      ]
+    ]
+  ],
+  "pyqQuestions": [
+    [
+      "pyq-de-2023",
+      [
+        {
+          "id": "pyq-q-de-1",
+          "pyqDocumentId": "pyq-de-2023",
+          "topicName": "Master-Slave JK Flip-Flop & Race Condition",
+          "questionText": "Explain the race around condition in JK flip-flop and show how master-slave construction eliminates it.",
+          "marks": 10,
+          "year": 2023
+        },
+        {
+          "id": "pyq-q-de-2",
+          "pyqDocumentId": "pyq-de-2023",
+          "topicName": "Synchronous Counter Design (Mod-N)",
+          "questionText": "Design a Mod-6 synchronous counter using T flip-flops with state table and excitation map.",
+          "marks": 10,
+          "year": 2023
+        }
+      ]
+    ],
+    [
+      "pyq-phy-2023",
+      [
+        {
+          "id": "pyq-q-phy-1",
+          "pyqDocumentId": "pyq-phy-2023",
+          "topicName": "Band Theory & Intrinsic/Extrinsic Semiconductors",
+          "questionText": "Explain the band theory of solids. Distinguish between intrinsic and extrinsic semiconductors with Fermi level position diagrams.",
+          "marks": 10,
+          "year": 2023
+        },
+        {
+          "id": "pyq-q-phy-2",
+          "pyqDocumentId": "pyq-phy-2023",
+          "topicName": "Carrier Transport & Hall Effect",
+          "questionText": "Derive the expression for Hall coefficient. Describe its experimental significance in determining carrier type and concentration.",
+          "marks": 10,
+          "year": 2023
+        },
+        {
+          "id": "pyq-q-phy-3",
+          "pyqDocumentId": "pyq-phy-2023",
+          "topicName": "PN Junction & Diode Characteristics",
+          "questionText": "State the Shockley diode equation and discuss the temperature dependence of reverse saturation current.",
+          "marks": 5,
+          "year": 2023
+        }
+      ]
+    ],
+    [
+      "pyq-phy-2024",
+      [
+        {
+          "id": "pyq-q-phy-4",
+          "pyqDocumentId": "pyq-phy-2024",
+          "topicName": "Breakdown Mechanisms (Zener vs Avalanche)",
+          "questionText": "Compare Zener and Avalanche breakdown mechanisms in PN junction diodes. Contrast their temperature coefficients.",
+          "marks": 10,
+          "year": 2024
+        },
+        {
+          "id": "pyq-q-phy-5",
+          "pyqDocumentId": "pyq-phy-2024",
+          "topicName": "PN Junction & Diode Characteristics",
+          "questionText": "Derive the built-in barrier potential V_bi across an abrupt PN junction at thermal equilibrium.",
+          "marks": 10,
+          "year": 2024
+        },
+        {
+          "id": "pyq-q-phy-6",
+          "pyqDocumentId": "pyq-phy-2024",
+          "topicName": "Laser Physics & Optoelectronics",
+          "questionText": "Explain the principle of population inversion. Describe the construction and working of a He-Ne laser.",
+          "marks": 10,
+          "year": 2024
+        }
+      ]
+    ]
+  ],
+  "studyPlans": [
+    [
+      "plan-1",
+      {
+        "id": "plan-1",
+        "userId": "user-ashutosh",
+        "title": "Semester Finals Intensive Preparation",
+        "examDate": "2026-12-15",
+        "dailyHours": 3.5,
+        "currentLevel": "intermediate",
+        "createdAt": "2026-09-25T08:00:00Z"
+      }
+    ]
+  ],
+  "studyTasks": [
+    [
+      "plan-1",
+      [
+        {
+          "id": "task-1",
+          "studyPlanId": "plan-1",
+          "dayNumber": 1,
+          "title": "Revise PN Junction & Built-in Potential",
+          "description": "Study depletion dynamics, derive V_bi formula, and solve 2 numericals.",
+          "durationMinutes": 45,
+          "type": "reading",
+          "completed": false,
+          "documentId": "engineering-physics",
+          "topicName": "PN Junction & Depletion Region"
+        },
+        {
+          "id": "task-2",
+          "studyPlanId": "plan-1",
+          "dayNumber": 1,
+          "title": "Complete 20 Semiconductor MCQs",
+          "description": "Take the adaptive practice quiz on carrier transport and breakdown.",
+          "durationMinutes": 30,
+          "type": "practice",
+          "completed": false,
+          "documentId": "engineering-physics"
+        },
+        {
+          "id": "task-3",
+          "studyPlanId": "plan-1",
+          "dayNumber": 1,
+          "title": "Review 15 Physics Flashcards",
+          "description": "Active recall spaced repetition on breakdown mechanisms.",
+          "durationMinutes": 15,
+          "type": "flashcards",
+          "completed": false,
+          "documentId": "engineering-physics"
+        },
+        {
+          "id": "task-4",
+          "studyPlanId": "plan-1",
+          "dayNumber": 1,
+          "title": "Analyze PYQs: 2023-2024 Trends",
+          "description": "Review high-weightage questions on Hall Effect and Zener Diode.",
+          "durationMinutes": 20,
+          "type": "revision",
+          "completed": false,
+          "documentId": "engineering-physics"
+        },
+        {
+          "id": "task-5",
+          "studyPlanId": "plan-1",
+          "dayNumber": 2,
+          "title": "Dynamic Programming Patterns: Knapsack & LCS",
+          "description": "Solve 0/1 Knapsack recurrence and space-optimized table.",
+          "durationMinutes": 50,
+          "type": "reading",
+          "completed": false,
+          "documentId": "data-structures"
+        },
+        {
+          "id": "task-6",
+          "studyPlanId": "plan-1",
+          "dayNumber": 2,
+          "title": "Laplace Transform Shifting Theorems",
+          "description": "Practice 5 initial-value and convolution problems.",
+          "durationMinutes": 40,
+          "type": "practice",
+          "completed": false,
+          "documentId": "mathematics-iii"
+        }
+      ]
+    ]
+  ],
+  "userProgress": [
+    [
+      "user-ashutosh",
+      {
+        "userId": "user-ashutosh",
+        "documentsCount": 8,
+        "topicsMastered": 0,
+        "totalTopics": 26,
+        "averageQuizAccuracy": 80,
+        "flashcardsReviewedCount": 3,
+        "totalStudyMinutes": 0,
+        "currentStreakDays": 1,
+        "weeklyStudyHours": [
+          {
+            "day": "MON",
+            "hours": 0
+          },
+          {
+            "day": "TUE",
+            "hours": 0
+          },
+          {
+            "day": "WED",
+            "hours": 0
+          },
+          {
+            "day": "THU",
+            "hours": 0
+          },
+          {
+            "day": "FRI",
+            "hours": 0
+          },
+          {
+            "day": "SAT",
+            "hours": 0
+          },
+          {
+            "day": "SUN",
+            "hours": 0
+          }
+        ],
+        "weakTopics": [
+          {
+            "name": "Preemptive Scheduling",
+            "documentTitle": "Operating Systems Scheduling",
+            "accuracy": 60
+          },
+          {
+            "name": "Process Control Block",
+            "documentTitle": "Operating Systems Scheduling",
+            "accuracy": 60
+          }
+        ]
+      }
+    ]
+  ]
+}

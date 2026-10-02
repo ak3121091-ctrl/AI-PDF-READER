@@ -34,6 +34,7 @@ export interface Document {
   pageCount: number;
   status: 'uploading' | 'processing' | 'ready' | 'error';
   coverUrl?: string;
+  storagePath?: string;
   summaryId?: string;
   createdAt: string;
   updatedAt: string;
