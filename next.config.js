@@ -6,6 +6,7 @@ const nextConfig = {
     serverActions: {
       bodySizeLimit: '25mb',
     },
+    middlewareClientMaxBodySize: '25mb',
   },
   webpack: (config) => {
     config.module.rules.push({

@@ -18,6 +18,9 @@ interface UploadModalProps {
   onUploadSuccess?: (docId?: string) => void;
 }
 
+const CLIENT_MAX_FILE_SIZE = 20 * 1024 * 1024; // 20 MiB (20,971,520 bytes)
+const SERVER_MAX_FILE_SIZE = 25 * 1024 * 1024; // 25 MiB (26,214,400 bytes)
+
 export function UploadModal({ isOpen, onClose, onUploadSuccess }: UploadModalProps) {
   const router = useRouter();
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -64,9 +67,8 @@ export function UploadModal({ isOpen, onClose, onUploadSuccess }: UploadModalPro
       setError('Invalid file format. Please upload an academic PDF document.');
       return;
     }
-    const maxSizeBytes = 20 * 1024 * 1024; // 20 MB limit
-    if (selected.size > maxSizeBytes) {
-      setError('File size exceeds the 20 MB limit. Please optimize or upload a smaller chapter.');
+    if (selected.size > CLIENT_MAX_FILE_SIZE) {
+      setError('File size exceeds 20 MB limit.');
       return;
     }
     setFile(selected);
@@ -74,6 +76,11 @@ export function UploadModal({ isOpen, onClose, onUploadSuccess }: UploadModalPro
 
   const handleUpload = async () => {
     if (!file || isProcessing) return;
+
+    if (file.size > CLIENT_MAX_FILE_SIZE) {
+      setError('File size exceeds 20 MB limit.');
+      return;
+    }
 
     setIsProcessing(true);
     setError(null);

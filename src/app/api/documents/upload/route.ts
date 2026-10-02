@@ -27,9 +27,9 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: 'Invalid file format. Only PDF files are supported.' }, { status: 400 });
     }
 
-    const maxSize = 25 * 1024 * 1024; // 25 MB backend limit
-    if (file.size > maxSize) {
-      return NextResponse.json({ error: 'File size exceeds maximum limit of 25MB.' }, { status: 400 });
+    const SERVER_MAX_FILE_SIZE = 25 * 1024 * 1024; // 25 MB backend limit
+    if (file.size > SERVER_MAX_FILE_SIZE) {
+      return NextResponse.json({ error: 'File size exceeds server upload limit (max 25 MB).' }, { status: 413 });
     }
 
     if (file.size === 0) {
