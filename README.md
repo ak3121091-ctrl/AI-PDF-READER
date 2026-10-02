@@ -1,3 +1,9 @@
+Link
+
+https://main.d30xa2ew1626pv.amplifyapp.com?utm_source=chatgpt.com
+
+
+
 # StudyForge AI — AI PDF Study System
 
 StudyForge AI is a premium, unified academic learning platform that transforms standard lecture PDFs, textbooks, and previous-year question papers (PYQs) into an interactive, AI-driven study workspace.
