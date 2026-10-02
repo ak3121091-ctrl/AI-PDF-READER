@@ -120,6 +120,9 @@ class MemoryDatabase {
       const { dbFile } = getStoragePaths();
       if (fs.existsSync(dbFile)) {
         const raw = fs.readFileSync(dbFile, 'utf-8');
+        if (!raw || !raw.trim()) {
+          return false;
+        }
         const data = JSON.parse(raw);
         this.users = new Map(data.users || []);
         this.subjects = new Map(data.subjects || []);
@@ -139,8 +142,8 @@ class MemoryDatabase {
         this.userProgress = new Map(data.userProgress || []);
         return true;
       }
-    } catch (e) {
-      console.error('Failed to load database from disk:', e);
+    } catch (e: any) {
+      console.warn('Notice: Re-initializing store from seed data:', e?.message || e);
     }
     return false;
   }
