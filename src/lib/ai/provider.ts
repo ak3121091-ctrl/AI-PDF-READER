@@ -14,6 +14,18 @@ export interface AIProvider {
   generateFlashcards(documentId: string, fullText: string): Promise<Flashcard[]>;
 }
 
+async function withTimeout<T>(promise: Promise<T>, ms: number, errorMessage: string): Promise<T> {
+  let timer: NodeJS.Timeout;
+  const timeoutPromise = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => reject(new Error(errorMessage)), ms);
+  });
+  try {
+    return await Promise.race([promise, timeoutPromise]);
+  } finally {
+    clearTimeout(timer!);
+  }
+}
+
 export class GeminiProvider implements AIProvider {
   name = 'Gemini';
   private genAI: GoogleGenerativeAI;
@@ -50,13 +62,17 @@ INSTRUCTIONS:
 5. End with a short "Exam Tip" or "Key Takeaway".`;
 
     try {
-      const result = await model.generateContent(prompt);
+      const result = await withTimeout(
+        model.generateContent(prompt),
+        14000,
+        'Gemini Q&A request timed out after 14 seconds'
+      );
       return {
         answer: result.response.text(),
         sources: sources.length > 0 ? sources : [1],
       };
-    } catch (e) {
-      console.warn('Gemini chat failed, using fallback engine:', e);
+    } catch (e: any) {
+      console.warn('Gemini chat unavailable, using academic intelligence engine:', e?.message || e);
       const fallback = new AcademicIntelligenceProvider();
       return fallback.answerQuestion(query, contextChunks, documentTitle);
     }
@@ -95,7 +111,11 @@ ${fullText.slice(0, 15000)}
 Respond with ONLY valid JSON.`;
 
     try {
-      const result = await model.generateContent(prompt);
+      const result = await withTimeout(
+        model.generateContent(prompt),
+        14000,
+        'Gemini summary generation timed out after 14 seconds'
+      );
       const text = result.response.text();
       const match = text.match(/\{[\s\S]*\}/);
       if (!match) throw new Error('No JSON object found in response');
@@ -112,8 +132,8 @@ Respond with ONLY valid JSON.`;
         lastMinuteRevision: parsed.lastMinuteRevision || [],
         createdAt: new Date().toISOString(),
       };
-    } catch (e) {
-      console.warn('Gemini summary parsing failed, using academic intelligence fallback:', e);
+    } catch (e: any) {
+      console.warn('Gemini summary failed, using academic intelligence extraction:', e?.message || e);
       const fallback = new AcademicIntelligenceProvider();
       return fallback.generateSummary(documentId, fullText, pages);
     }
@@ -141,7 +161,11 @@ ${fullText.slice(0, 15000)}
 Respond with ONLY valid JSON.`;
 
     try {
-      const result = await model.generateContent(prompt);
+      const result = await withTimeout(
+        model.generateContent(prompt),
+        14000,
+        'Gemini topics generation timed out after 14 seconds'
+      );
       const text = result.response.text();
       const match = text.match(/\[[\s\S]*\]/);
       if (!match) throw new Error('No JSON array found');
@@ -157,8 +181,8 @@ Respond with ONLY valid JSON.`;
         status: item.status || (idx === 0 ? 'studying' : 'to_study'),
         keyNotes: item.keyNotes || 'Key concept from study material.',
       }));
-    } catch (e) {
-      console.warn('Gemini topics failed, using fallback:', e);
+    } catch (e: any) {
+      console.warn('Gemini topics failed, using academic intelligence extraction:', e?.message || e);
       const fallback = new AcademicIntelligenceProvider();
       return fallback.generateTopics(documentId, fullText);
     }
@@ -187,7 +211,11 @@ ${fullText.slice(0, 15000)}
 Respond with ONLY valid JSON.`;
 
     try {
-      const result = await model.generateContent(prompt);
+      const result = await withTimeout(
+        model.generateContent(prompt),
+        14000,
+        'Gemini quiz generation timed out after 14 seconds'
+      );
       const text = result.response.text();
       const match = text.match(/\[[\s\S]*\]/);
       if (!match) throw new Error('No JSON array found');
@@ -204,8 +232,8 @@ Respond with ONLY valid JSON.`;
         topicName: item.topicName || 'Core Concept',
         difficulty: item.difficulty || 'medium',
       }));
-    } catch (e) {
-      console.warn('Gemini quiz generation failed, using fallback:', e);
+    } catch (e: any) {
+      console.warn('Gemini quiz generation failed, using academic intelligence extraction:', e?.message || e);
       const fallback = new AcademicIntelligenceProvider();
       return fallback.generateQuiz(quizId, fullText, count);
     }
@@ -232,7 +260,11 @@ ${fullText.slice(0, 15000)}
 Respond with ONLY valid JSON.`;
 
     try {
-      const result = await model.generateContent(prompt);
+      const result = await withTimeout(
+        model.generateContent(prompt),
+        14000,
+        'Gemini flashcard generation timed out after 14 seconds'
+      );
       const text = result.response.text();
       const match = text.match(/\[[\s\S]*\]/);
       if (!match) throw new Error('No JSON array found');
@@ -247,8 +279,8 @@ Respond with ONLY valid JSON.`;
         reviewStatus: 'learning' as const,
         timesReviewed: 0,
       }));
-    } catch (e) {
-      console.warn('Gemini flashcard generation failed, using fallback:', e);
+    } catch (e: any) {
+      console.warn('Gemini flashcard generation failed, using academic intelligence extraction:', e?.message || e);
       const fallback = new AcademicIntelligenceProvider();
       return fallback.generateFlashcards(documentId, fullText);
     }
@@ -452,19 +484,8 @@ export class AcademicIntelligenceProvider implements AIProvider {
       quickSummary,
       detailedSummary,
       keyConcepts,
-      formulas: formulas.length > 0 ? formulas : [
-        {
-          formula: 'Theoretical Formulation',
-          description: 'Primary governing relationship defined in text',
-          variables: ['Standard notations as defined in the document'],
-        },
-      ],
-      definitions: definitions.length > 0 ? definitions : [
-        {
-          term: 'Fundamental Principle',
-          definition: sentences[0] || 'Key principle covered in the study document.',
-        },
-      ],
+      formulas: formulas,
+      definitions: definitions,
       lastMinuteRevision,
       createdAt: new Date().toISOString(),
     };
@@ -514,41 +535,46 @@ export class AcademicIntelligenceProvider implements AIProvider {
       });
     }
 
-    // If still empty, fall back to core structural sections
+    // If still empty, fall back to core structural sections based on actual document text
     if (topics.length === 0) {
+      const topicSentences = extractSentences(fullText);
+      const title1 = topicSentences[0] ? topicSentences[0].slice(0, 36).trim() : 'Core Principles & Overview';
+      const title2 = topicSentences[1] ? topicSentences[1].slice(0, 36).trim() : 'Foundations & Methodology';
+      const title3 = topicSentences[2] ? topicSentences[2].slice(0, 36).trim() : 'Key Applications & Analysis';
+
       topics.push(
         {
           id: `top-${documentId}-1`,
           documentId,
-          name: 'Core Theory & Physical Principles',
+          name: title1,
           documentImportance: 95,
           examFrequency: 90,
           weightagePercentage: 35,
           examYears: [2024, 2025],
           status: 'studying',
-          keyNotes: 'Fundamental theory and basic principles introduced in the study material.',
+          keyNotes: topicSentences[0] || 'Core concepts and basic principles from the study material.',
         },
         {
           id: `top-${documentId}-2`,
           documentId,
-          name: 'Mathematical Derivations & Relations',
+          name: title2,
           documentImportance: 85,
           examFrequency: 80,
           weightagePercentage: 35,
           examYears: [2024, 2025],
           status: 'to_study',
-          keyNotes: 'Analytical expressions, formulas, and proofs.',
+          keyNotes: topicSentences[1] || 'Analytical relationships and governing laws.',
         },
         {
           id: `top-${documentId}-3`,
           documentId,
-          name: 'Engineering Applications & Systems',
+          name: title3,
           documentImportance: 70,
           examFrequency: 65,
           weightagePercentage: 30,
           examYears: [2024, 2025],
           status: 'to_study',
-          keyNotes: 'Applied mechanisms, problem-solving, and examination case studies.',
+          keyNotes: topicSentences[2] || 'Applied mechanisms and problem-solving examples.',
         }
       );
     }

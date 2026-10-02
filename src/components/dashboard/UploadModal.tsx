@@ -22,6 +22,8 @@ export function UploadModal({ isOpen, onClose, onUploadSuccess }: UploadModalPro
   const router = useRouter();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  const activeRequestRef = useRef<{ abort: () => void } | null>(null);
+
   const [isDragging, setIsDragging] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [subject, setSubject] = useState('Engineering Physics');
@@ -62,7 +64,7 @@ export function UploadModal({ isOpen, onClose, onUploadSuccess }: UploadModalPro
       setError('Invalid file format. Please upload an academic PDF document.');
       return;
     }
-    const maxSizeBytes = 20 * 1024 * 1024; // 20 MB
+    const maxSizeBytes = 20 * 1024 * 1024; // 20 MB limit
     if (selected.size > maxSizeBytes) {
       setError('File size exceeds the 20 MB limit. Please optimize or upload a smaller chapter.');
       return;
@@ -71,61 +73,163 @@ export function UploadModal({ isOpen, onClose, onUploadSuccess }: UploadModalPro
   };
 
   const handleUpload = async () => {
-    if (!file) return;
+    if (!file || isProcessing) return;
 
     setIsProcessing(true);
     setError(null);
-    setUploadProgress(15);
+    setUploadProgress(0);
     setStatusStep('UPLOADING DOCUMENT...');
 
-    try {
-      // Progress animation
-      const progressTimer = setInterval(() => {
-        setUploadProgress((prev) => {
-          if (prev >= 85) {
-            clearInterval(progressTimer);
-            return prev;
-          }
-          return prev + 12;
-        });
-      }, 200);
+    let isAborted = false;
 
+    try {
       const formData = new FormData();
       formData.append('file', file);
       formData.append('subject', subject);
 
-      setTimeout(() => {
-        setStatusStep('EXTRACTING TEXT & DETECTING PAGES...');
-      }, 600);
+      // --- STAGE 1: Real byte upload and server text extraction (0% to 55%) ---
+      const uploadResult = await new Promise<{ document: any; textSnippet?: string }>((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
 
-      setTimeout(() => {
-        setStatusStep('CHUNKING & INDEXING KNOWLEDGE BASE...');
-      }, 1200);
+        activeRequestRef.current = {
+          abort: () => {
+            isAborted = true;
+            xhr.abort();
+          },
+        };
 
-      setTimeout(() => {
-        setStatusStep('GENERATING AI SUMMARY & STUDY ASSETS...');
-      }, 1800);
+        xhr.upload.onprogress = (event) => {
+          if (event.lengthComputable && event.total > 0) {
+            const percent = Math.min(45, Math.round((event.loaded / event.total) * 45));
+            setUploadProgress(percent);
+            const percentInt = Math.round((event.loaded / event.total) * 100);
+            setStatusStep(`UPLOADING DOCUMENT (${percentInt}%)...`);
+          }
+        };
 
-      const response = await fetch('/api/documents/upload', {
-        method: 'POST',
-        body: formData,
+        xhr.onload = () => {
+          if (xhr.status >= 200 && xhr.status < 300) {
+            try {
+              const data = JSON.parse(xhr.responseText);
+              if (data.error) {
+                reject(new Error(data.error));
+              } else {
+                resolve(data);
+              }
+            } catch {
+              reject(new Error('Unexpected response format from server during upload.'));
+            }
+          } else {
+            let errorMsg = 'Failed to upload document.';
+            try {
+              const errData = JSON.parse(xhr.responseText);
+              if (errData.error) errorMsg = errData.error;
+            } catch {
+              if (xhr.status === 413) {
+                errorMsg = 'File size exceeds server upload limit (max 25 MB).';
+              } else if (xhr.status === 504) {
+                errorMsg = 'Upload gateway timed out. Please try a smaller PDF.';
+              } else if (xhr.status === 422) {
+                errorMsg = 'Unable to extract text from document. Please ensure PDF has selectable text.';
+              }
+            }
+            reject(new Error(errorMsg));
+          }
+        };
+
+        xhr.onerror = () => {
+          reject(new Error('Network error during upload. Please check your internet connection and try again.'));
+        };
+
+        xhr.ontimeout = () => {
+          reject(new Error('Upload timed out. The file transfer took too long. Please try again or use a faster network.'));
+        };
+
+        xhr.timeout = 60000;
+        xhr.open('POST', '/api/documents/upload');
+        xhr.send(formData);
       });
 
-      clearInterval(progressTimer);
-      const data = await response.json();
+      if (isAborted) return;
 
-      if (!response.ok || data.error) {
-        throw new Error(data.error || 'Failed to process PDF.');
+      const docId = uploadResult.document.id;
+      const textSnippet = uploadResult.textSnippet || '';
+      const docTitle = uploadResult.document.title || file.name;
+
+      setUploadProgress(50);
+      setStatusStep('EXTRACTING TEXT & DETECTING PAGES...');
+
+      await new Promise((r) => setTimeout(r, 250));
+
+      setUploadProgress(60);
+      setStatusStep('CHUNKING & INDEXING KNOWLEDGE BASE...');
+
+      // --- STAGE 2: Generate Summary & Topics (60% to 80%) ---
+      setStatusStep('GENERATING AI SUMMARY & STUDY ASSETS...');
+      setUploadProgress(70);
+
+      const genController1 = new AbortController();
+      activeRequestRef.current = { abort: () => genController1.abort() };
+
+      const timeoutId1 = setTimeout(() => genController1.abort(), 28000);
+
+      const stage2Res = await fetch(`/api/documents/${docId}/generate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          step: 'summary-topics',
+          textSnippet,
+          title: docTitle,
+        }),
+        signal: genController1.signal,
+      }).finally(() => clearTimeout(timeoutId1));
+
+      if (!stage2Res.ok) {
+        const stage2Err = await stage2Res.json().catch(() => ({}));
+        throw new Error(stage2Err.error || 'Failed to generate study summary and topics.');
       }
 
+      setUploadProgress(85);
+      setStatusStep('BUILDING FLASHCARDS & DIAGNOSTIC QUIZ...');
+
+      // --- STAGE 3: Generate Flashcards & Quiz (85% to 100%) ---
+      const genController2 = new AbortController();
+      activeRequestRef.current = { abort: () => genController2.abort() };
+
+      const timeoutId2 = setTimeout(() => genController2.abort(), 28000);
+
+      const stage3Res = await fetch(`/api/documents/${docId}/generate`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          step: 'cards-quiz',
+          textSnippet,
+          title: docTitle,
+        }),
+        signal: genController2.signal,
+      }).finally(() => clearTimeout(timeoutId2));
+
+      if (!stage3Res.ok) {
+        const stage3Err = await stage3Res.json().catch(() => ({}));
+        throw new Error(stage3Err.error || 'Failed to generate flashcards and quiz.');
+      }
+
+      activeRequestRef.current = null;
       setUploadProgress(100);
       setStatusStep('DOCUMENT READY!');
-      setSuccessDocId(data.document.id);
-      if (onUploadSuccess) onUploadSuccess(data.document.id);
+      setSuccessDocId(docId);
+      if (onUploadSuccess) onUploadSuccess(docId);
     } catch (err: any) {
-      console.error(err);
-      setError(err.message || 'An error occurred while uploading. Please try again.');
+      if (err.name === 'AbortError') {
+        if (!isAborted) {
+          setError('Operation timed out while communicating with serverless AI. Please try again.');
+        }
+      } else {
+        console.error('Upload processing error:', err);
+        setError(err.message || 'An error occurred while uploading. Please try again.');
+      }
       setIsProcessing(false);
+      activeRequestRef.current = null;
     }
   };
 
@@ -137,6 +241,10 @@ export function UploadModal({ isOpen, onClose, onUploadSuccess }: UploadModalPro
   };
 
   const reset = () => {
+    if (activeRequestRef.current) {
+      activeRequestRef.current.abort();
+      activeRequestRef.current = null;
+    }
     setFile(null);
     setError(null);
     setIsProcessing(false);
@@ -259,7 +367,7 @@ export function UploadModal({ isOpen, onClose, onUploadSuccess }: UploadModalPro
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '6px' }}>
-                <span>UPLOADING</span>
+                <span>{uploadProgress < 50 ? 'UPLOADING' : 'PROCESSING'}</span>
                 <span>{uploadProgress}%</span>
               </div>
               <div
@@ -440,9 +548,9 @@ export function UploadModal({ isOpen, onClose, onUploadSuccess }: UploadModalPro
               </button>
               <button
                 onClick={handleUpload}
-                disabled={!file}
+                disabled={!file || isProcessing}
                 className="btn-primary"
-                style={{ opacity: file ? 1 : 0.5, cursor: file ? 'pointer' : 'not-allowed' }}
+                style={{ opacity: file && !isProcessing ? 1 : 0.5, cursor: file && !isProcessing ? 'pointer' : 'not-allowed' }}
               >
                 <Sparkles size={14} />
                 Process & Study

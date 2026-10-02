@@ -186,8 +186,6 @@ export function WorkspaceShell({ initialView, initialDocId }: WorkspaceShellProp
           if (newDocId) {
             setSelectedDocumentId(newDocId);
           }
-          setActiveView('reader');
-          setIsUploadOpen(false);
         }}
       />
     </div>

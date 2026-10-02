@@ -19,10 +19,31 @@ import {
 
 import fs from 'fs';
 import path from 'path';
+import os from 'os';
 
-const DATA_DIR = path.join(process.cwd(), 'data');
-const DB_FILE = path.join(DATA_DIR, 'studyforge-store.json');
-const UPLOADS_DIR = path.join(DATA_DIR, 'uploads');
+function getStoragePaths(): { dataDir: string; dbFile: string; uploadsDir: string } {
+  const localDataDir = path.join(process.cwd(), 'data');
+  try {
+    if (!fs.existsSync(localDataDir)) {
+      fs.mkdirSync(localDataDir, { recursive: true });
+    }
+    const testFile = path.join(localDataDir, `.test-write-${Date.now()}`);
+    fs.writeFileSync(testFile, '1');
+    fs.unlinkSync(testFile);
+    return {
+      dataDir: localDataDir,
+      dbFile: path.join(localDataDir, 'studyforge-store.json'),
+      uploadsDir: path.join(localDataDir, 'uploads'),
+    };
+  } catch {
+    const tmpDataDir = path.join(os.tmpdir(), 'studyforge-data');
+    return {
+      dataDir: tmpDataDir,
+      dbFile: path.join(tmpDataDir, 'studyforge-store.json'),
+      uploadsDir: path.join(tmpDataDir, 'uploads'),
+    };
+  }
+}
 
 class MemoryDatabase {
   users: Map<string, User> = new Map();
@@ -41,6 +62,7 @@ class MemoryDatabase {
   studyPlans: Map<string, StudyPlan> = new Map();
   studyTasks: Map<string, StudyTask[]> = new Map();
   userProgress: Map<string, UserProgress> = new Map();
+  pdfBuffers: Map<string, Buffer> = new Map();
 
   constructor() {
     const loaded = this.load();
@@ -52,11 +74,12 @@ class MemoryDatabase {
 
   private ensureDirs() {
     try {
-      if (!fs.existsSync(DATA_DIR)) {
-        fs.mkdirSync(DATA_DIR, { recursive: true });
+      const { dataDir, uploadsDir } = getStoragePaths();
+      if (!fs.existsSync(dataDir)) {
+        fs.mkdirSync(dataDir, { recursive: true });
       }
-      if (!fs.existsSync(UPLOADS_DIR)) {
-        fs.mkdirSync(UPLOADS_DIR, { recursive: true });
+      if (!fs.existsSync(uploadsDir)) {
+        fs.mkdirSync(uploadsDir, { recursive: true });
       }
     } catch (e) {
       console.error('Failed to create storage directories:', e);
@@ -66,6 +89,7 @@ class MemoryDatabase {
   persist() {
     this.ensureDirs();
     try {
+      const { dbFile } = getStoragePaths();
       const payload = {
         users: Array.from(this.users.entries()),
         subjects: Array.from(this.subjects.entries()),
@@ -84,17 +108,18 @@ class MemoryDatabase {
         studyTasks: Array.from(this.studyTasks.entries()),
         userProgress: Array.from(this.userProgress.entries()),
       };
-      fs.writeFileSync(DB_FILE, JSON.stringify(payload, null, 2), 'utf-8');
+      fs.writeFileSync(dbFile, JSON.stringify(payload, null, 2), 'utf-8');
     } catch (e) {
-      console.error('Failed to persist database to disk:', e);
+      console.warn('Notice: Disk persistence skipped (running in-memory serverless container):', e);
     }
   }
 
   load(): boolean {
     this.ensureDirs();
     try {
-      if (fs.existsSync(DB_FILE)) {
-        const raw = fs.readFileSync(DB_FILE, 'utf-8');
+      const { dbFile } = getStoragePaths();
+      if (fs.existsSync(dbFile)) {
+        const raw = fs.readFileSync(dbFile, 'utf-8');
         const data = JSON.parse(raw);
         this.users = new Map(data.users || []);
         this.subjects = new Map(data.subjects || []);
@@ -1240,220 +1265,19 @@ class MemoryDatabase {
   }
 
   getSummary(documentId: string): Summary | undefined {
-    let summary = this.summaries.get(documentId);
-    if (!summary) {
-      const doc = this.documents.get(documentId);
-      if (doc) {
-        const pages = this.documentPages.get(documentId) || [];
-        summary = {
-          id: 'sum-' + documentId,
-          documentId,
-          quickSummary: `${doc.title} comprehensive curriculum covering core theoretical formulations, fundamental definitions, key problem-solving methodologies, and examination checkpoints across ${doc.pageCount} pages.`,
-          detailedSummary: pages.slice(0, 4).map((p, idx) => ({
-            chapter: `Module ${idx + 1}: ${doc.title} Section ${idx + 1}`,
-            content: p.text ? p.text.substring(0, 220) + '...' : `Comprehensive coverage of module ${idx + 1} topics and practice exercises.`,
-            keyPoints: [
-              'Fundamental conceptual definitions',
-              'Mathematical analysis and proof methods',
-              'University examination problem patterns',
-            ],
-          })),
-          keyConcepts: [
-            { title: `${doc.title} Core Model`, explanation: `Essential conceptual framework and mathematical foundation of ${doc.title}.`, importance: 'high' },
-            { title: 'Analytical Solutions', explanation: 'Rigorous derivation methods and practical engineering calculations.', importance: 'medium' },
-            { title: 'System Optimization', explanation: 'Techniques for improving efficiency and performance criteria.', importance: 'medium' },
-          ],
-          formulas: [
-            { formula: 'E = h\\nu', description: 'Energy associated with photon transition frequency', variables: ['E (Energy in Joules)', 'h (Planck constant)', '\\nu (Frequency in Hz)'] },
-            { formula: '\\eta = 1 - \\frac{T_C}{T_H}', description: 'Theoretical thermodynamic efficiency limit', variables: ['\\eta (Efficiency)', 'T_C (Cold reservoir temp K)', 'T_H (Hot reservoir temp K)'] },
-          ],
-          definitions: [
-            { term: 'Equilibrium State', definition: 'The balanced physical condition where net thermodynamic or electrical flux is zero.' },
-            { term: 'Transfer Characteristic', definition: 'Functional relationship mapping input stimulus to output response across dynamic range.' },
-          ],
-          lastMinuteRevision: [
-            `Revise all core definitions and governing laws for ${doc.title}.`,
-            'Check boundary conditions, sign conventions, and physical units.',
-            'Review previous year question formats and Section B long derivation topics.',
-          ],
-          createdAt: new Date().toISOString(),
-        };
-        this.summaries.set(documentId, summary);
-      }
-    }
-    return summary;
+    return this.summaries.get(documentId);
   }
 
   getTopics(documentId: string): Topic[] {
-    let topics = this.topics.get(documentId);
-    if (!topics || topics.length === 0) {
-      const doc = this.documents.get(documentId);
-      if (doc) {
-        topics = [
-          {
-            id: `top-${documentId}-1`,
-            documentId,
-            name: `${doc.title}: Fundamental Principles`,
-            documentImportance: 95,
-            examFrequency: 85,
-            weightagePercentage: 35,
-            examYears: [2023, 2024, 2025],
-            status: 'mastered',
-            keyNotes: `Core principles and theoretical framework of ${doc.title}. Appeared in all analyzed semester question papers.`,
-          },
-          {
-            id: `top-${documentId}-2`,
-            documentId,
-            name: `${doc.title}: Analytical Methods`,
-            documentImportance: 85,
-            examFrequency: 75,
-            weightagePercentage: 35,
-            examYears: [2023, 2024],
-            status: 'studying',
-            keyNotes: `Analytical equations and step-by-step problem solving methods. Tested frequently in numerical calculation sections.`,
-          },
-          {
-            id: `top-${documentId}-3`,
-            documentId,
-            name: `${doc.title}: Advanced Applications`,
-            documentImportance: 75,
-            examFrequency: 65,
-            weightagePercentage: 30,
-            examYears: [2024, 2025],
-            status: 'to_study',
-            keyNotes: `Practical engineering use cases, system diagrams, and performance characteristics.`,
-          },
-        ];
-        this.topics.set(documentId, topics);
-      } else {
-        topics = [];
-      }
-    }
-    return topics;
+    return this.topics.get(documentId) || [];
   }
 
   getFlashcards(documentId: string): Flashcard[] {
-    let cards = this.flashcards.get(documentId);
-    if (!cards || cards.length === 0) {
-      const doc = this.documents.get(documentId);
-      if (doc) {
-        cards = [
-          {
-            id: `fc-${documentId}-1`,
-            documentId,
-            front: `What is the primary governing principle of ${doc.title}?`,
-            back: `The fundamental physical or mathematical law that describes the equilibrium behavior and operational limits of the system.`,
-            category: 'Core Principles',
-            difficulty: 'easy',
-            reviewStatus: 'mastered',
-            timesReviewed: 3,
-            lastReviewedAt: new Date().toISOString(),
-          },
-          {
-            id: `fc-${documentId}-2`,
-            documentId,
-            front: `How do you verify boundary conditions when solving ${doc.title} problems?`,
-            back: `Ensure all asymptotic constraints at t=0, t->∞, or physical interfaces satisfy continuity and conservation laws.`,
-            category: 'Problem Solving',
-            difficulty: 'medium',
-            reviewStatus: 'learning',
-            timesReviewed: 1,
-            lastReviewedAt: new Date().toISOString(),
-          },
-          {
-            id: `fc-${documentId}-3`,
-            documentId,
-            front: `What is the most frequently tested Section B question in ${doc.title}?`,
-            back: `Full theoretical derivation of the characteristic equation paired with a 5-mark numerical verification problem.`,
-            category: 'Exam Prep',
-            difficulty: 'hard',
-            reviewStatus: 'review',
-            timesReviewed: 2,
-            lastReviewedAt: new Date().toISOString(),
-          },
-        ];
-        this.flashcards.set(documentId, cards);
-      } else {
-        cards = [];
-      }
-    }
-    return cards;
+    return this.flashcards.get(documentId) || [];
   }
 
   getQuiz(documentId: string): Quiz | undefined {
-    let quiz = Array.from(this.quizzes.values()).find((q) => q.documentId === documentId);
-    if (!quiz) {
-      const doc = this.documents.get(documentId);
-      if (doc) {
-        const quizId = `quiz-${documentId}`;
-        const questions: QuizQuestion[] = [
-          {
-            id: `qq-${documentId}-1`,
-            quizId,
-            question: `Which fundamental principle is central to ${doc.title}?`,
-            options: [
-              'Conservation of energy and operational equilibrium',
-              'Random variable dispersion',
-              'Non-linear thermal breakdown',
-              'Idealized frictionless motion only',
-            ],
-            correctAnswer: 'Conservation of energy and operational equilibrium',
-            explanation: `All physical and engineering analyses in ${doc.title} begin with energy conservation and balanced boundary constraints.`,
-            sourcePage: 1,
-            topicName: `${doc.title} Fundamentals`,
-            difficulty: 'easy',
-            type: 'mcq',
-          },
-          {
-            id: `qq-${documentId}-2`,
-            quizId,
-            question: `In standard semester exams, numerical problems for ${doc.title} primarily require:`,
-            options: [
-              'Strict application of SI units and formula parameter substitution',
-              'Arbitrary empirical estimation',
-              'Only qualitative descriptions without calculations',
-              'Memorization of historical patent numbers',
-            ],
-            correctAnswer: 'Strict application of SI units and formula parameter substitution',
-            explanation: `Examiners reward correct formula representation, standard SI unit conversions, and explicit final result statements.`,
-            sourcePage: 2,
-            topicName: 'Problem Solving',
-            difficulty: 'medium',
-            type: 'mcq',
-          },
-          {
-            id: `qq-${documentId}-3`,
-            quizId,
-            question: `What distinguishes optimal operational conditions in ${doc.title}?`,
-            options: [
-              'Minimized dissipation and high transfer efficiency',
-              'Maximum possible operating temperature regardless of limits',
-              'Zero feedback gain across all operational frequencies',
-              'Undefined boundary impedance',
-            ],
-            correctAnswer: 'Minimized dissipation and high transfer efficiency',
-            explanation: `Optimal systems maximize useful output throughput while minimizing internal thermal and parasitic losses.`,
-            sourcePage: 3,
-            topicName: 'System Analysis',
-            difficulty: 'medium',
-            type: 'mcq',
-          },
-        ];
-
-        quiz = {
-          id: quizId,
-          documentId,
-          title: `${doc.title} Diagnostic Quiz`,
-          totalQuestions: questions.length,
-          difficulty: 'medium',
-          createdAt: new Date().toISOString(),
-        };
-
-        this.quizzes.set(quizId, quiz);
-        this.quizQuestions.set(quizId, questions);
-      }
-    }
-    return quiz;
+    return this.quizzes.get(documentId) || Array.from(this.quizzes.values()).find((q) => q.documentId === documentId || q.id === `quiz-${documentId}`);
   }
 
   getQuizQuestions(quizId: string): QuizQuestion[] {
@@ -1471,23 +1295,32 @@ class MemoryDatabase {
   }
 
   savePdfFile(documentId: string, buffer: Buffer): string {
-    this.ensureDirs();
+    this.pdfBuffers.set(documentId, buffer);
     try {
-      const filePath = path.join(UPLOADS_DIR, `${documentId}.pdf`);
+      const { uploadsDir } = getStoragePaths();
+      if (!fs.existsSync(uploadsDir)) {
+        fs.mkdirSync(uploadsDir, { recursive: true });
+      }
+      const filePath = path.join(uploadsDir, `${documentId}.pdf`);
       fs.writeFileSync(filePath, buffer);
       return `/api/documents/${documentId}/file`;
     } catch (e) {
-      console.error('Error saving PDF file:', e);
-      return '';
+      console.warn('Notice: PDF stored in memory, disk cache skipped:', e);
+      return `/api/documents/${documentId}/file`;
     }
   }
 
   getPdfBuffer(documentId: string): Buffer | null {
-    this.ensureDirs();
+    if (this.pdfBuffers.has(documentId)) {
+      return this.pdfBuffers.get(documentId) || null;
+    }
     try {
-      const filePath = path.join(UPLOADS_DIR, `${documentId}.pdf`);
+      const { uploadsDir } = getStoragePaths();
+      const filePath = path.join(uploadsDir, `${documentId}.pdf`);
       if (fs.existsSync(filePath)) {
-        return fs.readFileSync(filePath);
+        const buf = fs.readFileSync(filePath);
+        this.pdfBuffers.set(documentId, buf);
+        return buf;
       }
     } catch (e) {
       console.error('Error reading PDF file:', e);
@@ -1608,6 +1441,57 @@ class MemoryDatabase {
       }
     }
     this.persist();
+  }
+
+  saveDocumentInitial(doc: Document, pages: DocumentPage[], chunks: DocumentChunk[]): void {
+    this.documents.set(doc.id, doc);
+    this.documentPages.set(doc.id, pages);
+    this.documentChunks.set(doc.id, chunks);
+
+    const progress = this.userProgress.get(doc.userId) || this.userProgress.get('user-ashutosh');
+    if (progress) {
+      progress.documentsCount = this.documents.size;
+    }
+
+    this.persist();
+  }
+
+  setSummary(documentId: string, summary: Summary): void {
+    this.summaries.set(documentId, summary);
+    this.persist();
+  }
+
+  setTopics(documentId: string, topics: Topic[]): void {
+    this.topics.set(documentId, topics);
+    const progress = this.userProgress.get('user-ashutosh');
+    if (progress) {
+      let totalT = 0;
+      for (const tList of this.topics.values()) {
+        totalT += tList.length;
+      }
+      progress.totalTopics = totalT;
+    }
+    this.persist();
+  }
+
+  setFlashcards(documentId: string, flashcards: Flashcard[]): void {
+    this.flashcards.set(documentId, flashcards);
+    this.persist();
+  }
+
+  setQuiz(documentId: string, quiz: Quiz, quizQuestions: QuizQuestion[]): void {
+    this.quizzes.set(quiz.id, quiz);
+    this.quizQuestions.set(quiz.id, quizQuestions);
+    this.persist();
+  }
+
+  updateDocumentStatus(documentId: string, status: 'ready' | 'processing' | 'error'): void {
+    const doc = this.documents.get(documentId);
+    if (doc) {
+      doc.status = status;
+      doc.updatedAt = new Date().toISOString();
+      this.persist();
+    }
   }
 
   createDocument(doc: Document, pages: DocumentPage[], chunks: DocumentChunk[], summary: Summary, topics: Topic[], flashcards: Flashcard[], quiz: Quiz, quizQuestions: QuizQuestion[]): void {
